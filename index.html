@@ -1,0 +1,1446 @@
+
+<!--
+* Author: Felipe Santiago
+* Product Name: GOMAP
+* Version: 4.0.1
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Portal de projetos | GOMAP </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Inspinia is the #1 best-selling admin dashboard template on WrapBootstrap. Perfect for building CRM, CMS, project management tools, and custom web apps with clean UI, responsive design, and powerful features.">
+    <meta name="keywords" content="Inspinia, admin dashboard, WrapBootstrap, HTML template, Bootstrap admin, CRM template, CMS template, responsive admin, web app UI, admin theme, best admin template">
+    <meta name="author" content="WebAppLayers">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="assets/css/vendors.min.css" rel="stylesheet" type="text/css">
+
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        
+        <!-- Sidenav Menu Start -->
+        <div class="sidenav-menu">
+
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo logo-light">
+                    <span class="logo-lg"><img src="assets/images/logo-white.png" alt="logo"></span>
+                    <span class="logo-sm"><img src="assets/images/logo-sm.png" alt="small logo"></span>
+                </span>
+
+                <span class="logo logo-dark">
+                    <span class="logo-lg"><img src="assets/images/logo-black.png" alt="dark logo"></span>
+                    <span class="logo-sm"><img src="assets/images/logo-sm.png" alt="small logo"></span>
+                </span>
+            </a>
+
+            <!-- Sidebar Hover Menu Toggle Button -->
+            <button class="button-on-hover">
+                <i class="ti ti-menu-4 fs-22 align-middle"></i>
+            </button>
+
+            <!-- Full Sidebar Menu Close Button -->
+            <button class="button-close-offcanvas">
+                <i class="ti ti-x align-middle"></i>
+            </button>
+
+            <div class="scrollbar" data-simplebar>
+
+                <!-- User 
+                <div class="sidenav-user">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <a href="pages-profile.html" class="link-reset">
+                                <img src="assets/images/users/user-2.jpg" alt="user-image" class="rounded-circle mb-2 avatar-md">
+                                <span class="sidenav-user-name fw-bold">Felipe Santiago</span>
+                                <span class="fs-12 fw-semibold" data-lang="user-role">UX Designer Senior</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="dropdown-toggle drop-arrow-none link-reset sidenav-user-set-icon" data-bs-toggle="dropdown" data-bs-offset="0,12" href="#!" aria-haspopup="false" aria-expanded="false">
+                                <i class="ti ti-settings fs-24 align-middle ms-1"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <!-- Header --
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Welcome back!</h6>
+                                </div>
+
+                                <!-- My Profile --
+                                <a href="pages-profile.html" class="dropdown-item">
+                                    <i class="ti ti-user-circle me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Profile</span>
+                                </a>
+
+                                <!-- Notifications --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-bell-ringing me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Notifications</span>
+                                </a>
+
+                                <!-- Wallet --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-credit-card me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Balance: <span class="fw-semibold">$985.25</span></span>
+                                </a>
+
+                                <!-- Settings --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-settings-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Account Settings</span>
+                                </a>
+
+                                <!-- Support --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-headset me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Support Center</span>
+                                </a>
+
+                                <!-- Divider --
+                                <div class="dropdown-divider"></div>
+
+                                <!-- Lock --
+                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                    <i class="ti ti-lock me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Lock Screen</span>
+                                </a>
+
+                                <!-- Logout --
+                                <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
+                                    <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Log Out</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- Sidenav Menu -->
+                <ul class="side-nav">
+                    <li class="side-nav-title" data-lang="menu-title">Menu</li>
+
+                    <!---Portal de Projetos Menu -->
+                    <li class="side-nav-item">
+                        <a href="index.html" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-home"></i></span>
+                            <span class="menu-text" data-lang="Portal de Projetos"> Portal de projetos </span>
+                        </a>
+                    </li>
+
+                    <!---Gestão de Usuários Menu -->
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-users"></i></span>
+                            <span class="menu-text" data-lang="Gestão de usuários">Gestão de usuários</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarEcommerce">
+                            <ul class="sub-menu">
+                                <li class="side-nav-item">
+                                    <a href="index2.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Órgão</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!---Painéis Menu -->
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-photo"></i></span>
+                            <span class="menu-text" data-lang="Painéis">Painéis</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarEcommerce">
+                            <ul class="sub-menu">
+                                <li class="side-nav-item">
+                                    <a href="index3.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2024</span>
+                                    </a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="index4.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2025</span>
+                                    </a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="index5.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2026</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sidenav Menu End -->
+
+        <!-- Topbar Start -->
+        <header class="app-topbar">
+            <div class="container-fluid topbar-menu">
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Topbar Brand Logo -->
+                    <div class="logo-topbar">
+                        <!-- Logo light -->
+                        <a href="index.html" class="logo-light">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo.png" alt="logo">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="assets/images/logo-sm.png" alt="small logo">
+                            </span>
+                        </a>
+
+                        <!-- Logo Dark -->
+                        <a href="index.html" class="logo-dark">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo-black.png" alt="dark logo">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="assets/images/logo-sm.png" alt="small logo">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Sidebar Menu Toggle Button -->
+                    <button class="sidenav-toggle-button btn btn-primary btn-icon">
+                        <i class="ti ti-menu-4 fs-22"></i>
+                    </button>
+
+                    <!-- Horizontal Menu Toggle Button -->
+                    <button class="topnav-toggle-button px-2" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                        <i class="ti ti-menu-4 fs-22"></i>
+                    </button>
+
+            
+
+                    <!-- Mega Menu Dropdown -->
+                    <div class="topbar-item d-none d-md-flex">
+                        <div class="dropdown">
+                    
+                            <div class="dropdown-menu dropdown-menu-xxl p-0">
+                                <div class="h-100" style="max-height: 380px;" data-simplebar>
+                                    <div class="row g-0">
+                                        <div class="col-12">
+                                            <div class="p-3 text-center bg-light bg-opacity-50">
+                                                <h4 class="mb-0 fs-lg fw-semibold">Welcome to <span class="text-primary">INSPINIA+</span> Admin Theme.</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">Dashboard & Analytics</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Sales Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Marketing Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Finance Overview</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Analytics</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Traffic Insights</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Performance Metrics</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Conversion Tracking</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">Project Management</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Task Overview</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Kanban Board</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Gantt Chart</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Team Collaboration</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Project Milestones</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Workflow Automation</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Timesheets & Reports</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">User Management</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Profiles</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Access Control</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Role Permissions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Activity Logs</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Security Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Groups</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Authentication & Login</a>
+                                                    </li>
+                                                </ul>
+                                            </div> <!-- end dropdown-->
+                                        </div> <!-- end col-->
+                                    </div> <!-- end row-->
+
+                                </div> <!-- end .h-100-->
+                            </div> <!-- .dropdown-menu-->
+                        </div> <!-- .dropdown-->
+                    </div> <!-- end topbar-item -->
+                </div> <!-- .d-flex-->
+        
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Language Dropdown -->
+                     <!--
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link fw-bold" data-bs-toggle="dropdown" data-bs-offset="0,21" type="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="assets/images/flags/us.svg" alt="user-image" class="w-100 rounded me-2" height="18" id="selected-language-image">
+                                <span id="selected-language-code"> EN </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="en" title="English">
+                                    <img src="assets/images/flags/us.svg" alt="English" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">English</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="de" title="German">
+                                    <img src="assets/images/flags/de.svg" alt="German" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Deutsch</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="it" title="Italian">
+                                    <img src="assets/images/flags/it.svg" alt="Italian" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Italiano</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="es" title="Spanish">
+                                    <img src="assets/images/flags/es.svg" alt="Spanish" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Español</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="ru" title="Russian">
+                                    <img src="assets/images/flags/ru.svg" alt="Russian" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Русский</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="hi" title="Hindi">
+                                    <img src="assets/images/flags/in.svg" alt="Hindi" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">हिन्दी</span>
+                                </a>
+                            </div> <!-- end dropdown-menu--
+                        </div> <!-- end dropdown--
+                    </div> <!-- end topbar item--
+                    -->
+
+                    <!-- Messages Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link dropdown-toggle drop-arrow-none" data-bs-toggle="dropdown" data-bs-offset="0,22" type="button" data-bs-auto-close="outside" aria-haspopup="false" aria-expanded="false">
+                                <i data-lucide="mails" class="fs-xxl"></i>
+                                <span class="badge text-bg-success badge-circle topbar-badge">2</span>
+                            </button>
+
+                            <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                <div class="px-3 py-2 border-bottom">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-md fw-semibold">EvA Chat</h6>
+                                        </div>
+                                        <div class="col text-end">
+                                            <a href="#!" class="badge text-bg-light badge-label py-1">02 Mensagens</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="max-height: 300px;" data-simplebar>
+                                    <!-- item 1 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap active" id="message-1">
+                                        <span class="d-flex gap-3">
+                                            <span class="flex-shrink-0">
+                                                <img src="assets/images/users/user-11.jpg" class="avatar-md rounded-circle" alt="User Avatar">
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body"></span> Conversa sobre o  <span class="fw-medium text-body">Projeto Escola</span>
+                                                <br>
+                                                <span class="fs-xs">5 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                                    <!-- item 2 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="message-2">
+                                        <span class="d-flex gap-3">
+                                            <span class="flex-shrink-0">
+                                                <img src="assets/images/users/user-11.jpg" class="avatar-md rounded-circle" alt="User Avatar">
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body"></span> Conversa sobre o  <span class="fw-medium text-body">Projeto Revitalização Meia Ponte</span>
+                                                <br>
+                                                <span class="fs-xs">12 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                            
+                                </div>
+
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-reset text-decoration-underline link-offset-2 fw-bold notify-item border-top border-light py-2">
+                                    Ver todas as conversas
+                                </a>
+
+                            </div> <!-- End dropdown-menu -->
+                        </div> <!-- end dropdown-->
+                    </div> <!-- end topbar item-->
+
+                    <!-- Notification Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link dropdown-toggle drop-arrow-none" data-bs-toggle="dropdown" data-bs-offset="0,22" type="button" data-bs-auto-close="outside" aria-haspopup="false" aria-expanded="false">
+                                <i data-lucide="bell" class="fs-xxl"></i>
+                                <span class="badge badge-square text-bg-warning topbar-badge">2</span>
+                            </button>
+
+                            <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                <div class="px-3 py-2 border-bottom">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-md fw-semibold">Notificações</h6>
+                                        </div>
+                                        <div class="col text-end">
+                                            <a href="#!" class="badge text-bg-light badge-label py-1">2 Alertas</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="max-height: 300px;" data-simplebar>
+                                    <!-- item 1 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="notification-1">
+                                        <span class="d-flex gap-2">
+                                            <span class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-danger-subtle text-danger rounded fs-22">
+                                                    <i data-lucide="server-crash" class="fs-xl fill-danger"></i>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body">Alerta 01</span>
+                                                <br>
+                                                <span class="fs-xs">30 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                                    <!-- item 2 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="notification-2">
+                                        <span class="d-flex gap-2">
+                                            <span class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-warning-subtle text-warning rounded fs-22">
+                                                    <i data-lucide="alert-triangle" class="fs-xl fill-warning"></i>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body">Alerta 02</span>
+                                                <br>
+                                                <span class="fs-xs">30 minutos atrás</span>
+                                            </span>
+                                        </span>
+                                    </div>
+
+                            
+                                </div> <!-- end dropdown-->
+
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-reset text-decoration-underline link-offset-2 fw-bold notify-item border-top border-light py-2">
+                                    Ver todas as notificações
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                        <!-- Light/Dark Mode Button --->
+                    <div class="topbar-item d-none d-sm-flex">
+                    <button class="topbar-link" id="light-dark-mode" type="button">
+                    <i data-lucide="moon" class="fs-xxl mode-light-moon"></i>
+                    <i data-lucide="sun" class="fs-xxl mode-light-sun"></i>
+                    </button>
+                    </div>
+            
+                    <!-- Letter A Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-letter-a fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Refresh Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-refresh fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Plus Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-plus fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Minus Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-minus fs-xxl"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Cube Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-cube fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Circle Half Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-circle-half-2 fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Droplet Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-droplet fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Brush Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-brush fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Settings Button-->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" type="button">
+                            <i data-lucide="settings" class="fs-xxl"></i>
+                        </button>
+                    </div>
+           
+                    <!-- Users Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-users fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Help Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-help-octagon fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Logout Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="window.location.href='auth-sign-in.html'">
+                            <i class="ti ti-logout-2 fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- User Dropdown -->
+                    <div class="topbar-item nav-user">
+                        <div class="dropdown">
+                            <a class="topbar-link dropdown-toggle drop-arrow-none px-2" data-bs-toggle="dropdown" data-bs-offset="0,16" href="#!" aria-haspopup="false" aria-expanded="false">
+                                <img src="assets/images/users/user-2.jpg" width="32" class="rounded-circle me-lg-2 d-flex" alt="user-image">
+                                <div class="d-lg-flex align-items-center gap-2 d-none">
+                                    <div class="d-flex flex-column gap-0 pe-3">
+                                        <h5 class="my-0" >Felipe Santiago</h5>
+                                        <span class="fw-semibold">UX Designer Senior</span>
+                                    </div>
+                                </div>
+                                <i class="ti ti-chevron-down align-middle"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- Header -->
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Meus perfis</h6>
+                                </div>
+
+                                <!-- My Profile -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-user-circle me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 01</span>
+                                </a>
+
+                                <!-- Notifications -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-bell-ringing me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 02</span>
+                                </a>
+
+                                <!-- Wallet -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-credit-card me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 03<!--<span class="fw-semibold">$985.25</span>--></span>
+                                </a>
+
+                                <!-- Settings -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-settings-2 me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 04</span>
+                                </a>
+
+                                <!-- Support -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-headset me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 05</span>
+                                </a>
+                        
+                                <!--
+                                <div class="dropdown-divider"></div>
+
+                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                    <i class="ti ti-lock me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Lock Screen</span>
+                                </a>
+
+                                <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
+                                    <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Log Out</span>
+                                </a>
+                                -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Topbar End -->
+
+        
+
+        <!-- ============================================================== -->
+        <!-- Start Main Content -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="container-fluid">
+                
+                <div class="page-title-head d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h4 class="fs-sm text-uppercase fw-bold m-0">Portal de projetos</h4>
+                    </div>
+
+                    <div class="text-end">
+                        <ol class="breadcrumb m-0 py-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">GOMAP</a></li>
+                            
+                            <li class="breadcrumb-item active">Portal de projetos</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- Todos os projetos -->
+                    <div class="col">
+                        <div class="p-3 rounded m-1 border border-dashed">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="mb-1"><span data-target="100">0</span> <span class="text-success fs-base">+1.0% <i class="ti ti-trending-up"></i></span></h3>
+                                    <p class="mb-0 text-muted">Todos os projetos</p>
+                                </div>
+                                <div class="avatar-xl">
+                                    <span class="avatar-title rounded-circle" style="background-color: #EEF2F7;">
+                                        <i class="ti ti-file-text fs-2" style="color: #313A46;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Favoritos -->
+                    <div class="col">
+                        <div class="p-3 rounded m-1 border border-dashed">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="mb-1"><span>1</span> <span class="text-success fs-base">+1.0% <i class="ti ti-trending-up"></i></span></h3>
+                                    <p class="mb-0 text-muted">Favoritos</p>
+                                </div>
+                                <div class="avatar-xl">
+                                    <span class="avatar-title rounded-circle" style="background-color: #FEF3E6;">
+                                        <i class="ti ti-file-certificate fs-2" style="color: #F8AC59;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Iniciação -->
+                    <div class="col">
+                        <div class="p-3 rounded m-1 border border-dashed">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="mb-1"><span >1</span> <span class="text-success fs-base">+1.0% <i class="ti ti-trending-up"></i></span></h3>
+                                    <p class="mb-0 text-muted">Iniciação</p>
+                                </div>
+                                <div class="avatar-xl">
+                                    <span class="avatar-title rounded-circle" style="background-color: #D3F4F4;">
+                                        <i class="ti ti-file-text fs-2" style="color: #23C6C8;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Planejamento -->
+                    <div class="col">
+                        <div class="p-3 rounded m-1 border border-dashed">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="mb-1"><span>1</span> <span class="text-success fs-base">+1.0% <i class="ti ti-trending-up"></i></span></h3>
+                                    <p class="mb-0 text-muted">Planejamento</p>
+                                </div>
+                                <div class="avatar-xl">
+                                    <span class="avatar-title rounded-circle" style="background-color: #DAF8EF;">
+                                        <i class="ti ti-file-time fs-2" style="color: #0ACF97;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                    <!-- Execução -->
+                    <div class="col">
+                        <div class="p-3 rounded m-1 border border-dashed">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="mb-1"><span>1</span> <span class="text-success fs-base">+1.0% <i class="ti ti-trending-up"></i></span></h3>
+                                    <p class="mb-0 text-muted">Execução</p>
+                                </div>
+                                <div class="avatar-xl">
+                                    <span class="avatar-title rounded-circle" style="background-color: #DDEDF6;">
+                                        <i class="ti ti-file-analytics fs-2" style="color: #1C84C6;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Encerramento -->
+                    <div class="col">
+                        <div class="p-3 rounded m-1 border border-dashed">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="mb-1"><span>1</span> <span class="text-success fs-base">+1.0% <i class="ti ti-trending-up"></i></span></h3>
+                                    <p class="mb-0 text-muted">Encerramento</p>
+                                </div>
+                                <div class="avatar-xl">
+                                    <span class="avatar-title rounded-circle" style="background-color: #EBEAFD;">
+                                        <i class="ti ti-file-check fs-2" style="color: #7B70EF;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                    <!-- Pontos de Atenção -->
+                    <div class="col">
+                        <div class="p-3 rounded m-1 border border-dashed">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="mb-1"><span>1</span> <span class="text-success fs-base">+1.0% <i class="ti ti-trending-up"></i></span></h3>
+                                    <p class="mb-0 text-muted">Pontos de Atenção</p>
+                                </div>
+                                <div class="avatar-xl">
+                                    <span class="avatar-title rounded-circle" style="background-color: #FCE6E8;">
+                                        <i class="ti ti-file-alert fs-2" style="color: #ED5565;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div><!-- end row -->
+                <div class="row">
+                    <div >
+                        <div data-table data-table-rows-per-page="8" class="card">
+                            <div class="card-header border-light">
+                                <div class="d-flex gap-2 align-items-center" style="width: 100%;">
+                                    <div class="app-search" style="flex: 1 1 auto; min-width: 0;">
+                                        <input data-table-search type="search" class="form-control" placeholder="Digite um projeto ou ID" style="width: 100%;">
+                                        <i data-lucide="search" class="app-search-icon text-muted"></i>
+                                    </div>
+                                    <button data-table-delete-selected class="btn btn-danger d-none">Delete</button>
+                                    <a href="#!" class="btn btn-primary flex-shrink-0">
+                                         Filtros
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-custom table-centered table-select table-hover w-100 mb-0">
+                                    <thead class="bg-light align-middle bg-opacity-25 thead-sm">
+                                        <tr class="text-uppercase fs-xxs">
+                                            <th data-table-sort="product">Projeto</th>
+                                            <th data-table-sort>Programa</th>
+                                            <th data-table-sort>Órgão</th>
+                                            <th data-table-sort>Situação</th>
+                                            <th data-table-sort>Progresso</th>
+                                            <th data-table-sort>Data conclusão</th>
+                                            <th data-table-sort data-column="status">Cronograma</th>
+                                            <th class="text-center" style="width: 1%;">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Integração de Sistemas de Pagamento Digital</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Governo Digital</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium d-inline-flex align-items-center gap-1">
+                                                    SEAD 
+                                                    <span class="badge badge-soft-primary fs-xxs cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="SEAD, SEDUC, SEINFRA, SECTI">+4</span>
+                                                </h5>
+                                            </td>
+                                            <td>Em andamento</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>14/02/2026</td>
+                                            <td><span class="badge badge-soft-info fs-xxs">Em andamento</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Construção de Escola Modelo</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Educação Básica</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">SEDUC</h5>
+                                            </td>
+                                            <td>Planejamento</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>20/04/2025</td>
+                                            <td><span class="badge badge-soft-secondary fs-xxs">Planejamento</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Revitalização do Parque Central</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Urbanismo</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">SEINFRA</h5>
+                                            </td>
+                                            <td>Em andamento</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>22/02/2026</td>
+                                            <td><span class="badge badge-soft-info fs-xxs">Em andamento</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Construção de Unidade de Saúde</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Saúde Pública</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">SES</h5>
+                                            </td>
+                                            <td>Em andamento</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>25/02/2026</td>
+                                            <td><span class="badge badge-soft-info fs-xxs">Em andamento</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Pavimentação Região Norte</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Infraestrutura Viária</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">GOINFRA</h5>
+                                            </td>
+                                            <td>Em andamento</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>27/02/2026</td>
+                                            <td><span class="badge badge-soft-info fs-xxs">Em andamento</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Sistema de Monitoramento Urbano Inteligente</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Aquisição de Equipamentos</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">SEGOV</h5>
+                                            </td>
+                                            <td>Concluído</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>30/04/2025</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Concluído</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Modernização da Rede de Iluminação Pública</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Tecnologia e Inovação</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">SECTI</h5>
+                                            </td>
+                                            <td>Em andamento</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>29/02/2026</td>
+                                            <td><span class="badge badge-soft-info fs-xxs">Em andamento</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <h5 class="fs-base my-1 mb-0">
+                                                            <a href="#" class="text-body">Plataforma Integrada de Serviços ao Cidadão</a>
+                                                        </h5>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Modernização Administrativa</td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">SEAD</h5>
+                                            </td>
+                                            <td>Planejamento</td>
+                                            <td>
+                                                <div class="progress progress-sm" style="height: 6px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>17/02/2026</td>
+                                            <td><span class="badge badge-soft-secondary fs-xxs">Planejamento</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
+                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
+                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="card-footer border-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div data-table-pagination-info="categories"></div>
+                                    <div data-table-pagination></div>
+                                </div>
+                            </div>
+                        </div>
+    <!-- END wrapper -->
+
+    <!-- Theme Settings -->
+    <div class="offcanvas offcanvas-end overflow-hidden" tabindex="-1" id="theme-settings-offcanvas">
+        <div class="d-flex justify-content-between text-bg-primary gap-2 p-3" style="background-image: url(assets/images/user-bg-pattern.png);">
+            <div>
+                <h5 class="mb-1 fw-bold text-white text-uppercase">Admin Customizer</h5>
+                <p class="text-white text-opacity-75 fst-italic fw-medium mb-0">Easily configure layout, styles, and preferences for your admin interface.</p>
+            </div>
+
+            <div class="flex-grow-0">
+                <button type="button" class="d-block btn btn-sm bg-white bg-opacity-25 text-white rounded-circle btn-icon" data-bs-dismiss="offcanvas"><i class="ti ti-x fs-lg"></i></button>
+            </div>
+        </div>
+
+        <div class="offcanvas-body p-0 h-100" data-simplebar>
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Select Theme</h5>
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-classic" value="classic">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-classic">
+                                <img src="assets/images/layouts/themes/theme-classic.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Classic</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-material" value="material">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-material">
+                                <img src="assets/images/layouts/themes/theme-material.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Material</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-modern" value="modern">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-modern">
+                                <img src="assets/images/layouts/themes/theme-modern.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Modern</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-saas" value="saas">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-saas">
+                                <img src="assets/images/layouts/themes/theme-saas.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">SaaS</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-flat" value="flat">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-flat">
+                                <img src="assets/images/layouts/themes/theme-flat.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Flat</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-minimal" value="minimal">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-minimal">
+                                <img src="assets/images/layouts/themes/theme-minimal.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Minimal</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio pe-none">
+                            <input class="form-check-input" disabled type="radio" name="data-skin" id="demo-skin-galaxy" value="galaxy">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-galaxy">
+                                <img src="assets/images/layouts/themes/theme-galaxy.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Galaxy</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Color Scheme</h5>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="layout-color-light">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="layout-color-dark">
+                                <img src="assets/images/layouts/dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-system" value="system">
+                            <label class="form-check-label p-0 w-100" for="layout-color-system">
+                                <img src="assets/images/layouts/system.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">System</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Topbar Color</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-light">
+                                <img src="assets/images/layouts/topbar-light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-dark">
+                                <img src="assets/images/layouts/topbar-dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-gray" value="gray">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-gray">
+                                <img src="assets/images/layouts/topbar-gray.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-gradient" value="gradient">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-gradient">
+                                <img src="assets/images/layouts/topbar-gradient.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gradient</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Sidenav Color</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-light">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-dark">
+                                <img src="assets/images/layouts/side-dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-gray" value="gray">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-gray">
+                                <img src="assets/images/layouts/side-gray.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-gradient" value="gradient">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-gradient">
+                                <img src="assets/images/layouts/side-gradient.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gradient</h5>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-image" value="image">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-image">
+                                <img src="assets/images/layouts/side-image.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Image</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Sidebar Size</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-default" value="default">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-default">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Default</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-compact" value="compact">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-compact">
+                                <img src="assets/images/layouts/sidebar-compact.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Compact</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small" value="condensed">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small">
+                                <img src="assets/images/layouts/sidebar-sm.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Condensed</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small-hover" value="on-hover">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small-hover">
+                                <img src="assets/images/layouts/sidebar-sm.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">On Hover</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small-hover-active" value="on-hover-active">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small-hover-active">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 fs-base text-center text-muted mt-2">On Hover - Show</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-offcanvas" value="offcanvas">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-offcanvas">
+                                <img src="assets/images/layouts/sidebar-full.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Offcanvas</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">Layout Position</h5>
+
+                    <div class="btn-group radio" role="group">
+                        <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-fixed" value="fixed">
+                        <label class="btn btn-sm btn-soft-warning w-sm" for="layout-position-fixed">Fixed</label>
+
+                        <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-scrollable" value="scrollable">
+                        <label class="btn btn-sm btn-soft-warning w-sm ms-0" for="layout-position-scrollable">Scrollable</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><label class="fw-bold m-0" for="sidebaruser-check">Sidebar User Info</label></h5>
+                
+                    <div class="form-check form-switch fs-lg">
+                        <input type="checkbox" class="form-check-input" name="sidebar-user" id="sidebaruser-check">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas-footer border-top p-3 text-center">
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-light fw-semibold py-2 w-100" id="reset-layout">Reset</button>
+                </div>
+                <div class="col-6">
+                    <a href="https://wrapbootstrap.com/theme/inspinia-multipurpose-admin-dashboard-template-WB0R5L90S?ref=inspinia" target="_blank" class="btn btn-danger bg-gradient py-2 fw-semibold w-100">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendors.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- E Charts js -->
+    <script src="assets/plugins/echarts/echarts.min.js"></script>
+
+    <!-- Dashboard Page js -->
+    <script src="assets/js/pages/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1640 @@
+
+<!--
+* Author: Felipe Santiago
+* Product Name: GOMAP
+* Version: 4.0.1
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Alerts | GOMAP </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Inspinia is the #1 best-selling admin dashboard template on WrapBootstrap. Perfect for building CRM, CMS, project management tools, and custom web apps with clean UI, responsive design, and powerful features.">
+    <meta name="keywords" content="Inspinia, admin dashboard, WrapBootstrap, HTML template, Bootstrap admin, CRM template, CMS template, responsive admin, web app UI, admin theme, best admin template">
+    <meta name="author" content="WebAppLayers">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="assets/css/vendors.min.css" rel="stylesheet" type="text/css">
+
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        
+        <!-- Sidenav Menu Start -->
+        <div class="sidenav-menu">
+
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo logo-light">
+                    <span class="logo-lg"><img src="assets/images/logo-white.png" alt="logo"></span>
+                    <span class="logo-sm"><img src="assets/images/logo-sm.png" alt="small logo"></span>
+                </span>
+
+                <span class="logo logo-dark">
+                    <span class="logo-lg"><img src="assets/images/logo-black.png" alt="dark logo"></span>
+                    <span class="logo-sm"><img src="assets/images/logo-sm.png" alt="small logo"></span>
+                </span>
+            </a>
+
+            <!-- Sidebar Hover Menu Toggle Button -->
+            <button class="button-on-hover">
+                <i class="ti ti-menu-4 fs-22 align-middle"></i>
+            </button>
+
+            <!-- Full Sidebar Menu Close Button -->
+            <button class="button-close-offcanvas">
+                <i class="ti ti-x align-middle"></i>
+            </button>
+
+            <div class="scrollbar" data-simplebar>
+
+                <!-- User 
+                <div class="sidenav-user">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <a href="pages-profile.html" class="link-reset">
+                                <img src="assets/images/users/user-2.jpg" alt="user-image" class="rounded-circle mb-2 avatar-md">
+                                <span class="sidenav-user-name fw-bold">Felipe Santiago</span>
+                                <span class="fs-12 fw-semibold" data-lang="user-role">UX Designer Senior</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="dropdown-toggle drop-arrow-none link-reset sidenav-user-set-icon" data-bs-toggle="dropdown" data-bs-offset="0,12" href="#!" aria-haspopup="false" aria-expanded="false">
+                                <i class="ti ti-settings fs-24 align-middle ms-1"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <!-- Header --
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Welcome back!</h6>
+                                </div>
+
+                                <!-- My Profile --
+                                <a href="pages-profile.html" class="dropdown-item">
+                                    <i class="ti ti-user-circle me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Profile</span>
+                                </a>
+
+                                <!-- Notifications --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-bell-ringing me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Notifications</span>
+                                </a>
+
+                                <!-- Wallet --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-credit-card me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Balance: <span class="fw-semibold">$985.25</span></span>
+                                </a>
+
+                                <!-- Settings --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-settings-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Account Settings</span>
+                                </a>
+
+                                <!-- Support --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-headset me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Support Center</span>
+                                </a>
+
+                                <!-- Divider --
+                                <div class="dropdown-divider"></div>
+
+                                <!-- Lock --
+                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                    <i class="ti ti-lock me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Lock Screen</span>
+                                </a>
+
+                                <!-- Logout --
+                                <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
+                                    <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Log Out</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- Sidenav Menu -->
+                <ul class="side-nav">
+                    <li class="side-nav-title" data-lang="menu-title">Menu</li>
+
+                    <!---Portal de Projetos Menu -->
+                    <li class="side-nav-item">
+                        <a href="index.html" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-home"></i></span>
+                            <span class="menu-text" data-lang="Portal de Projetos"> Portal de projetos </span>
+                        </a>
+                    </li>
+
+                    <!---Gestão de Usuários Menu -->
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-users"></i></span>
+                            <span class="menu-text" data-lang="Gestão de usuários">Gestão de usuários</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarEcommerce">
+                            <ul class="sub-menu">
+                                <li class="side-nav-item">
+                                    <a href="index2.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Órgão</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!---Painéis Menu -->
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-photo"></i></span>
+                            <span class="menu-text" data-lang="Painéis">Painéis</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarEcommerce">
+                            <ul class="sub-menu">
+                                <li class="side-nav-item">
+                                    <a href="index3.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2024</span>
+                                    </a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="index4.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2025</span>
+                                    </a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="index5.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2026</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sidenav Menu End -->
+
+        <!-- Topbar Start -->
+        <header class="app-topbar">
+            <div class="container-fluid topbar-menu">
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Topbar Brand Logo -->
+                    <div class="logo-topbar">
+                        <!-- Logo light -->
+                        <a href="index.html" class="logo-light">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo.png" alt="logo">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="assets/images/logo-sm.png" alt="small logo">
+                            </span>
+                        </a>
+
+                        <!-- Logo Dark -->
+                        <a href="index.html" class="logo-dark">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo-black.png" alt="dark logo">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="assets/images/logo-sm.png" alt="small logo">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Sidebar Menu Toggle Button -->
+                    <button class="sidenav-toggle-button btn btn-primary btn-icon">
+                        <i class="ti ti-menu-4 fs-22"></i>
+                    </button>
+
+                    <!-- Horizontal Menu Toggle Button -->
+                    <button class="topnav-toggle-button px-2" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                        <i class="ti ti-menu-4 fs-22"></i>
+                    </button>
+
+            
+
+                    <!-- Mega Menu Dropdown -->
+                    <div class="topbar-item d-none d-md-flex">
+                        <div class="dropdown">
+                    
+                            <div class="dropdown-menu dropdown-menu-xxl p-0">
+                                <div class="h-100" style="max-height: 380px;" data-simplebar>
+                                    <div class="row g-0">
+                                        <div class="col-12">
+                                            <div class="p-3 text-center bg-light bg-opacity-50">
+                                                <h4 class="mb-0 fs-lg fw-semibold">Welcome to <span class="text-primary">INSPINIA+</span> Admin Theme.</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">Dashboard & Analytics</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Sales Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Marketing Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Finance Overview</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Analytics</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Traffic Insights</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Performance Metrics</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Conversion Tracking</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">Project Management</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Task Overview</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Kanban Board</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Gantt Chart</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Team Collaboration</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Project Milestones</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Workflow Automation</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Timesheets & Reports</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">User Management</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Profiles</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Access Control</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Role Permissions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Activity Logs</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Security Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Groups</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Authentication & Login</a>
+                                                    </li>
+                                                </ul>
+                                            </div> <!-- end dropdown-->
+                                        </div> <!-- end col-->
+                                    </div> <!-- end row-->
+
+                                </div> <!-- end .h-100-->
+                            </div> <!-- .dropdown-menu-->
+                        </div> <!-- .dropdown-->
+                    </div> <!-- end topbar-item -->
+                </div> <!-- .d-flex-->
+        
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Language Dropdown -->
+                     <!--
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link fw-bold" data-bs-toggle="dropdown" data-bs-offset="0,21" type="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="assets/images/flags/us.svg" alt="user-image" class="w-100 rounded me-2" height="18" id="selected-language-image">
+                                <span id="selected-language-code"> EN </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="en" title="English">
+                                    <img src="assets/images/flags/us.svg" alt="English" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">English</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="de" title="German">
+                                    <img src="assets/images/flags/de.svg" alt="German" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Deutsch</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="it" title="Italian">
+                                    <img src="assets/images/flags/it.svg" alt="Italian" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Italiano</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="es" title="Spanish">
+                                    <img src="assets/images/flags/es.svg" alt="Spanish" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Español</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="ru" title="Russian">
+                                    <img src="assets/images/flags/ru.svg" alt="Russian" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Русский</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="hi" title="Hindi">
+                                    <img src="assets/images/flags/in.svg" alt="Hindi" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">हिन्दी</span>
+                                </a>
+                            </div> <!-- end dropdown-menu--
+                        </div> <!-- end dropdown--
+                    </div> <!-- end topbar item--
+                    -->
+
+                    <!-- Messages Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link dropdown-toggle drop-arrow-none" data-bs-toggle="dropdown" data-bs-offset="0,22" type="button" data-bs-auto-close="outside" aria-haspopup="false" aria-expanded="false">
+                                <i data-lucide="mails" class="fs-xxl"></i>
+                                <span class="badge text-bg-success badge-circle topbar-badge">2</span>
+                            </button>
+
+                            <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                <div class="px-3 py-2 border-bottom">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-md fw-semibold">EvA Chat</h6>
+                                        </div>
+                                        <div class="col text-end">
+                                            <a href="#!" class="badge text-bg-light badge-label py-1">02 Mensagens</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="max-height: 300px;" data-simplebar>
+                                    <!-- item 1 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap active" id="message-1">
+                                        <span class="d-flex gap-3">
+                                            <span class="flex-shrink-0">
+                                                <img src="assets/images/users/user-11.jpg" class="avatar-md rounded-circle" alt="User Avatar">
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body"></span> Conversa sobre o  <span class="fw-medium text-body">Projeto Escola</span>
+                                                <br>
+                                                <span class="fs-xs">5 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                                    <!-- item 2 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="message-2">
+                                        <span class="d-flex gap-3">
+                                            <span class="flex-shrink-0">
+                                                <img src="assets/images/users/user-11.jpg" class="avatar-md rounded-circle" alt="User Avatar">
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body"></span> Conversa sobre o  <span class="fw-medium text-body">Projeto Revitalização Meia Ponte</span>
+                                                <br>
+                                                <span class="fs-xs">12 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                            
+                                </div>
+
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-reset text-decoration-underline link-offset-2 fw-bold notify-item border-top border-light py-2">
+                                    Ver todas as conversas
+                                </a>
+
+                            </div> <!-- End dropdown-menu -->
+                        </div> <!-- end dropdown-->
+                    </div> <!-- end topbar item-->
+
+                    <!-- Notification Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link dropdown-toggle drop-arrow-none" data-bs-toggle="dropdown" data-bs-offset="0,22" type="button" data-bs-auto-close="outside" aria-haspopup="false" aria-expanded="false">
+                                <i data-lucide="bell" class="fs-xxl"></i>
+                                <span class="badge badge-square text-bg-warning topbar-badge">2</span>
+                            </button>
+
+                            <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                <div class="px-3 py-2 border-bottom">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-md fw-semibold">Notificações</h6>
+                                        </div>
+                                        <div class="col text-end">
+                                            <a href="#!" class="badge text-bg-light badge-label py-1">2 Alertas</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="max-height: 300px;" data-simplebar>
+                                    <!-- item 1 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="notification-1">
+                                        <span class="d-flex gap-2">
+                                            <span class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-danger-subtle text-danger rounded fs-22">
+                                                    <i data-lucide="server-crash" class="fs-xl fill-danger"></i>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body">Alerta 01</span>
+                                                <br>
+                                                <span class="fs-xs">30 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                                    <!-- item 2 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="notification-2">
+                                        <span class="d-flex gap-2">
+                                            <span class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-warning-subtle text-warning rounded fs-22">
+                                                    <i data-lucide="alert-triangle" class="fs-xl fill-warning"></i>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body">Alerta 02</span>
+                                                <br>
+                                                <span class="fs-xs">30 minutos atrás</span>
+                                            </span>
+                                        </span>
+                                    </div>
+
+                            
+                                </div> <!-- end dropdown-->
+
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-reset text-decoration-underline link-offset-2 fw-bold notify-item border-top border-light py-2">
+                                    Ver todas as notificações
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                        <!-- Light/Dark Mode Button --->
+                    <div class="topbar-item d-none d-sm-flex">
+                    <button class="topbar-link" id="light-dark-mode" type="button">
+                    <i data-lucide="moon" class="fs-xxl mode-light-moon"></i>
+                    <i data-lucide="sun" class="fs-xxl mode-light-sun"></i>
+                    </button>
+                    </div>
+            
+                    <!-- Letter A Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-letter-a fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Refresh Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-refresh fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Plus Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-plus fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Minus Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-minus fs-xxl"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Cube Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-cube fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Circle Half Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-circle-half-2 fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Droplet Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-droplet fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Brush Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-brush fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Settings Button-->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" type="button">
+                            <i data-lucide="settings" class="fs-xxl"></i>
+                        </button>
+                    </div>
+           
+                    <!-- Users Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-users fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Help Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-help-octagon fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Logout Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="window.location.href='auth-sign-in.html'">
+                            <i class="ti ti-logout-2 fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- User Dropdown -->
+                    <div class="topbar-item nav-user">
+                        <div class="dropdown">
+                            <a class="topbar-link dropdown-toggle drop-arrow-none px-2" data-bs-toggle="dropdown" data-bs-offset="0,16" href="#!" aria-haspopup="false" aria-expanded="false">
+                                <img src="assets/images/users/user-2.jpg" width="32" class="rounded-circle me-lg-2 d-flex" alt="user-image">
+                                <div class="d-lg-flex align-items-center gap-2 d-none">
+                                    <div class="d-flex flex-column gap-0 pe-3">
+                                        <h5 class="my-0" >Felipe Santiago</h5>
+                                        <span class="fw-semibold">UX Designer Senior</span>
+                                    </div>
+                                </div>
+                                <i class="ti ti-chevron-down align-middle"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- Header -->
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Meus perfis</h6>
+                                </div>
+
+                                <!-- My Profile -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-user-circle me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 01</span>
+                                </a>
+
+                                <!-- Notifications -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-bell-ringing me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 02</span>
+                                </a>
+
+                                <!-- Wallet -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-credit-card me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 03<!--<span class="fw-semibold">$985.25</span>--></span>
+                                </a>
+
+                                <!-- Settings -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-settings-2 me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 04</span>
+                                </a>
+
+                                <!-- Support -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-headset me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 05</span>
+                                </a>
+                        
+                                <!--
+                                <div class="dropdown-divider"></div>
+
+                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                    <i class="ti ti-lock me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Lock Screen</span>
+                                </a>
+
+                                <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
+                                    <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Log Out</span>
+                                </a>
+                                -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Topbar End -->
+
+        
+
+        <!-- ============================================================== -->
+        <!-- Start Main Content -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+
+            <div class="container-fluid">
+                
+                <div class="page-title-head d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h4 class="fs-sm text-uppercase fw-bold m-0">Alerts</h4>
+                    </div>
+
+                    <div class="text-end">
+                        <ol class="breadcrumb m-0 py-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">GOMAP</a></li>
+                            
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">UI</a></li>
+                            
+                            <li class="breadcrumb-item active">Alerts</li>
+                        </ol>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- container -->
+
+            <div class="container-xl">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Examples</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <p class="text-muted mb-2">
+                                    Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
+                                </p>
+
+                                <a class="btn btn-link p-0 fw-semibold" href="https://getbootstrap.com/docs/5.3/components/alerts/" target="_blank">
+                                    Alerts on Bootstrap
+                                    <i class="ti ti-chevron-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title mb-0">Default Alert</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;
+                                            This is a primary alert&mdash;something important you should know!
+                                        &lt;/div&gt;
+
+                                        &lt;div class=&quot;alert alert-secondary&quot; role=&quot;alert&quot;&gt;
+                                            This is a secondary alert&mdash;some additional context.
+                                        &lt;/div&gt;
+
+                                        &lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+                                            Success! Your operation was completed successfully.
+                                        &lt;/div&gt;
+                                        
+                                        &lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;
+                                            Error! Something went wrong&mdash;please try again.
+                                        &lt;/div&gt;
+
+                                        &lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot;&gt;
+                                            Warning! Please double-check your inputs.
+                                        &lt;/div&gt;
+
+                                        &lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;
+                                            Info: Here's something you might find useful.
+                                        &lt;/div&gt;
+
+                                        &lt;div class=&quot;alert alert-light&quot; role=&quot;alert&quot;&gt;
+                                            Light alert&mdash;just a subtle notification.
+                                        &lt;/div&gt;
+
+                                        &lt;div class=&quot;alert alert-dark&quot; role=&quot;alert&quot;&gt;
+                                            Dark alert&mdash;use for general-purpose messages.
+                                        &lt;/div&gt;
+
+                                        &lt;div class=&quot;alert alert-purple mb-0&quot; role=&quot;alert&quot;&gt;
+                                            Purple alert&mdash;use for general-purpose messages.
+                                        &lt;/div&gt;
+                                    </code>
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code-->
+
+                            <div class="card-body">
+                                <div class="alert alert-primary" role="alert">
+                                    This is a primary alert—something important you should know!
+                                </div>
+
+                                <div class="alert alert-secondary" role="alert">
+                                    This is a secondary alert—some additional context.
+                                </div>
+
+                                <div class="alert alert-success" role="alert">
+                                    Success! Your operation was completed successfully.
+                                </div>
+
+                                <div class="alert alert-danger" role="alert">
+                                    Error! Something went wrong—please try again.
+                                </div>
+
+                                <div class="alert alert-warning" role="alert">
+                                    Warning! Please double-check your inputs.
+                                </div>
+
+                                <div class="alert alert-info" role="alert">
+                                    Info: Here's something you might find useful.
+                                </div>
+
+                                <div class="alert alert-light" role="alert">
+                                    Light alert—just a subtle notification.
+                                </div>
+
+                                <div class="alert alert-dark" role="alert">
+                                    Dark alert—use for general-purpose messages.
+                                </div>
+
+                                <div class="alert alert-purple mb-0" role="alert">
+                                    Purple alert—use for general-purpose messages.
+                                </div>
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Dismissing Alert with Solid Colors</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <div class="highlight">
+                                    <pre>
+                                        <code class="language-markup">
+                                            &lt;div class=&quot;alert alert-primary text-bg-primary alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Heads up! This is a primary alert with important information.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-secondary text-bg-secondary alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Notice: This is a secondary alert with supporting details.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-success text-bg-success alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Success! Your action was completed successfully.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-danger text-bg-danger alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Error! Something went wrong&mdash;please try again later.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-warning text-bg-warning alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Warning! Please review your input before proceeding.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-info text-bg-info alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Info: Here&rsquo;s something you might find helpful.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-light text-bg-light alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Note: This is a light alert with a subtle message.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-dark text-bg-dark alert-dismissible&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Notice: This dark alert is great for general messages.&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-purple text-bg-purple alert-dismissible mb-0&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close btn-close-white&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;Heads up: This purple alert is perfect for catching attention with general information.&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        </code>
+                                    </pre> <!-- end pre -->
+                                </div> <!-- end highlight-->
+                            </div> <!-- end preview code-->
+
+                            <div class="card-body">
+                                <div class="alert alert-primary text-bg-primary alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Heads up! This is a primary alert with important information.</div>
+                                </div>
+
+                                <div class="alert alert-secondary text-bg-secondary alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Notice: This is a secondary alert with supporting details.</div>
+                                </div>
+
+                                <div class="alert alert-success text-bg-success alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Success! Your action was completed successfully.</div>
+                                </div>
+
+                                <div class="alert alert-danger text-bg-danger alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Error! Something went wrong—please try again later.</div>
+                                </div>
+
+                                <div class="alert alert-warning text-bg-warning alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Warning! Please review your input before proceeding.</div>
+                                </div>
+
+                                <div class="alert alert-info text-bg-info alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Info: Here’s something you might find helpful.</div>
+                                </div>
+
+                                <div class="alert alert-light text-bg-light alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Note: This is a light alert with a subtle message.</div>
+                                </div>
+
+                                <div class="alert alert-dark text-bg-dark alert-dismissible" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Notice: This dark alert is great for general messages.</div>
+                                </div>
+
+                                <div class="alert alert-purple text-bg-purple alert-dismissible mb-0" role="alert">
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>Heads up: This purple alert is perfect for catching attention with general information.</div>
+                                </div>
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Link Color</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <div class="highlight">
+                                    <pre>
+                                        <code class="language-markup">
+                                            &lt;div class=&quot;alert alert-primary&quot; role=&quot;alert&quot;&gt;
+                                                Need more info? Check out &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;this primary link&lt;/a&gt; for important details.
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-secondary&quot; role=&quot;alert&quot;&gt;
+                                                Here's a secondary message with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;a helpful link&lt;/a&gt; for additional context.
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-success&quot; role=&quot;alert&quot;&gt;
+                                                Operation successful! View the results &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;by clicking here&lt;/a&gt;.
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;
+                                                Something went wrong. Learn more &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;through this alert link&lt;/a&gt;.
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-warning&quot; role=&quot;alert&quot;&gt;
+                                                Heads up! You might want to check &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;this warning link&lt;/a&gt;.
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;
+                                                Here&rsquo;s some information that may help&mdash;click &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;this link&lt;/a&gt; to read more.
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-light&quot; role=&quot;alert&quot;&gt;
+                                                Just a light reminder with &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;a gentle link&lt;/a&gt; to explore.
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-dark&quot; role=&quot;alert&quot;&gt;
+                                                This is a general dark alert. Find out more &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;by clicking here&lt;/a&gt;.
+                                            &lt;/div&gt;
+                                            
+                                            &lt;div class=&quot;alert alert-purple mb-0&quot; role=&quot;alert&quot;&gt;
+                                                Important notice: For more information, &lt;a href=&quot;#&quot; class=&quot;alert-link&quot;&gt;click here&lt;/a&gt;.
+                                            &lt;/div&gt;
+                                        </code>
+                                    </pre> <!-- end pre -->
+                                </div> <!-- end highlight-->
+                            </div> <!--end preview code-->
+
+                            <div class="card-body">
+                                <div class="alert alert-primary" role="alert">
+                                    Need more info? Check out <a href="#" class="alert-link">this primary link</a> for important details.
+                                </div>
+
+                                <div class="alert alert-secondary" role="alert">
+                                    Here's a secondary message with <a href="#" class="alert-link">a helpful link</a> for additional context.
+                                </div>
+
+                                <div class="alert alert-success" role="alert">
+                                    Operation successful! View the results <a href="#" class="alert-link">by clicking here</a>.
+                                </div>
+
+                                <div class="alert alert-danger" role="alert">
+                                    Something went wrong. Learn more <a href="#" class="alert-link">through this alert link</a>.
+                                </div>
+
+                                <div class="alert alert-warning" role="alert">
+                                    Heads up! You might want to check <a href="#" class="alert-link">this warning link</a>.
+                                </div>
+
+                                <div class="alert alert-info" role="alert">
+                                    Here’s some information that may help—click <a href="#" class="alert-link">this link</a> to read more.
+                                </div>
+
+                                <div class="alert alert-light" role="alert">
+                                    Just a light reminder with <a href="#" class="alert-link">a gentle link</a> to explore.
+                                </div>
+
+                                <div class="alert alert-dark" role="alert">
+                                    This is a general dark alert. Find out more <a href="#" class="alert-link">by clicking here</a>.
+                                </div>
+
+                                <div class="alert alert-purple mb-0" role="alert">
+                                    Important notice: For more information, <a href="#" class="alert-link">click here</a>.
+                                </div>
+
+                            </div> <!-- end card-body -->
+
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Additional Content</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <div class="highlight">
+                                    <pre>
+                                        <code class="language-markup">
+                                            &lt;div class=&quot;alert alert-success p-3&quot; role=&quot;alert&quot;&gt;
+                                                &lt;h4 class=&quot;alert-heading&quot;&gt;Great job!&lt;/h4&gt;
+                                                &lt;p&gt;You&rsquo;ve successfully read this important alert message. The text is intentionally a bit longer to demonstrate how spacing behaves in this kind of layout.&lt;/p&gt;
+                                                &lt;hr class=&quot;border-success border-opacity-25&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;Use margin utilities to keep your content clean and organized.&lt;/p&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-secondary p-3 d-flex&quot; role=&quot;alert&quot;&gt;
+                                                &lt;i class=&quot;ti ti-alarm-average fs-1 me-2&quot;&gt;&lt;/i&gt;
+                                                &lt;div&gt;
+                                                    &lt;h4 class=&quot;alert-heading&quot;&gt;Heads up!&lt;/h4&gt;
+                                                    &lt;p&gt;This alert message gives additional information with a longer message to show content spacing within an alert.&lt;/p&gt;
+                                                    &lt;hr class=&quot;border-secondary border-opacity-25&quot;&gt;
+                                                    &lt;p class=&quot;mb-0&quot;&gt;Apply spacing classes wisely to maintain structure and clarity.&lt;/p&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class=&quot;alert alert-purple d-flex p-3 mb-0&quot; role=&quot;alert&quot;&gt;
+                                                &lt;i class=&quot;ti ti-phone-ringing fs-1 me-2&quot;&gt;&lt;/i&gt;
+                                                &lt;div&gt;
+                                                    &lt;h4 class=&quot;alert-heading&quot;&gt;Notice!&lt;/h4&gt;
+                                                    &lt;p&gt;You&rsquo;ve just read through a primary alert message. The extra length helps show how well the layout handles content spacing.&lt;/p&gt;
+                                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;Got it&lt;/button&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        </code>
+                                    </pre> <!-- end pre -->
+                                </div> <!-- end highlight-->
+                            </div> <!--end preview code-->
+
+                            <div class="card-body">
+                                <div class="alert alert-success p-3" role="alert">
+                                    <h4 class="alert-heading">Great job!</h4>
+                                    <p>You’ve successfully read this important alert message. The text is intentionally a bit longer to demonstrate how spacing behaves in this kind of layout.</p>
+                                    <hr class="border-success border-opacity-25">
+                                    <p class="mb-0">Use margin utilities to keep your content clean and organized.</p>
+                                </div>
+
+                                <div class="alert alert-secondary p-3 d-flex" role="alert">
+                                    <i class="ti ti-alarm-average fs-1 me-2"></i>
+                                    <div>
+                                        <h4 class="alert-heading">Heads up!</h4>
+                                        <p>This alert message gives additional information with a longer message to show content spacing within an alert.</p>
+                                        <hr class="border-secondary border-opacity-25">
+                                        <p class="mb-0">Apply spacing classes wisely to maintain structure and clarity.</p>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-purple d-flex p-3 mb-0" role="alert">
+                                    <i class="ti ti-phone-ringing fs-1 me-2"></i>
+                                    <div>
+                                        <h4 class="alert-heading">Notice!</h4>
+                                        <p>You’ve just read through a primary alert message. The extra length helps show how well the layout handles content spacing.</p>
+                                        <button type="button" class="btn btn-primary btn-sm">Got it</button>
+                                    </div>
+                                </div>
+                            </div> <!-- end card-body -->
+
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Custom Alerts</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <div class="highlight">
+                                    <pre>
+                                        <code class="language-markup">
+                                            &lt;div class=&quot;alert alert-primary alert-dismissible border border-primary&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;A primary alert with a full border!&lt;/div&gt;
+                                            &lt;/div&gt;
+            
+                                            &lt;div class=&quot;alert alert-secondary alert-bordered alert-dismissible border-start border-secondary&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;A secondary alert with a left border only!&lt;/div&gt;
+                                            &lt;/div&gt;
+            
+                                            &lt;div class=&quot;alert alert-dark alert-bordered alert-dismissible border-bottom border-dark&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;A dark alert with a bottom border!&lt;/div&gt;
+                                            &lt;/div&gt;
+            
+                                            &lt;div class=&quot;alert alert-purple alert-dismissible border-2 border border-dashed border-purple&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;A purple alert with a dashed border!&lt;/div&gt;
+                                            &lt;/div&gt;
+            
+                                            &lt;div class=&quot;alert alert-danger alert-dismissible border-2  border-danger&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;div&gt;A danger alert with a thick border!&lt;/div&gt;
+                                            &lt;/div&gt;
+            
+                                            &lt;div class=&quot;alert alert-warning d-flex align-items-center&quot; role=&quot;alert&quot;&gt;
+                                                &lt;div&gt;A warning alert with a custom close button!&lt;/div&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;ms-auto btn btn-sm btn-warning btn-icon rounded-circle&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-x fs-lg&quot;&gt;&lt;/i&gt;
+                                                &lt;/button&gt;
+                                            &lt;/div&gt;
+            
+                                            &lt;div class=&quot;alert alert-info alert-dismissible d-flex align-items-center gap-2&quot; role=&quot;alert&quot;&gt;
+                                                &lt;button type=&quot;button&quot; class=&quot;btn-close&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+                                                &lt;i class=&quot;ti ti-alert-octagon fs-xl&quot;&gt;&lt;/i&gt; An info alert with a custom icon!
+                                            &lt;/div&gt;
+            
+                                            &lt;div class=&quot;alert alert-light border-2 d-flex align-items-center p-3 mb-0&quot; role=&quot;alert&quot;&gt;
+                                                &lt;i class=&quot;ti ti-phone-ringing text-success fs-2 me-3&quot;&gt;&lt;/i&gt;
+                                                &lt;div&gt;
+                                                    &lt;h4 class=&quot;alert-heading&quot;&gt;Notice!&lt;/h4&gt;
+                                                    &lt;p class=&quot;m-0&quot;&gt;You&rsquo;ve just read through a primary alert message. The extra length helps show how well the layout handles content spacing.&lt;/p&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        </code>
+                                    </pre> <!-- end pre -->
+                                </div> <!-- end highlight-->
+                            </div> <!--end preview code-->
+
+                            <div class="card-body">
+                                <div class="alert alert-primary alert-dismissible border border-primary" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>A primary alert with a full border!</div>
+                                </div>
+
+                                <div class="alert alert-secondary alert-bordered alert-dismissible border-start border-secondary" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>A secondary alert with a left border only!</div>
+                                </div>
+
+                                <div class="alert alert-dark alert-bordered alert-dismissible border-bottom border-dark" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>A dark alert with a bottom border!</div>
+                                </div>
+
+                                <div class="alert alert-purple alert-dismissible border-2 border border-dashed border-purple" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>A purple alert with a dashed border!</div>
+                                </div>
+
+                                <div class="alert alert-danger alert-dismissible border-2  border-danger" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <div>A danger alert with a thick border!</div>
+                                </div>
+
+                                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                                    <div>A warning alert with a custom close button!</div>
+                                    <button type="button" class="ms-auto btn btn-sm btn-warning btn-icon rounded-circle" data-bs-dismiss="alert" aria-label="Close">
+                                        <i class="ti ti-x fs-lg"></i>
+                                    </button>
+                                </div>
+
+                                <div class="alert alert-info alert-dismissible d-flex align-items-center gap-2" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <i class="ti ti-alert-octagon fs-xl"></i> An info alert with a custom icon!
+                                </div>
+
+                                <div class="alert alert-light border-2 d-flex align-items-center p-3 mb-0" role="alert">
+                                    <i class="ti ti-phone-ringing text-success fs-2 me-3"></i>
+                                    <div>
+                                        <h4 class="alert-heading">Notice!</h4>
+                                        <p class="m-0">You’ve just read through a primary alert message. The extra length helps show how well the layout handles content spacing.</p>
+                                    </div>
+                                </div>
+
+                            </div> <!-- end card-body -->
+
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Live Alert</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <div class="highlight">
+                                    <pre>
+                                        <code class="language-markup">
+                                            &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; id=&quot;liveAlertBtn&quot;&gt;Show live alert&lt;/button&gt;
+                                        </code>
+                                    </pre> <!-- end pre -->
+                                </div> <!-- end highlight-->
+                            </div> <!--end preview code-->
+
+                            <div class="card-body">
+                                <div id="liveAlertPlaceholder"></div>
+                                <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
+                            </div> <!--end card body-->
+                        </div>
+                    </div>
+                </div> <!-- end row-->
+
+            </div> <!-- container -->
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start">
+                            Copyright © 2025 - Secretaria Geral de Governo de Goiás - Todos os direitos reservados. 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end d-none d-md-block">
+                                10GB of <span class="fw-bold">250GB</span> Free.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End of Main Content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Theme Settings -->
+    <div class="offcanvas offcanvas-end overflow-hidden" tabindex="-1" id="theme-settings-offcanvas">
+        <div class="d-flex justify-content-between text-bg-primary gap-2 p-3" style="background-image: url(assets/images/user-bg-pattern.png);">
+            <div>
+                <h5 class="mb-1 fw-bold text-white text-uppercase">Admin Customizer</h5>
+                <p class="text-white text-opacity-75 fst-italic fw-medium mb-0">Easily configure layout, styles, and preferences for your admin interface.</p>
+            </div>
+
+            <div class="flex-grow-0">
+                <button type="button" class="d-block btn btn-sm bg-white bg-opacity-25 text-white rounded-circle btn-icon" data-bs-dismiss="offcanvas"><i class="ti ti-x fs-lg"></i></button>
+            </div>
+        </div>
+
+        <div class="offcanvas-body p-0 h-100" data-simplebar>
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Select Theme</h5>
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-classic" value="classic">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-classic">
+                                <img src="assets/images/layouts/themes/theme-classic.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Classic</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-material" value="material">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-material">
+                                <img src="assets/images/layouts/themes/theme-material.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Material</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-modern" value="modern">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-modern">
+                                <img src="assets/images/layouts/themes/theme-modern.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Modern</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-saas" value="saas">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-saas">
+                                <img src="assets/images/layouts/themes/theme-saas.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">SaaS</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-flat" value="flat">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-flat">
+                                <img src="assets/images/layouts/themes/theme-flat.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Flat</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-minimal" value="minimal">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-minimal">
+                                <img src="assets/images/layouts/themes/theme-minimal.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Minimal</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio pe-none">
+                            <input class="form-check-input" disabled type="radio" name="data-skin" id="demo-skin-galaxy" value="galaxy">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-galaxy">
+                                <img src="assets/images/layouts/themes/theme-galaxy.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Galaxy</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Color Scheme</h5>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="layout-color-light">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="layout-color-dark">
+                                <img src="assets/images/layouts/dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-system" value="system">
+                            <label class="form-check-label p-0 w-100" for="layout-color-system">
+                                <img src="assets/images/layouts/system.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">System</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Topbar Color</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-light">
+                                <img src="assets/images/layouts/topbar-light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-dark">
+                                <img src="assets/images/layouts/topbar-dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-gray" value="gray">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-gray">
+                                <img src="assets/images/layouts/topbar-gray.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-gradient" value="gradient">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-gradient">
+                                <img src="assets/images/layouts/topbar-gradient.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gradient</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Sidenav Color</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-light">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-dark">
+                                <img src="assets/images/layouts/side-dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-gray" value="gray">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-gray">
+                                <img src="assets/images/layouts/side-gray.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-gradient" value="gradient">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-gradient">
+                                <img src="assets/images/layouts/side-gradient.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gradient</h5>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-image" value="image">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-image">
+                                <img src="assets/images/layouts/side-image.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Image</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Sidebar Size</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-default" value="default">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-default">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Default</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-compact" value="compact">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-compact">
+                                <img src="assets/images/layouts/sidebar-compact.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Compact</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small" value="condensed">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small">
+                                <img src="assets/images/layouts/sidebar-sm.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Condensed</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small-hover" value="on-hover">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small-hover">
+                                <img src="assets/images/layouts/sidebar-sm.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">On Hover</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small-hover-active" value="on-hover-active">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small-hover-active">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 fs-base text-center text-muted mt-2">On Hover - Show</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-offcanvas" value="offcanvas">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-offcanvas">
+                                <img src="assets/images/layouts/sidebar-full.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Offcanvas</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">Layout Position</h5>
+
+                    <div class="btn-group radio" role="group">
+                        <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-fixed" value="fixed">
+                        <label class="btn btn-sm btn-soft-warning w-sm" for="layout-position-fixed">Fixed</label>
+
+                        <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-scrollable" value="scrollable">
+                        <label class="btn btn-sm btn-soft-warning w-sm ms-0" for="layout-position-scrollable">Scrollable</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><label class="fw-bold m-0" for="sidebaruser-check">Sidebar User Info</label></h5>
+                
+                    <div class="form-check form-switch fs-lg">
+                        <input type="checkbox" class="form-check-input" name="sidebar-user" id="sidebaruser-check">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas-footer border-top p-3 text-center">
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-light fw-semibold py-2 w-100" id="reset-layout">Reset</button>
+                </div>
+                <div class="col-6">
+                    <a href="https://wrapbootstrap.com/theme/inspinia-multipurpose-admin-dashboard-template-WB0R5L90S?ref=inspinia" target="_blank" class="btn btn-danger bg-gradient py-2 fw-semibold w-100">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendors.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+        const appendAlert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                `   <div>${message}</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+
+            alertPlaceholder.append(wrapper)
+        }
+
+        const alertTrigger = document.getElementById('liveAlertBtn')
+        if (alertTrigger) {
+            alertTrigger.addEventListener('click', () => {
+                appendAlert('Nice, you triggered this alert message!', 'success')
+            })
+        }
+    </script>
+
+</body>
+
+</html>
