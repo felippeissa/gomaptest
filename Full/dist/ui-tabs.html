@@ -1,0 +1,2120 @@
+
+<!--
+* Author: Felipe Santiago
+* Product Name: GOMAP
+* Version: 4.0.1
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tabs | GOMAP </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Inspinia is the #1 best-selling admin dashboard template on WrapBootstrap. Perfect for building CRM, CMS, project management tools, and custom web apps with clean UI, responsive design, and powerful features.">
+    <meta name="keywords" content="Inspinia, admin dashboard, WrapBootstrap, HTML template, Bootstrap admin, CRM template, CMS template, responsive admin, web app UI, admin theme, best admin template">
+    <meta name="author" content="WebAppLayers">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="assets/css/vendors.min.css" rel="stylesheet" type="text/css">
+
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        
+        <!-- Sidenav Menu Start -->
+        <div class="sidenav-menu">
+
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo logo-light">
+                    <span class="logo-lg"><img src="assets/images/logo-white.png" alt="logo"></span>
+                    <span class="logo-sm"><img src="assets/images/logo-sm.png" alt="small logo"></span>
+                </span>
+
+                <span class="logo logo-dark">
+                    <span class="logo-lg"><img src="assets/images/logo-black.png" alt="dark logo"></span>
+                    <span class="logo-sm"><img src="assets/images/logo-sm.png" alt="small logo"></span>
+                </span>
+            </a>
+
+            <!-- Sidebar Hover Menu Toggle Button -->
+            <button class="button-on-hover">
+                <i class="ti ti-menu-4 fs-22 align-middle"></i>
+            </button>
+
+            <!-- Full Sidebar Menu Close Button -->
+            <button class="button-close-offcanvas">
+                <i class="ti ti-x align-middle"></i>
+            </button>
+
+            <div class="scrollbar" data-simplebar>
+
+                <!-- User 
+                <div class="sidenav-user">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <a href="pages-profile.html" class="link-reset">
+                                <img src="assets/images/users/user-2.jpg" alt="user-image" class="rounded-circle mb-2 avatar-md">
+                                <span class="sidenav-user-name fw-bold">Felipe Santiago</span>
+                                <span class="fs-12 fw-semibold" data-lang="user-role">UX Designer Senior</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a class="dropdown-toggle drop-arrow-none link-reset sidenav-user-set-icon" data-bs-toggle="dropdown" data-bs-offset="0,12" href="#!" aria-haspopup="false" aria-expanded="false">
+                                <i class="ti ti-settings fs-24 align-middle ms-1"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <!-- Header --
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Welcome back!</h6>
+                                </div>
+
+                                <!-- My Profile --
+                                <a href="pages-profile.html" class="dropdown-item">
+                                    <i class="ti ti-user-circle me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Profile</span>
+                                </a>
+
+                                <!-- Notifications --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-bell-ringing me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Notifications</span>
+                                </a>
+
+                                <!-- Wallet --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-credit-card me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Balance: <span class="fw-semibold">$985.25</span></span>
+                                </a>
+
+                                <!-- Settings --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-settings-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Account Settings</span>
+                                </a>
+
+                                <!-- Support --
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                    <i class="ti ti-headset me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Support Center</span>
+                                </a>
+
+                                <!-- Divider --
+                                <div class="dropdown-divider"></div>
+
+                                <!-- Lock --
+                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                    <i class="ti ti-lock me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Lock Screen</span>
+                                </a>
+
+                                <!-- Logout --
+                                <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
+                                    <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Log Out</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- Sidenav Menu -->
+                <ul class="side-nav">
+                    <li class="side-nav-title" data-lang="menu-title">Menu</li>
+
+                    <!---Portal de Projetos Menu -->
+                    <li class="side-nav-item">
+                        <a href="index.html" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-home"></i></span>
+                            <span class="menu-text" data-lang="Portal de Projetos"> Portal de projetos </span>
+                        </a>
+                    </li>
+
+                    <!---Gestão de Usuários Menu -->
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-users"></i></span>
+                            <span class="menu-text" data-lang="Gestão de usuários">Gestão de usuários</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarEcommerce">
+                            <ul class="sub-menu">
+                                <li class="side-nav-item">
+                                    <a href="index2.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Órgão</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!---Painéis Menu -->
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                            <span class="menu-icon"><i class="ti ti-photo"></i></span>
+                            <span class="menu-text" data-lang="Painéis">Painéis</span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarEcommerce">
+                            <ul class="sub-menu">
+                                <li class="side-nav-item">
+                                    <a href="index3.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2024</span>
+                                    </a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="index4.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2025</span>
+                                    </a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a href="index5.html" class="side-nav-link">
+                                        <span class="menu-text" data-lang="Órgão">Portfólio 2026</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Sidenav Menu End -->
+
+        <!-- Topbar Start -->
+        <header class="app-topbar">
+            <div class="container-fluid topbar-menu">
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Topbar Brand Logo -->
+                    <div class="logo-topbar">
+                        <!-- Logo light -->
+                        <a href="index.html" class="logo-light">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo.png" alt="logo">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="assets/images/logo-sm.png" alt="small logo">
+                            </span>
+                        </a>
+
+                        <!-- Logo Dark -->
+                        <a href="index.html" class="logo-dark">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo-black.png" alt="dark logo">
+                            </span>
+                            <span class="logo-sm">
+                                <img src="assets/images/logo-sm.png" alt="small logo">
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- Sidebar Menu Toggle Button -->
+                    <button class="sidenav-toggle-button btn btn-primary btn-icon">
+                        <i class="ti ti-menu-4 fs-22"></i>
+                    </button>
+
+                    <!-- Horizontal Menu Toggle Button -->
+                    <button class="topnav-toggle-button px-2" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                        <i class="ti ti-menu-4 fs-22"></i>
+                    </button>
+
+            
+
+                    <!-- Mega Menu Dropdown -->
+                    <div class="topbar-item d-none d-md-flex">
+                        <div class="dropdown">
+                    
+                            <div class="dropdown-menu dropdown-menu-xxl p-0">
+                                <div class="h-100" style="max-height: 380px;" data-simplebar>
+                                    <div class="row g-0">
+                                        <div class="col-12">
+                                            <div class="p-3 text-center bg-light bg-opacity-50">
+                                                <h4 class="mb-0 fs-lg fw-semibold">Welcome to <span class="text-primary">INSPINIA+</span> Admin Theme.</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">Dashboard & Analytics</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Sales Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Marketing Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Finance Overview</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Analytics</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Traffic Insights</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Performance Metrics</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Conversion Tracking</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">Project Management</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Task Overview</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Kanban Board</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Gantt Chart</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Team Collaboration</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Project Milestones</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Workflow Automation</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Timesheets & Reports</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="p-3">
+                                                <h5 class="mb-2 fw-semibold fs-sm dropdown-header">User Management</h5>
+                                                <ul class="list-unstyled megamenu-list">
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Profiles</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Access Control</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Role Permissions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Activity Logs</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Security Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">User Groups</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:void(0);" class="dropdown-item">Authentication & Login</a>
+                                                    </li>
+                                                </ul>
+                                            </div> <!-- end dropdown-->
+                                        </div> <!-- end col-->
+                                    </div> <!-- end row-->
+
+                                </div> <!-- end .h-100-->
+                            </div> <!-- .dropdown-menu-->
+                        </div> <!-- .dropdown-->
+                    </div> <!-- end topbar-item -->
+                </div> <!-- .d-flex-->
+        
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Language Dropdown -->
+                     <!--
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link fw-bold" data-bs-toggle="dropdown" data-bs-offset="0,21" type="button" aria-haspopup="false" aria-expanded="false">
+                                <img src="assets/images/flags/us.svg" alt="user-image" class="w-100 rounded me-2" height="18" id="selected-language-image">
+                                <span id="selected-language-code"> EN </span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="en" title="English">
+                                    <img src="assets/images/flags/us.svg" alt="English" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">English</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="de" title="German">
+                                    <img src="assets/images/flags/de.svg" alt="German" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Deutsch</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="it" title="Italian">
+                                    <img src="assets/images/flags/it.svg" alt="Italian" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Italiano</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="es" title="Spanish">
+                                    <img src="assets/images/flags/es.svg" alt="Spanish" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Español</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="ru" title="Russian">
+                                    <img src="assets/images/flags/ru.svg" alt="Russian" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">Русский</span>
+                                </a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="hi" title="Hindi">
+                                    <img src="assets/images/flags/in.svg" alt="Hindi" class="me-1 rounded" height="18" data-translator-image>
+                                    <span class="align-middle">हिन्दी</span>
+                                </a>
+                            </div> <!-- end dropdown-menu--
+                        </div> <!-- end dropdown--
+                    </div> <!-- end topbar item--
+                    -->
+
+                    <!-- Messages Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link dropdown-toggle drop-arrow-none" data-bs-toggle="dropdown" data-bs-offset="0,22" type="button" data-bs-auto-close="outside" aria-haspopup="false" aria-expanded="false">
+                                <i data-lucide="mails" class="fs-xxl"></i>
+                                <span class="badge text-bg-success badge-circle topbar-badge">2</span>
+                            </button>
+
+                            <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                <div class="px-3 py-2 border-bottom">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-md fw-semibold">EvA Chat</h6>
+                                        </div>
+                                        <div class="col text-end">
+                                            <a href="#!" class="badge text-bg-light badge-label py-1">02 Mensagens</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="max-height: 300px;" data-simplebar>
+                                    <!-- item 1 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap active" id="message-1">
+                                        <span class="d-flex gap-3">
+                                            <span class="flex-shrink-0">
+                                                <img src="assets/images/users/user-11.jpg" class="avatar-md rounded-circle" alt="User Avatar">
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body"></span> Conversa sobre o  <span class="fw-medium text-body">Projeto Escola</span>
+                                                <br>
+                                                <span class="fs-xs">5 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                                    <!-- item 2 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="message-2">
+                                        <span class="d-flex gap-3">
+                                            <span class="flex-shrink-0">
+                                                <img src="assets/images/users/user-11.jpg" class="avatar-md rounded-circle" alt="User Avatar">
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body"></span> Conversa sobre o  <span class="fw-medium text-body">Projeto Revitalização Meia Ponte</span>
+                                                <br>
+                                                <span class="fs-xs">12 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                            
+                                </div>
+
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-reset text-decoration-underline link-offset-2 fw-bold notify-item border-top border-light py-2">
+                                    Ver todas as conversas
+                                </a>
+
+                            </div> <!-- End dropdown-menu -->
+                        </div> <!-- end dropdown-->
+                    </div> <!-- end topbar item-->
+
+                    <!-- Notification Dropdown -->
+                    <div class="topbar-item">
+                        <div class="dropdown">
+                            <button class="topbar-link dropdown-toggle drop-arrow-none" data-bs-toggle="dropdown" data-bs-offset="0,22" type="button" data-bs-auto-close="outside" aria-haspopup="false" aria-expanded="false">
+                                <i data-lucide="bell" class="fs-xxl"></i>
+                                <span class="badge badge-square text-bg-warning topbar-badge">2</span>
+                            </button>
+
+                            <div class="dropdown-menu p-0 dropdown-menu-end dropdown-menu-lg">
+                                <div class="px-3 py-2 border-bottom">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-md fw-semibold">Notificações</h6>
+                                        </div>
+                                        <div class="col text-end">
+                                            <a href="#!" class="badge text-bg-light badge-label py-1">2 Alertas</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="max-height: 300px;" data-simplebar>
+                                    <!-- item 1 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="notification-1">
+                                        <span class="d-flex gap-2">
+                                            <span class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-danger-subtle text-danger rounded fs-22">
+                                                    <i data-lucide="server-crash" class="fs-xl fill-danger"></i>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body">Alerta 01</span>
+                                                <br>
+                                                <span class="fs-xs">30 minutos atrás</span>
+                                            </span>
+                                    
+                                        </span>
+                                    </div>
+
+                                    <!-- item 2 -->
+                                    <div class="dropdown-item notification-item py-2 text-wrap" id="notification-2">
+                                        <span class="d-flex gap-2">
+                                            <span class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-warning-subtle text-warning rounded fs-22">
+                                                    <i data-lucide="alert-triangle" class="fs-xl fill-warning"></i>
+                                                </span>
+                                            </span>
+                                            <span class="flex-grow-1 text-muted">
+                                                <span class="fw-medium text-body">Alerta 02</span>
+                                                <br>
+                                                <span class="fs-xs">30 minutos atrás</span>
+                                            </span>
+                                        </span>
+                                    </div>
+
+                            
+                                </div> <!-- end dropdown-->
+
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-reset text-decoration-underline link-offset-2 fw-bold notify-item border-top border-light py-2">
+                                    Ver todas as notificações
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                        <!-- Light/Dark Mode Button --->
+                    <div class="topbar-item d-none d-sm-flex">
+                    <button class="topbar-link" id="light-dark-mode" type="button">
+                    <i data-lucide="moon" class="fs-xxl mode-light-moon"></i>
+                    <i data-lucide="sun" class="fs-xxl mode-light-sun"></i>
+                    </button>
+                    </div>
+            
+                    <!-- Letter A Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-letter-a fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Refresh Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-refresh fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Plus Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-plus fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Minus Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-minus fs-xxl"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Cube Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-cube fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Circle Half Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-circle-half-2 fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Droplet Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-droplet fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Brush Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-brush fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Settings Button-->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" type="button">
+                            <i data-lucide="settings" class="fs-xxl"></i>
+                        </button>
+                    </div>
+           
+                    <!-- Users Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-users fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Help Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="">
+                            <i class="ti ti-help-octagon fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- Logout Button -->
+                    <div class="topbar-item d-none d-sm-flex">
+                        <button class="topbar-link" type="button" onclick="window.location.href='auth-sign-in.html'">
+                            <i class="ti ti-logout-2 fs-xxl"></i>
+                        </button>
+                    </div>
+
+                    <!-- User Dropdown -->
+                    <div class="topbar-item nav-user">
+                        <div class="dropdown">
+                            <a class="topbar-link dropdown-toggle drop-arrow-none px-2" data-bs-toggle="dropdown" data-bs-offset="0,16" href="#!" aria-haspopup="false" aria-expanded="false">
+                                <img src="assets/images/users/user-2.jpg" width="32" class="rounded-circle me-lg-2 d-flex" alt="user-image">
+                                <div class="d-lg-flex align-items-center gap-2 d-none">
+                                    <div class="d-flex flex-column gap-0 pe-3">
+                                        <h5 class="my-0" >Felipe Santiago</h5>
+                                        <span class="fw-semibold">UX Designer Senior</span>
+                                    </div>
+                                </div>
+                                <i class="ti ti-chevron-down align-middle"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- Header -->
+                                <div class="dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">Meus perfis</h6>
+                                </div>
+
+                                <!-- My Profile -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-user-circle me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 01</span>
+                                </a>
+
+                                <!-- Notifications -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-bell-ringing me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 02</span>
+                                </a>
+
+                                <!-- Wallet -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-credit-card me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 03<!--<span class="fw-semibold">$985.25</span>--></span>
+                                </a>
+
+                                <!-- Settings -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-settings-2 me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 04</span>
+                                </a>
+
+                                <!-- Support -->
+                                <a href="index.html" class="dropdown-item">
+                                    <!--<i class="ti ti-headset me-2 fs-17 align-middle"></i>-->
+                                    <span class="align-middle">Perfil 05</span>
+                                </a>
+                        
+                                <!--
+                                <div class="dropdown-divider"></div>
+
+                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                    <i class="ti ti-lock me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Lock Screen</span>
+                                </a>
+
+                                <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
+                                    <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
+                                    <span class="align-middle">Log Out</span>
+                                </a>
+                                -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Topbar End -->
+
+        
+
+        <!-- ============================================================== -->
+        <!-- Start Main Content -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+
+            <div class="container-fluid">
+                
+                <div class="page-title-head d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h4 class="fs-sm text-uppercase fw-bold m-0">Tabs</h4>
+                    </div>
+
+                    <div class="text-end">
+                        <ol class="breadcrumb m-0 py-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">GOMAP</a></li>
+                            
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">UI</a></li>
+                            
+                            <li class="breadcrumb-item active">Tabs</li>
+                        </ol>
+                    </div>
+                </div>
+                 
+            </div>
+            <!-- container -->
+
+            <div class="container-xl">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Examples</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <p class="text-muted mb-2">
+                                    Documentation and examples on how to use Bootstrap’s tab components.
+                                </p>
+
+                                <a class="btn btn-link p-0 fw-semibold" href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#javascript-behavior" target="_blank">
+                                    Tabs on Bootstrap
+                                    <i class="ti ti-chevron-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Default Tabs</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;ul class=&quot;nav nav-tabs mb-3&quot;&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#overview&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Overview
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#activity&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;true&quot; class=&quot;nav-link active&quot;&gt;
+                                                    Activity
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#settings&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Settings
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link disabled&quot;&gt;
+                                                    Disabled
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+        
+                                        &lt;div class=&quot;tab-content&quot;&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;overview&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane show active&quot; id=&quot;activity&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;settings&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </code>            
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code -->
+
+                            <div class="card-body">
+                                <p class="text-muted">Simple widget of tabbable panes of local content.</p>
+
+                                <ul class="nav nav-tabs mb-3">
+                                    <li class="nav-item">
+                                        <a href="#overview" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Overview
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#activity" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                            Activity
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#settings" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" data-bs-toggle="tab" aria-expanded="false" class="nav-link disabled">
+                                            Disabled
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="overview">
+                                        <p class="mb-0">
+                                            This dashboard provides a quick overview of your recent activity, performance metrics, and system status.
+                                            You can easily monitor key indicators, recent logins, pending tasks, and overall user engagement.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane show active" id="activity">
+                                        <p class="mb-0">
+                                            View your latest interactions and actions taken across the platform. This includes recent file uploads,
+                                            comments, status updates, and notification history to keep you up to date with ongoing changes.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="settings">
+                                        <p class="mb-0">
+                                            Customize your account preferences including theme options, notification settings, and privacy controls.
+                                            Adjust layout configurations to suit your workflow and manage integration with third-party services.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div> <!--end card body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Tabs Justified</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;ul class=&quot;nav nav-justified nav-tabs mb-3&quot;&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#overview1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Overview
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#profile1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;true&quot; class=&quot;nav-link active&quot;&gt;
+                                                    Profile
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#settings1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Settings
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#projects1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Projects
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#support1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Support
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+
+                                        &lt;div class=&quot;tab-content&quot;&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;overview1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane show active&quot; id=&quot;profile1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;settings1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;projects1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;support1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;
+                                                    ...
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </code>            
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code-->
+
+                            <div class="card-body">
+                                <p class="text-muted">Using class <code>.nav-justified</code>, you can force your <code>tab menu items</code> to use the full available width.</p>
+
+                                <ul class="nav nav-justified nav-tabs mb-3">
+                                    <li class="nav-item">
+                                        <a href="#overview1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Overview
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#profile1" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#settings1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#projects1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Projects
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#support1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Support
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="overview1">
+                                        <p class="mb-0">
+                                            Get a high-level summary of recent activity, key performance indicators, and important announcements.
+                                            Stay informed and make quick decisions based on real-time insights.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane show active" id="profile1">
+                                        <p class="mb-0">
+                                            Customize your profile, update personal information, and manage security settings like passwords and 2FA.
+                                            Keep your account secure and up to date with your latest details.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="settings1">
+                                        <p class="mb-0">
+                                            Configure system preferences, theme options, and notification settings. Easily adapt the platform to fit
+                                            your workflow and preferences.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="projects1">
+                                        <p class="mb-0">
+                                            View and manage all ongoing projects, tasks, and milestones. Collaborate with your team and track progress
+                                            in real-time.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="support1">
+                                        <p class="mb-0">
+                                            Need help? Reach out to our support team or browse the help center for common questions, guides, and documentation.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div> <!-- end card body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Tabs Vertical Left</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;div class=&quot;row&quot;&gt;
+                                            &lt;div class=&quot;col-sm-3 mb-2 mb-sm-0&quot;&gt;
+                                                &lt;div class=&quot;nav flex-column nav-pills&quot; id=&quot;v-pills-tab&quot; role=&quot;tablist&quot; aria-orientation=&quot;vertical&quot;&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold active show&quot; id=&quot;v-pills-home-tab&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-home&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-home&quot; aria-selected=&quot;true&quot;&gt;
+                                                        Overview
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-profile-tab&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-profile&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-profile&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Profile
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-settings-tab&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-settings&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-settings&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Settings
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-projects-tab&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-projects&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-projects&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Projects
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-support-tab&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-support&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-support&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Support
+                                                    &lt;/a&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+        
+                                            &lt;div class=&quot;col-sm-9&quot;&gt;
+                                                &lt;div class=&quot;tab-content&quot; id=&quot;v-pills-tabContent&quot;&gt;
+                                                    &lt;!-- Overview Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade active show&quot; id=&quot;v-pills-home&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-home-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Profile Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-profile&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-profile-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;Name, Email, Phone&lt;/li&gt;
+                                                            &lt;li&gt;Change Password&lt;/li&gt;
+                                                            &lt;li&gt;Activity logs and preferences&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Settings Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-settings&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-settings-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Projects Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-projects&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-projects-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Support Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-support&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-support-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </code>           
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code -->
+
+                            <div class="card-body">
+                                <p class="text-muted">
+                                    You can stack your navigation by changing the flex item direction with the <code>.flex-column</code> utility.
+                                </p>
+                                <div class="row">
+                                    <div class="col-sm-3 mb-2 mb-sm-0">
+                                        <div class="nav flex-column nav-pills" id="v-pills-tab1" role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link fw-semibold active show" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                                Overview
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                                Profile
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                Settings
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-projects-tab" data-bs-toggle="pill" href="#v-pills-projects" role="tab" aria-controls="v-pills-projects" aria-selected="false">
+                                                Projects
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-support-tab" data-bs-toggle="pill" href="#v-pills-support" role="tab" aria-controls="v-pills-support" aria-selected="false">
+                                                Support
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-9">
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                            <!-- Overview Tab -->
+                                            <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <p class="mb-2">Welcome to your dashboard. Get an at-a-glance view of your recent activity, top stats, and personalized suggestions to enhance productivity and stay on track.</p>
+                                                <ul>
+                                                    <li>View total project status</li>
+                                                    <li>Quick links to recent files</li>
+                                                    <li>Weekly performance charts</li>
+                                                </ul>
+                                                <p class="mb-0">Your dashboard is tailored to your activity and roles. Stay informed and always one step ahead.</p>
+                                            </div>
+
+                                            <!-- Profile Tab -->
+                                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                <p class="mb-2">Manage your personal details, change your profile photo, and update your contact information.</p>
+                                                <ul>
+                                                    <li>Name, Email, Phone</li>
+                                                    <li>Change Password</li>
+                                                    <li>Activity logs and preferences</li>
+                                                </ul>
+                                                <p class="mb-0">Keeping your profile up to date ensures a better and more secure experience.</p>
+                                            </div>
+
+                                            <!-- Settings Tab -->
+                                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                <p class="mb-2">Customize your preferences, notification options, and privacy settings.</p>
+                                                <ul>
+                                                    <li>Theme selection: Light / Dark mode</li>
+                                                    <li>Email & push notification toggles</li>
+                                                    <li>Linked accounts and integrations</li>
+                                                </ul>
+                                                <p class="mb-0">Settings help personalize your interface and improve your workflow efficiency.</p>
+                                            </div>
+
+                                            <!-- Projects Tab -->
+                                            <div class="tab-pane fade" id="v-pills-projects" role="tabpanel" aria-labelledby="v-pills-projects-tab">
+                                                <p class="mb-2">Track all your active, completed, and upcoming projects in one place.</p>
+                                                <ul>
+                                                    <li>Kanban board and Gantt charts</li>
+                                                    <li>Task assignments and deadlines</li>
+                                                    <li>Progress indicators and timelines</li>
+                                                </ul>
+                                                <p class="mb-0">Use collaboration tools, upload documents, and manage deliverables directly from here.</p>
+                                            </div>
+
+                                            <!-- Support Tab -->
+                                            <div class="tab-pane fade" id="v-pills-support" role="tabpanel" aria-labelledby="v-pills-support-tab">
+                                                <p class="mb-2">Need assistance? Access our help center or contact our support team directly.</p>
+                                                <ul>
+                                                    <li>Browse FAQs and tutorials</li>
+                                                    <li>Submit a support ticket</li>
+                                                    <li>Live chat with support agents</li>
+                                                </ul>
+                                                <p class="mb-0">We’re here 24/7 to assist you with anything you need—technical or account-related.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end row-->
+                            </div> <!-- end card body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Tabs with Colored Navs</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;div class=&quot;row&quot;&gt;
+                                            &lt;div class=&quot;col-sm-9&quot;&gt;
+                                                &lt;div class=&quot;tab-content&quot; id=&quot;v-pills-tabContent&quot;&gt;
+                                                    &lt;!-- Overview Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade active show&quot; id=&quot;v-pills-home-right&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-home-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Profile Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-profile-right&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-profile-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;Change Password&lt;/li&gt;
+                                                            &lt;li&gt;Activity logs and preferences&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Settings Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-settings-right&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-settings-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Projects Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-projects-right&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-projects-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+        
+                                                    &lt;!-- Support Tab --&gt;
+                                                    &lt;div class=&quot;tab-pane fade&quot; id=&quot;v-pills-support-right&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;v-pills-support-tab&quot;&gt;
+                                                        &lt;p class=&quot;mb-2&quot;&gt;...&lt;/p&gt;
+                                                        &lt;ul&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                            &lt;li&gt;...&lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                        &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+        
+                                            &lt;div class=&quot;col-sm-3 mt-2 mt-sm-0&quot;&gt;
+                                                &lt;div class=&quot;nav flex-column nav-pills nav-pills-secondary&quot; id=&quot;v-pills-tab&quot; role=&quot;tablist&quot; aria-orientation=&quot;vertical&quot;&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold active show&quot; id=&quot;v-pills-home-tab-right&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-home-right&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-home&quot; aria-selected=&quot;true&quot;&gt;
+                                                        Overview
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-profile-tab-right&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-profile-right&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-profile&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Profile
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-settings-tab-right&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-settings-right&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-settings&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Settings
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-projects-tab-right&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-projects-right&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-projects&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Projects
+                                                    &lt;/a&gt;
+                                                    &lt;a class=&quot;nav-link fw-semibold&quot; id=&quot;v-pills-support-tab-right&quot; data-bs-toggle=&quot;pill&quot; href=&quot;#v-pills-support-right&quot; role=&quot;tab&quot; aria-controls=&quot;v-pills-support&quot; aria-selected=&quot;false&quot;&gt;
+                                                        Support
+                                                    &lt;/a&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </code>            
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code - -->
+
+                            <div class="card-body">
+                                <p class="text-muted">
+                                    You can add the <code>.nav-pills-*</code> class to the <code>.nav</code> element to apply colored pill styles.
+                                </p>
+
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="tab-content" id="v-pills-tabContent1">
+                                            <!-- Overview Tab -->
+                                            <div class="tab-pane fade active show" id="v-pills-home-right" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                                <p class="mb-2">Welcome to your dashboard. Get an at-a-glance view of your recent activity, top stats, and personalized suggestions to enhance productivity and stay on track.</p>
+                                                <ul>
+                                                    <li>View total project status</li>
+                                                    <li>Quick links to recent files</li>
+                                                    <li>Weekly performance charts</li>
+                                                </ul>
+                                                <p class="mb-0">Your dashboard is tailored to your activity and roles. Stay informed and always one step ahead.</p>
+                                            </div>
+
+                                            <!-- Profile Tab -->
+                                            <div class="tab-pane fade" id="v-pills-profile-right" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                                                <p class="mb-2">Manage your personal details, change your profile photo, and update your contact information.</p>
+                                                <ul>
+                                                    <li>Name, Email, Phone</li>
+                                                    <li>Change Password</li>
+                                                    <li>Activity logs and preferences</li>
+                                                </ul>
+                                                <p class="mb-0">Keeping your profile up to date ensures a better and more secure experience.</p>
+                                            </div>
+
+                                            <!-- Settings Tab -->
+                                            <div class="tab-pane fade" id="v-pills-settings-right" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                <p class="mb-2">Customize your preferences, notification options, and privacy settings.</p>
+                                                <ul>
+                                                    <li>Theme selection: Light / Dark mode</li>
+                                                    <li>Email & push notification toggles</li>
+                                                    <li>Linked accounts and integrations</li>
+                                                </ul>
+                                                <p class="mb-0">Settings help personalize your interface and improve your workflow efficiency.</p>
+                                            </div>
+
+                                            <!-- Projects Tab -->
+                                            <div class="tab-pane fade" id="v-pills-projects-right" role="tabpanel" aria-labelledby="v-pills-projects-tab">
+                                                <p class="mb-2">Track all your active, completed, and upcoming projects in one place.</p>
+                                                <ul>
+                                                    <li>Kanban board and Gantt charts</li>
+                                                    <li>Task assignments and deadlines</li>
+                                                    <li>Progress indicators and timelines</li>
+                                                </ul>
+                                                <p class="mb-0">Use collaboration tools, upload documents, and manage deliverables directly from here.</p>
+                                            </div>
+
+                                            <!-- Support Tab -->
+                                            <div class="tab-pane fade" id="v-pills-support-right" role="tabpanel" aria-labelledby="v-pills-support-tab">
+                                                <p class="mb-2">Need assistance? Access our help center or contact our support team directly.</p>
+                                                <ul>
+                                                    <li>Browse FAQs and tutorials</li>
+                                                    <li>Submit a support ticket</li>
+                                                    <li>Live chat with support agents</li>
+                                                </ul>
+                                                <p class="mb-0">We’re here 24/7 to assist you with anything you need—technical or account-related.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 mt-2 mt-sm-0">
+                                        <div class="nav flex-column nav-pills nav-pills-secondary" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link fw-semibold active show" id="v-pills-home-tab-right" data-bs-toggle="pill" href="#v-pills-home-right" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                                Overview
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-profile-tab-right" data-bs-toggle="pill" href="#v-pills-profile-right" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                                                Profile
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-settings-tab-right" data-bs-toggle="pill" href="#v-pills-settings-right" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+                                                Settings
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-projects-tab-right" data-bs-toggle="pill" href="#v-pills-projects-right" role="tab" aria-controls="v-pills-projects" aria-selected="false">
+                                                Projects
+                                            </a>
+                                            <a class="nav-link fw-semibold" id="v-pills-support-tab-right" data-bs-toggle="pill" href="#v-pills-support-right" role="tab" aria-controls="v-pills-support" aria-selected="false">
+                                                Support
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end row-->
+                            </div> <!-- end card body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Tabs Bordered</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;ul class=&quot;nav nav-tabs nav-bordered mb-3&quot;&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#home-b1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Home
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#profile-b1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;true&quot; class=&quot;nav-link active&quot;&gt;
+                                                    Profile
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#settings-b1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    Settings
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#about-b1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    About
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+        
+                                        &lt;div class=&quot;tab-content&quot;&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;home-b1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane show active&quot; id=&quot;profile-b1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;settings-b1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;about-b1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </code>            
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code -->
+
+                            <div class="card-body">
+                                <p class="text-muted">
+                                    The navigation item can have a simple bottom border as well. Just specify the class <code>.nav-bordered</code>.
+                                </p>
+
+                                <ul class="nav nav-tabs nav-bordered mb-3">
+                                    <li class="nav-item">
+                                        <a href="#home-b1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#profile-b1" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#settings-b1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#about-b1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            About
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="home-b1">
+                                        <p class="mb-0">Welcome to our online platform! Here, we strive to offer the best products and services tailored to your lifestyle. Whether you're redecorating your home or looking for expert advice on the latest trends, we've got you covered.</p>
+                                    </div>
+                                    <div class="tab-pane show active" id="profile-b1">
+                                        <p class="mb-0">Hi! I am an avid explorer, constantly seeking new adventures and insights. My passions include technology, literature, travel, fitness, and self-development. I enjoy learning new skills and sharing knowledge with others to foster personal growth.</p>
+                                    </div>
+                                    <div class="tab-pane" id="settings-b1">
+                                        <p class="mb-0">Nestled in the heart of the city, a charming cafe offers a peaceful retreat from the urban hustle. Its inviting ambiance, with its cozy decor and warm lighting, provides the perfect setting for relaxation or a productive meeting.</p>
+                                    </div>
+                                    <div class="tab-pane" id="about-b1">
+                                        <p class="mb-0">Our company is dedicated to offering high-quality services and products designed to enrich your life. With a focus on sustainability and innovation, we aim to create lasting value for our customers. Join us on our journey to make everyday living better!</p>
+                                    </div>
+                                </div>
+
+                            </div> <!--  card body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Bordered Tabs with Colored Border</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;ul class=&quot;nav nav-tabs nav-justified nav-bordered nav-bordered-danger mb-3&quot;&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#home-b2&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-home fs-lg me-md-1 align-middle&quot;&gt;&lt;/i&gt;
+                                                    &lt;span class=&quot;d-none d-md-inline-block align-middle&quot;&gt;Home&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#profile-b2&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;true&quot; class=&quot;nav-link active&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-user-circle fs-lg me-md-1 align-middle&quot;&gt;&lt;/i&gt;
+                                                    &lt;span class=&quot;d-none d-md-inline-block align-middle&quot;&gt;Profile&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#settings-b2&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-settings fs-lg me-md-1 align-middle&quot;&gt;&lt;/i&gt;
+                                                    &lt;span class=&quot;d-none d-md-inline-block align-middle&quot;&gt;Settings&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#about-b2&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-info-circle fs-lg me-md-1 align-middle&quot;&gt;&lt;/i&gt;
+                                                    &lt;span class=&quot;d-none d-md-inline-block align-middle&quot;&gt;About&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+        
+                                        &lt;div class=&quot;tab-content&quot;&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;home-b2&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane show active&quot; id=&quot;profile-b2&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;settings-b2&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;about-b2&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </code>           
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code -->
+
+                            <div class="card-body">
+                                <p class="text-muted">
+                                    You can add the <code>.nav-bordered-*</code> class to the <code>.nav</code> element to apply colored border styles.
+                                </p>
+
+                                <ul class="nav nav-tabs nav-justified nav-bordered nav-bordered-danger mb-3">
+                                    <li class="nav-item">
+                                        <a href="#home-b2" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-home fs-lg me-md-1 align-middle"></i>
+                                            <span class="d-none d-md-inline-block align-middle">Home</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#profile-b2" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                            <i class="ti ti-user-circle fs-lg me-md-1 align-middle"></i>
+                                            <span class="d-none d-md-inline-block align-middle">Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#settings-b2" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-settings fs-lg me-md-1 align-middle"></i>
+                                            <span class="d-none d-md-inline-block align-middle">Settings</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#about-b2" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-info-circle fs-lg me-md-1 align-middle"></i>
+                                            <span class="d-none d-md-inline-block align-middle">About</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="home-b2">
+                                        <p class="mb-0">Welcome to our online platform! Our goal is to offer a wide variety of products and services that meet the needs of modern living. From cutting-edge technology to home decor solutions, we ensure that every product enhances your lifestyle and makes your life easier.</p>
+                                    </div>
+                                    <div class="tab-pane show active" id="profile-b2">
+                                        <p class="mb-0">Hi there! I'm an avid explorer with a passion for technology, fitness, and continuous learning. I enjoy meeting like-minded individuals and believe in expanding my knowledge on diverse subjects, from the latest gadgets to personal development.</p>
+                                    </div>
+                                    <div class="tab-pane" id="settings-b2">
+                                        <p class="mb-0">In the center of the city stands a quiet, charming bookstore that offers a peaceful retreat. Surrounded by vibrant streets, it provides a calm, inviting atmosphere for readers to lose themselves in books while enjoying a cup of coffee in the cozy corner.</p>
+                                    </div>
+                                    <div class="tab-pane" id="about-b2">
+                                        <p class="mb-0">We are a forward-thinking company focused on creating innovative solutions that empower our customers. Our team is driven by creativity and a passion for delivering exceptional experiences through high-quality products and services that cater to a variety of needs.</p>
+                                    </div>
+                                </div>
+
+                            </div> <!-- end card body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Icons Tabs</h4>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#!" class="card-action-item" data-action="card-toggle"><i class="ti ti-chevron-up"></i></a>
+                                    <a href="#!" class="card-action-item" data-action="code-collapse"><i class="ti ti-code"></i></a>
+
+                                </div>
+                            </div>
+
+                            <div class="code-body">
+                                <pre>
+                                    <code class="language-markup">
+                                        &lt;ul class=&quot;nav nav-tabs nav-bordered nav-bordered-success mb-3&quot;&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#home-i1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-home fs-22 align-middle&quot;&gt;&lt;/i&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#profile-i1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;true&quot; class=&quot;nav-link active&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-user fs-22 align-middle&quot;&gt;&lt;/i&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#settings-i1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-settings fs-22 align-middle&quot;&gt;&lt;/i&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#about-i1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-info-circle fs-22 align-middle&quot;&gt;&lt;/i&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#projects-i1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-briefcase fs-22 align-middle&quot;&gt;&lt;/i&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class=&quot;nav-item&quot;&gt;
+                                                &lt;a href=&quot;#contact-i1&quot; data-bs-toggle=&quot;tab&quot; aria-expanded=&quot;false&quot; class=&quot;nav-link&quot;&gt;
+                                                    &lt;i class=&quot;ti ti-mail fs-22 align-middle&quot;&gt;&lt;/i&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+        
+                                        &lt;div class=&quot;tab-content&quot;&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;home-i1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane show active&quot; id=&quot;profile-i1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;settings-i1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;about-i1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;projects-i1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;tab-pane&quot; id=&quot;contact-i1&quot;&gt;
+                                                &lt;p class=&quot;mb-0&quot;&gt;...&lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </code>            
+                                </pre> <!-- end highlight-->
+                            </div> <!-- end preview code -->
+
+                            <div class="card-body">
+                                <p class="text-muted">
+                                    The navigation item can have a simple bottom border as well. Just specify the class <code>.nav-bordered</code>.
+                                </p>
+                                <ul class="nav nav-tabs nav-bordered nav-bordered-success mb-3">
+                                    <li class="nav-item">
+                                        <a href="#home-i1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-home fs-22 align-middle"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#profile-i1" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                            <i class="ti ti-user fs-22 align-middle"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#settings-i1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-settings fs-22 align-middle"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#about-i1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-info-circle fs-22 align-middle"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#projects-i1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-briefcase fs-22 align-middle"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#contact-i1" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-mail fs-22 align-middle"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="home-i1">
+                                        <p class="mb-0">Discover our platform designed to make your daily life easier. From modern interiors to smart home gadgets, our curated selection is tailored for comfort, functionality, and style.</p>
+                                    </div>
+                                    <div class="tab-pane show active" id="profile-i1">
+                                        <p class="mb-0">Hello! I’m a creative thinker who thrives on innovation and meaningful connections. I enjoy exploring tech trends, reading insightful books, and traveling to experience new cultures and cuisines.</p>
+                                    </div>
+                                    <div class="tab-pane" id="settings-i1">
+                                        <p class="mb-0">A peaceful workspace can make all the difference. That’s why we offer customizable setups, soundproofing tips, and productivity tools to help you stay focused and inspired every day.</p>
+                                    </div>
+                                    <div class="tab-pane" id="about-i1">
+                                        <p class="mb-0">We’re a team of innovators passionate about creating seamless experiences. Our mission is to deliver solutions that merge design, functionality, and purpose in every project we undertake.</p>
+                                    </div>
+                                    <div class="tab-pane" id="projects-i1">
+                                        <p class="mb-0">Our recent projects range from mobile app development to full-scale branding initiatives. We believe in data-driven strategies paired with creative storytelling to drive results.</p>
+                                    </div>
+                                    <div class="tab-pane" id="contact-i1">
+                                        <p class="mb-0">Have questions or ideas? We'd love to hear from you! Reach out through our contact form, social media, or drop by our office for a chat over coffee.</p>
+                                    </div>
+                                </div>
+
+                            </div> <!-- end card body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+
+                    <div class="col-xxl-6">
+                        <div class="card">
+                            <div class="card-header card-tabs d-flex align-items-center">
+                                <div class="flex-grow-1">
+                                    <h4 class="card-title">Card with Tabs</h4>
+                                </div>
+                                <ul class="nav nav-tabs nav-justified card-header-tabs nav-bordered">
+                                    <li class="nav-item">
+                                        <a href="#home-ct" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-home d-md-none d-block"></i>
+                                            <span class="d-none d-md-block">Summary</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#profile-ct" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                            <i class="ti ti-user-circle d-md-none d-block"></i>
+                                            <span class="d-none d-md-block">Accounts</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#settings-ct" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                            <i class="ti ti-settings d-md-none d-block"></i>
+                                            <span class="d-none d-md-block">Settings</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane" id="home-ct">
+                                        <p class="mb-0">
+                                            Welcome to your financial dashboard. Here, you can monitor real-time updates on your income, expenses, savings, and investments. Our tools are designed to help you make informed decisions and achieve your financial goals faster.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane show active" id="profile-ct">
+                                        <p class="mb-0">
+                                            View and manage all your bank accounts, credit cards, and loan details in one place. Link your financial institutions securely and keep track of balances, transactions, and payment schedules with ease.
+                                        </p>
+                                    </div>
+                                    <div class="tab-pane" id="settings-ct">
+                                        <p class="mb-0">
+                                            Customize your preferences including budgeting alerts, currency format, report frequency, and security settings. Enable multi-factor authentication and choose how you'd like to receive account activity notifications.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card -->
+
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+            </div> <!-- container -->
+
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start">
+                            Copyright © 2025 - Secretaria Geral de Governo de Goiás - Todos os direitos reservados. 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end d-none d-md-block">
+                                10GB of <span class="fw-bold">250GB</span> Free.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End of Main Content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Theme Settings -->
+    <div class="offcanvas offcanvas-end overflow-hidden" tabindex="-1" id="theme-settings-offcanvas">
+        <div class="d-flex justify-content-between text-bg-primary gap-2 p-3" style="background-image: url(assets/images/user-bg-pattern.png);">
+            <div>
+                <h5 class="mb-1 fw-bold text-white text-uppercase">Admin Customizer</h5>
+                <p class="text-white text-opacity-75 fst-italic fw-medium mb-0">Easily configure layout, styles, and preferences for your admin interface.</p>
+            </div>
+
+            <div class="flex-grow-0">
+                <button type="button" class="d-block btn btn-sm bg-white bg-opacity-25 text-white rounded-circle btn-icon" data-bs-dismiss="offcanvas"><i class="ti ti-x fs-lg"></i></button>
+            </div>
+        </div>
+
+        <div class="offcanvas-body p-0 h-100" data-simplebar>
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Select Theme</h5>
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-classic" value="classic">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-classic">
+                                <img src="assets/images/layouts/themes/theme-classic.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Classic</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-material" value="material">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-material">
+                                <img src="assets/images/layouts/themes/theme-material.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Material</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-modern" value="modern">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-modern">
+                                <img src="assets/images/layouts/themes/theme-modern.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Modern</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-saas" value="saas">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-saas">
+                                <img src="assets/images/layouts/themes/theme-saas.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">SaaS</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-flat" value="flat">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-flat">
+                                <img src="assets/images/layouts/themes/theme-flat.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Flat</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-skin" id="demo-skin-minimal" value="minimal">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-minimal">
+                                <img src="assets/images/layouts/themes/theme-minimal.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Minimal</h5>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-check card-radio pe-none">
+                            <input class="form-check-input" disabled type="radio" name="data-skin" id="demo-skin-galaxy" value="galaxy">
+                            <label class="form-check-label p-0 w-100" for="demo-skin-galaxy">
+                                <img src="assets/images/layouts/themes/theme-galaxy.png" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Galaxy</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Color Scheme</h5>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="layout-color-light">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="layout-color-dark">
+                                <img src="assets/images/layouts/dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-bs-theme" id="layout-color-system" value="system">
+                            <label class="form-check-label p-0 w-100" for="layout-color-system">
+                                <img src="assets/images/layouts/system.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">System</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Topbar Color</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-light">
+                                <img src="assets/images/layouts/topbar-light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-dark">
+                                <img src="assets/images/layouts/topbar-dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-gray" value="gray">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-gray">
+                                <img src="assets/images/layouts/topbar-gray.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check card-radio">
+                            <input class="form-check-input" type="radio" name="data-topbar-color" id="topbar-color-gradient" value="gradient">
+                            <label class="form-check-label p-0 w-100" for="topbar-color-gradient">
+                                <img src="assets/images/layouts/topbar-gradient.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gradient</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Sidenav Color</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-light" value="light">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-light">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Light</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-dark" value="dark">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-dark">
+                                <img src="assets/images/layouts/side-dark.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-gray" value="gray">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-gray">
+                                <img src="assets/images/layouts/side-gray.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-gradient" value="gradient">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-gradient">
+                                <img src="assets/images/layouts/side-gradient.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gradient</h5>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-menu-color" id="sidenav-color-image" value="image">
+                            <label class="form-check-label p-0 w-100" for="sidenav-color-image">
+                                <img src="assets/images/layouts/side-image.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="fs-sm text-center text-muted mt-2 mb-0">Image</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <h5 class="mb-3 fw-bold">Sidebar Size</h5>
+
+                <div class="row g-3">
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-default" value="default">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-default">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Default</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-compact" value="compact">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-compact">
+                                <img src="assets/images/layouts/sidebar-compact.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Compact</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small" value="condensed">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small">
+                                <img src="assets/images/layouts/sidebar-sm.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Condensed</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small-hover" value="on-hover">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small-hover">
+                                <img src="assets/images/layouts/sidebar-sm.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">On Hover</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-small-hover-active" value="on-hover-active">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-small-hover-active">
+                                <img src="assets/images/layouts/light.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 fs-base text-center text-muted mt-2">On Hover - Show</h5>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-check sidebar-setting card-radio">
+                            <input class="form-check-input" type="radio" name="data-sidenav-size" id="sidenav-size-offcanvas" value="offcanvas">
+                            <label class="form-check-label p-0 w-100" for="sidenav-size-offcanvas">
+                                <img src="assets/images/layouts/sidebar-full.svg" alt="layout-img" class="img-fluid">
+                            </label>
+                        </div>
+                        <h5 class="mb-0 text-center text-muted mt-2">Offcanvas</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-bottom border-dashed">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">Layout Position</h5>
+
+                    <div class="btn-group radio" role="group">
+                        <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-fixed" value="fixed">
+                        <label class="btn btn-sm btn-soft-warning w-sm" for="layout-position-fixed">Fixed</label>
+
+                        <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-scrollable" value="scrollable">
+                        <label class="btn btn-sm btn-soft-warning w-sm ms-0" for="layout-position-scrollable">Scrollable</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><label class="fw-bold m-0" for="sidebaruser-check">Sidebar User Info</label></h5>
+                
+                    <div class="form-check form-switch fs-lg">
+                        <input type="checkbox" class="form-check-input" name="sidebar-user" id="sidebaruser-check">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas-footer border-top p-3 text-center">
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" class="btn btn-light fw-semibold py-2 w-100" id="reset-layout">Reset</button>
+                </div>
+                <div class="col-6">
+                    <a href="https://wrapbootstrap.com/theme/inspinia-multipurpose-admin-dashboard-template-WB0R5L90S?ref=inspinia" target="_blank" class="btn btn-danger bg-gradient py-2 fw-semibold w-100">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendors.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

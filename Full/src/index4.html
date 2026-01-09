@@ -1,0 +1,57 @@
+﻿@@include('./partials/html.html')
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Portifólio 2025"})
+
+    @@include('./partials/head-css.html')
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        @@include('./partials/menu.html')
+
+        <!-- ============================================================== -->
+        <!-- Start Main Content -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+
+            <div class="container-fluid">
+                
+                @@include("./partials/page-title.html", {"subtitle": "Painéis", "title":"Portifólio 2025"})
+
+                <div class="row justify-content-center">
+                    <div class="col-xxl-9">
+                        <div class="row justify-content-center my-4">
+                            <div class="col-lg-5 col-md-8">
+                                <div class="text-center">
+                                    <h3 class="fw-bold mb-4">Será implementado posteriormente</h3>        
+                                </div>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- container -->
+
+            @@include('./partials/footer.html')
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End of Main Content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    @@include('./partials/customizer.html')
+
+    @@include('./partials/footer-scripts.html')
+
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+﻿@@include('./partials/html.html')
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Órgão"})
+
+    <!-- Select2 Plugin CSS -->
+    <link rel="stylesheet" href="assets/plugins/select2/select2.min.css">
+
+    @@include('./partials/head-css.html')
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        @@include('./partials/menu.html')
+
+        <!-- ============================================================== -->
+        <!-- Start Main Content -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+
+            <div class="container-fluid">
+
+                @@include("./partials/page-title.html", {"subtitle": "Gestão de usuário", "title":"Órgão"})
+
+                <div class="row">
+                    <div class="col-12">
+                        <div data-table data-table-rows-per-page="8" class="card">
+                            <div class="card-header border-light">
+                                <div class="d-flex gap-2 align-items-center" style="width: 100%;">
+                                    <!-- Órgão Filter -->
+                                    <div class="app-search" style="flex: 1 1 auto; min-width: 0;">
+                                        <select data-table-filter="category"
+                                            class="form-select form-control my-1 my-md-0">
+                                            <option value="" selected disabled hidden>Escolha um órgão</option>
+                                            <option value="All">Todos</option>
+                                            <option value="SEAD">SEAD</option>
+                                            <option value="SEDUC">SEDUC</option>
+                                            <option value="SEINFRA">SEINFRA</option>
+                                            <option value="SES">SES</option>
+                                            <option value="GOINFRA">GOINFRA</option>
+                                        </select>
+                                        <i data-lucide="search" class="app-search-icon text-muted"></i>
+                                    </div>
+
+                                    <!-- Search -->
+                                    <div class="app-search" style="flex: 1 1 auto; min-width: 0;">
+                                        <input data-table-search type="search" class="form-control"
+                                            placeholder="Digite um nome de usuário" style="width: 100%;">
+                                        <i data-lucide="search" class="app-search-icon text-muted"></i>
+                                    </div>
+
+                                    <a href="#!" class="btn btn-primary flex-shrink-0" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                                        Novo usuário
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-custom table-centered table-select table-hover w-100 mb-0">
+                                    <thead class="bg-light align-middle bg-opacity-25 thead-sm">
+                                        <tr class="text-uppercase fs-xxs">
+
+                                            <th data-column="name" data-table-sort>Nome completo</th>
+                                            <th data-column="cpf" data-table-sort>CPF</th>
+
+                                            <!-- importante: precisa casar com data-table-filter="category" -->
+                                            <th data-column="category" data-table-sort>Órgão</th>
+
+                                            <th data-column="status" data-table-sort>Status</th>
+                                            <th class="text-center" style="width: 1%;">Ações</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <!-- 1 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Felipe Santiago</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">123.456.789-00</h5>
+                                            </td>
+                                            <td>STI</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle">
+                                                        <i class="ti ti-trash fs-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 2 (corrigido + data-table-delete-row) -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Mariana Alves</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">234.567.890-11</h5>
+                                            </td>
+                                            <td>SEDUC</td>
+                                            <td><span class="badge badge-soft-danger fs-xxs">Inativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle">
+                                                        <i class="ti ti-trash fs-lg"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 3 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">João Pereira</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">345.678.901-22</h5>
+                                            </td>
+                                            <td>SEINFRA</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1"><a href="#"
+                                                        data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle"><i
+                                                            class="ti ti-trash fs-lg"></i></a></div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 4 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Ana Costa</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">456.789.012-33</h5>
+                                            </td>
+                                            <td>SES</td>
+                                            <td><span class="badge badge-soft-danger fs-xxs">Inativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1">
+                                                    <a href="#" data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle">
+                                                        <i class="ti ti-trash fs-lg">
+
+                                                        </i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 5 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Lucas Rocha</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">567.890.123-44</h5>
+                                            </td>
+                                            <td>SEAD</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1"><a href="#"
+                                                        data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle"><i
+                                                            class="ti ti-trash fs-lg"></i></a></div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 6 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Paula Mendes</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">678.901.234-55</h5>
+                                            </td>
+                                            <td>SEDUC</td>
+                                            <td><span class="badge badge-soft-danger fs-xxs">Inativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1"><a href="#"
+                                                        data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle"><i
+                                                            class="ti ti-trash fs-lg"></i></a></div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 7 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Rafael Nogueira</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">789.012.345-66</h5>
+                                            </td>
+                                            <td>GOINFRA</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1"><a href="#"
+                                                        data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle"><i
+                                                            class="ti ti-trash fs-lg"></i></a></div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 8 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Camila Duarte</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">890.123.456-77</h5>
+                                            </td>
+                                            <td>SEINFRA</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1"><a href="#"
+                                                        data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle"><i
+                                                            class="ti ti-trash fs-lg"></i></a></div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 9 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Bruno Azevedo</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">901.234.567-88</h5>
+                                            </td>
+                                            <td>SES</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1"><a href="#"
+                                                        data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle"><i
+                                                            class="ti ti-trash fs-lg"></i></a></div>
+                                            </td>
+                                        </tr>
+
+                                        <!-- 10 -->
+                                        <tr>
+
+                                            <td>
+                                                <h5 class="mb-0"><a href="#" class="link-reset">Juliana Pires</a></h5>
+                                            </td>
+                                            <td>
+                                                <h5 class="fs-base mb-0 fw-medium">012.345.678-99</h5>
+                                            </td>
+                                            <td>SEAD</td>
+                                            <td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>
+                                            <td>
+                                                <div class="d-flex justify-content-center gap-1"><a href="#"
+                                                        data-table-delete-row
+                                                        class="btn btn-light btn-icon btn-sm rounded-circle"><i
+                                                            class="ti ti-trash fs-lg"></i></a></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="card-footer border-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <!-- Alterado para "resultados" -->
+                                    <div data-table-pagination-info="resultados"></div>
+                                    <div data-table-pagination></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+            </div>
+            <!-- container -->
+
+            @@include('./partials/footer.html')
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End of Main Content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Novo Usuário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="select2BasicExample" class="col-form-label">Usuário</label>
+                            <select id="select2BasicExample" class="form-control select2" data-toggle="select2">
+                                <option value="" selected disabled hidden>Selecione um usuário</option>
+                                <option value="Felipe Santiago" data-cpf="123.456.789-00">Felipe Santiago</option>
+                                <option value="Mariana Alves" data-cpf="234.567.890-11">Mariana Alves</option>
+                                <option value="JoÆo Pereira" data-cpf="345.678.901-22">João Pereira</option>
+                                <option value="Ana Costa" data-cpf="456.789.012-33">Ana Costa</option>
+                                <option value="Lucas Rocha" data-cpf="567.890.123-44">Lucas Rocha</option>
+                                <option value="Paula Mendes" data-cpf="678.901.234-55">Paula Mendes</option>
+                                <option value="Rafael Nogueira" data-cpf="789.012.345-66">Rafael Nogueira</option>
+                                <option value="Camila Duarte" data-cpf="890.123.456-77">Camila Duarte</option>
+                                <option value="Bruno Azevedo" data-cpf="901.234.567-88">Bruno Azevedo</option>
+                                <option value="Juliana Pires" data-cpf="012.345.678-99">Juliana Pires</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cpf-field" class="col-form-label">CPF</label>
+                            <input type="text" class="form-control" id="cpf-field" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="orgao-select" class="col-form-label">Orgão</label>
+                            <select id="orgao-select" class="form-select form-control">
+                                <option value="" selected disabled hidden>Escolha um orgao</option>
+                                <option value="SEAD">SEAD</option>
+                                <option value="SEDUC">SEDUC</option>
+                                <option value="SEINFRA">SEINFRA</option>
+                                <option value="SES">SES</option>
+                                <option value="GOINFRA">GOINFRA</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="save-user-btn">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END wrapper -->
+
+    @@include('./partials/customizer.html')
+
+    @@include('./partials/footer-scripts.html')
+
+    <!-- Custom table -->
+    <script src="assets/js/pages/custom-table.js"></script>
+    <script src="assets/js/pages/form-select2.js"></script>
+    <script>
+        (function () {
+            var personSelect = document.getElementById("select2BasicExample");
+            var cpfField = document.getElementById("cpf-field");
+            var orgaoSelect = document.getElementById("orgao-select");
+            var saveButton = document.getElementById("save-user-btn");
+            var tableBody = document.querySelector("table.table tbody");
+
+            if (!personSelect || !cpfField || !orgaoSelect || !saveButton || !tableBody) {
+                return;
+            }
+
+            personSelect.addEventListener("change", function () {
+                var selected = personSelect.options[personSelect.selectedIndex];
+                var fullCpf = selected ? selected.getAttribute("data-cpf") || "" : "";
+                cpfField.value = fullCpf ? maskCpf(fullCpf) : "";
+                cpfField.setAttribute("data-full-cpf", fullCpf);
+            });
+
+            saveButton.addEventListener("click", function () {
+                var selected = personSelect.options[personSelect.selectedIndex];
+                var name = selected && selected.value ? selected.value : "";
+                var cpf = cpfField.getAttribute("data-full-cpf") || "";
+                var orgao = orgaoSelect.value || "";
+
+                if (!name || !cpf || !orgao) {
+                    return;
+                }
+
+                var row = document.createElement("tr");
+                row.innerHTML = [
+                    '<td><h5 class="mb-0"><a href="#" class="link-reset">' + name + "</a></h5></td>",
+                    '<td><h5 class="fs-base mb-0 fw-medium">' + cpf + "</h5></td>",
+                    "<td>" + orgao + "</td>",
+                    '<td><span class="badge badge-soft-success fs-xxs">Ativo</span></td>',
+                    '<td><div class="d-flex justify-content-center gap-1">',
+                    '<a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle">',
+                    '<i class="ti ti-trash fs-lg"></i>',
+                    "</a>",
+                    "</div></td>"
+                ].join("");
+
+                tableBody.appendChild(row);
+
+                personSelect.selectedIndex = 0;
+                cpfField.value = "";
+                cpfField.removeAttribute("data-full-cpf");
+                orgaoSelect.selectedIndex = 0;
+
+                var modalEl = document.getElementById("exampleModal");
+                if (modalEl && window.bootstrap && window.bootstrap.Modal) {
+                    var modalInstance = window.bootstrap.Modal.getInstance(modalEl) || new window.bootstrap.Modal(modalEl);
+                    modalInstance.hide();
+                }
+            });
+
+            function maskCpf(value) {
+                var digits = value.replace(/\D/g, "");
+                if (digits.length < 3) {
+                    return value;
+                }
+
+                var prefix = digits.slice(0, 3);
+                return prefix + ".***.***-**";
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
