@@ -192,7 +192,7 @@ const rtl = function () {
 
 // live browser loading
 const initBrowserSync = function (done) {
-    const startPath = "/index.html";
+    const startPath = "/auth-sign-in.html";
     browsersync.init({
         startPath: startPath,
         server: {
