@@ -1,442 +1,73 @@
 @@include('./partials/html.html')
 
 <head>
-    @@include("./partials/title-meta.html", {"title": "Portal de projetos"})
+    @@include("./partials/title-meta.html", {"title": "Página inicial"})
 
     @@include('./partials/head-css.html')
 </head>
 
 <body>
-    <!-- Begin page -->
-    <div class="wrapper">
 
-        @@include('./partials/menu.html')
-
-        <!-- ============================================================== -->
-        <!-- Start Main Content -->
-        <!-- ============================================================== -->
-
-        <div class="content-page">
-            <div class="container-fluid">
-                @@include("./partials/page-title.html", {"title":"Portal de projetos"})
-                <div class="row">
-                    <!-- Todos os projetos -->
-                    <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h3 class="mb-1"><span data-target="100">0</span></i></span></h3>
-                                    <p class="mb-0 text-muted">Todos os projetos</p>
-                                </div>
-                                <div class="avatar-xl">
-                                    <span class="avatar-title rounded-circle" style="background-color: #EEF2F7;">
-                                        <i class="ti ti-file-text fs-2" style="color: #313A46;"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+    <div class="auth-box overflow-hidden align-items-center d-flex">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-4 col-md-6 col-sm-8">
+                    <div class="auth-brand text-center mb-4">
+                        <a href="home.html" class="logo-dark">
+                            <img src="assets/images/logo-black.png" alt="dark logo" height="32">
+                        </a>
+                        <a href="home.html" class="logo-light">
+                            <img src="assets/images/logo.png" alt="logo" height="32">
+                        </a>
+                        <h4 class="fw-bold mt-3">Seja bem vindo ao GOMAP</h4>
+                        <p class="text-muted w-lg-75 mx-auto">Insirá seu e-mail e senha para continuar para o portal.</p>
                     </div>
-                    <!-- Favoritos -->
-                    <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h3 class="mb-1"><span>1</span> </span></h3>
-                                    <p class="mb-0 text-muted">Favoritos</p>
-                                </div>
-                                <div class="avatar-xl">
-                                    <span class="avatar-title rounded-circle" style="background-color: #FEF3E6;">
-                                        <i class="ti ti-file-certificate fs-2" style="color: #F8AC59;"></i>
-                                    </span>
+    
+                    <div class="card p-4 rounded-4">
+                        <form action="home.html">
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label">E-mail<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="email" class="form-control" id="userEmail" placeholder="nome.sobrenome@email.com" required>
                                 </div>
                             </div>
-                        </div>
+    
+                            <div class="mb-3">
+                                <label for="userPassword" class="form-label">Senha <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="userPassword" placeholder="••••••••" required>
+                                </div>
+                            </div>
+    
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input form-check-input-light fs-14" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Lembrar senha</label>
+                                </div>
+                                <a href="auth-reset-pass.html" class="text-decoration-underline link-offset-3 text-muted">Esqueci minha senha?</a>
+                            </div>
+    
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary fw-semibold py-2">Entrar</button>
+                            </div>
+                        </form>
+    
+                        <p class="text-muted text-center mt-4 mb-0">
+                            Não tem conta? <a href="auth-sign-up.html" class="text-decoration-underline link-offset-3 fw-semibold">Criar conta agora</a>
+                        </p>
                     </div>
-                    <!-- Iniciação -->
-                    <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h3 class="mb-1"><span >1</span> </span></h3>
-                                    <p class="mb-0 text-muted">Iniciação</p>
-                                </div>
-                                <div class="avatar-xl">
-                                    <span class="avatar-title rounded-circle" style="background-color: #D3F4F4;">
-                                        <i class="ti ti-file-text fs-2" style="color: #23C6C8;"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Planejamento -->
-                    <div class="col g-2">
-                        <div class="p-3 rounded m-1 border border-dashed">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h3 class="mb-1"><span>1</span> </span></h3>
-                                    <p class="mb-0 text-muted">Planejamento</p>
-                                </div>
-                                <div class="avatar-xl">
-                                    <span class="avatar-title rounded-circle" style="background-color: #DAF8EF;">
-                                        <i class="ti ti-file-time fs-2" style="color: #0ACF97;"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>   
-                    <!-- Execução -->
-                    <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h3 class="mb-1"><span>1</span> </span></h3>
-                                    <p class="mb-0 text-muted">Execução</p>
-                                </div>
-                                <div class="avatar-xl">
-                                    <span class="avatar-title rounded-circle" style="background-color: #DDEDF6;">
-                                        <i class="ti ti-file-analytics fs-2" style="color: #1C84C6;"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Encerramento -->
-                    <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h3 class="mb-1"><span>1</span> </span></h3>
-                                    <p class="mb-0 text-muted">Encerramento</p>
-                                </div>
-                                <div class="avatar-xl">
-                                    <span class="avatar-title rounded-circle" style="background-color: #EBEAFD;">
-                                        <i class="ti ti-file-check fs-2" style="color: #7B70EF;"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>     
-                    <!-- Pontos de Atenção -->
-                    <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h3 class="mb-1"><span>1</span> </span></h3>
-                                    <p class="mb-0 text-muted">Pontos de Atenção</p>
-                                </div>
-                                <div class="avatar-xl">
-                                    <span class="avatar-title rounded-circle" style="background-color: #FCE6E8;">
-                                        <i class="ti ti-file-alert fs-2" style="color: #ED5565;"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>   
-                </div><!-- end row -->
-                <div class="row">
-                    <div >
-                        <div data-table data-table-rows-per-page="8" class="card">
-                            <div class="card-header border-light">
-                                <div class="d-flex gap-2 align-items-center" style="width: 100%;">
-                                    <div class="app-search" style="flex: 1 1 auto; min-width: 0;">
-                                        <input data-table-search type="search" class="form-control" placeholder="Digite um projeto ou ID" style="width: 100%;">
-                                        <i data-lucide="search" class="app-search-icon text-muted"></i>
-                                    </div>
-                                    <button data-table-delete-selected class="btn btn-danger d-none">Delete</button>
-                                    <a href="#!" class="btn btn-primary flex-shrink-0">
-                                         Filtros
-                                    </a>
-                                </div>
-                            </div>
+    
+                    <p class="text-center text-muted mt-4 mb-0">
+                        Copyright © 2025 - <script>document.write(new Date().getFullYear())</script> Secretaria Geral de Governo de Goiás <span class="fw-semibold">- Todos os direitos reservados</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
-                            <div class="table-responsive">
-                                <table class="table table-custom table-centered table-select table-hover w-100 mb-0">
-                                    <thead class="bg-light align-middle bg-opacity-25 thead-sm">
-                                        <tr class="text-uppercase fs-xxs">
-                                            <th data-table-sort="product">Projeto</th>
-                                            <th data-table-sort>Programa</th>
-                                            <th data-table-sort>Órgão</th>
-                                            <th data-table-sort>Situação</th>
-                                            <th data-table-sort>Progresso</th>
-                                            <th data-table-sort>Data conclusão</th>
-                                            <th data-table-sort data-column="status">Cronograma</th>
-                                            <th class="text-center" style="width: 1%;">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr href="index6.html">
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="index6.html" class="text-body">Integração de Sistemas de Pagamento Digital</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Governo Digital</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium d-inline-flex align-items-center gap-1">
-                                                    SEAD 
-                                                    <span class="badge badge-soft-primary fs-xxs cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="SEAD, SEDUC, SEINFRA, SECTI">+4</span>
-                                                </h5>
-                                            </td>
-                                            <td>Em andamento</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>14/02/2026</td>
-                                            <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="#" class="text-body">Construção de Escola Modelo</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Educação Básica</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium">SEDUC</h5>
-                                            </td>
-                                            <td>Planejamento</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>20/04/2025</td>
-                                            <td><span class="badge badge-soft-warning fs-xxs">Atrasado</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="#" class="text-body">Revitalização do Parque Central</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Urbanismo</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium">SEINFRA</h5>
-                                            </td>
-                                            <td>Em andamento</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>22/02/2026</td>
-                                            <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="#" class="text-body">Construção de Unidade de Saúde</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Saúde Pública</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium">SES</h5>
-                                            </td>
-                                            <td>Em andamento</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>25/02/2026</td>
-                                            <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="#" class="text-body">Pavimentação Região Norte</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Infraestrutura Viária</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium">GOINFRA</h5>
-                                            </td>
-                                            <td>Em andamento</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>27/02/2026</td>
-                                            <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="#" class="text-body">Sistema de Monitoramento Urbano Inteligente</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Aquisição de Equipamentos</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium">SEGOV</h5>
-                                            </td>
-                                            <td>Concluído</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>30/04/2025</td>
-                                            <td><span class="badge badge-soft-warning fs-xxs">Atrasado</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="#" class="text-body">Modernização da Rede de Iluminação Pública</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Tecnologia e Inovação</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium">SECTI</h5>
-                                            </td>
-                                            <td>Em andamento</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>29/02/2026</td>
-                                            <td><span class="badge badge-soft-danger fs-xxs">Conclusão vencida</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div>
-                                                        <h5 class="fs-base my-1 mb-0">
-                                                            <a href="#" class="text-body">Plataforma Integrada de Serviços ao Cidadão</a>
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Modernização Administrativa</td>
-                                            <td>
-                                                <h5 class="fs-base mb-0 fw-medium">SEAD</h5>
-                                            </td>
-                                            <td>Planejamento</td>
-                                            <td>
-                                                <div class="progress progress-sm" style="height: 6px;">
-                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td>17/02/2026</td>
-                                            <td><span class="badge badge-soft-dark fs-xxs">Concluído</span></td>
-                                            <td>
-                                                <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-                            <div class="card-footer border-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div data-table-pagination-info="categories"></div>
-                                    <div data-table-pagination></div>
-                                </div>
-                            </div>
-                        </div>
-    <!-- END wrapper -->
-
-    @@include('./partials/customizer.html')
-
+    <!-- end auth-fluid-->
     @@include('./partials/footer-scripts.html')
-
-    <!-- E Charts js -->
-    <script src="assets/plugins/echarts/echarts.min.js"></script>
-
-    <!-- Dashboard Page js -->
-    <script src="assets/js/pages/dashboard.js"></script>
 
 </body>
 
