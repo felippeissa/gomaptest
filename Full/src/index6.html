@@ -1,7 +1,7 @@
 @@include('./partials/html.html')
 
 <head>
-    @@include("./partials/title-meta.html", {"title": "Portal de projetos"})
+    @@include("./partials/title-meta.html", {"title": "Visualizar"})
 
     @@include('./partials/head-css.html')
 </head>
@@ -18,569 +18,806 @@
 
         <div class="content-page">
             <div class="container-fluid p-0 min-vh-100">
-                
-                @@include("./partials/page-title.html", {"subtitle": "Projects", "title":"Project Overview"})
+
+                @@include("./partials/page-title.html", {"subtitle": "Portal de projetos", "title":"Visualizar projeto"})
 
                 <div class="row g-0 min-vh-100 w-100">
                     <div class="col-xxl-12">
-                        
-                            <!-- Project Main Details -->
-                            <div class="col-xxl-12">
-                                <div class="card card-h-100 rounded-0 rounded-start">
-                                    <div class="card-header align-items-start p-4">                                       
-                                        <div>
-                                            <h3 class="mb-1 d-flex fs-xl align-items-center">0006 - Integração de Sistemas de Pagamento</h3>
-                                            <span class="badge badge-soft-success fs-xxs badge-label">Em execução</span>
-                                            <span class="badge badge-soft-success fs-xxs badge-label">Em andamento</span>
-                                        </div>
-                                        <div class="ms-auto">
-                                            <a href="#" class="btn btn-light"><i class="ti ti-pencil me-1"></i> Edit</a>
+
+                        <!-- Project Main Details -->
+                        <div class="col-xxl-12">
+                            <div class="card card-h-100 rounded-0 rounded-start">
+                                <div class="card-header align-items-start p-4">
+                                    <div>
+                                        <h3 class="mb-1 d-flex fs-xl align-items-center">0006 - Integração de Sistemas de Pagamento</h3>
+                                        <span class="badge badge-soft-success fs-xxs badge-label">Em execução</span>
+                                        <span class="badge badge-soft-success fs-xxs badge-label">Em andamento</span>
+                                    </div>
+
+                                    <!-- Quick Actions -->
+                                    <div class="ms-auto">
+                                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Ações
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Editar</a>
+                                            <a class="dropdown-item" href="#">Favoritar</a>
+                                            <a class="dropdown-item" href="#">Compartilhar</a>
+                                            <a class="dropdown-item" href="#">EvA Chat</a>
+                                            <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Iniciar planejamento</a>
+                                            <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Gerar TAP</a>
                                         </div>
                                     </div>
-                                    <div class="card-body px-4">
-                                        <div class="mb-4">
-                                            <h5 class="fs-base mb-2">Project Description:</h5>
-                                            <p class="text-muted">This dashboard provides AI-powered insights and analytics for Starbucks business data. It includes sales performance, customer behavior, and predictive trends to assist in data-driven decision-making.</p>
-                                            <p class="text-muted">
-                                                Customizable reports and role-based dashboards ensure relevant insights for marketing teams, financial analysts, and executive decision-makers. The system is built with scalability and responsiveness in mind, supporting both desktop and mobile views for seamless access.
-                                            </p>
+                                </div>
+
+                                <div class="card-body px-4">
+                                    <!-- Tabs -->
+                                    <ul class="nav nav-tabs nav-bordered mb-3" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-overview" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Visão geral</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab-schedule" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Cronograma</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab-monitoring" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Monitoramento</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab-governance" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Governança</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab-funding" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Captação de recursos</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab-risks" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Riscos</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab-files" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Arquivos</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="tab" href="#tab-logbook" role="tab">
+                                                <span class="d-none d-md-inline-block align-middle">Diário de bordo</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+
+                                        <!-- ========================= -->
+                                        <!-- TAB: VISÃO GERAL (EXISTENTE) -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade show active" id="tab-overview" role="tabpanel">
+                                            <div class="row">
+                                                <!-- Card 1 -->
+                                                <div class="col px-0">
+                                                    <div class="p-3 rounded m-1 border border-dashed">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="avatar-xl">
+                                                                <span class="avatar-title rounded-circle" style="background-color: #EEF2F7;">
+                                                                    <i class="ti ti-file-text fs-2" style="color: #313A46;"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div>
+                                                                <h4 class="mb-1"><span>Situação do cronograma</span></h4>
+                                                                <span class="badge badge-label text-bg-light" style="border-radius: 4px;">Em construção</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 2 -->
+                                                <div class="col px-0">
+                                                    <div class="p-3 rounded m-1 border border-dashed">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="avatar-xl">
+                                                                <span class="avatar-title rounded-circle" style="background-color: #DDEDF6;">
+                                                                    <i class="ti ti-calendar fs-2" style="color: #1C84C6;"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div>
+                                                                <h4 class="mb-1"><span>Data de início</span></h4>
+                                                                <p class="mb-0 text-muted">04/08/2024</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 3 -->
+                                                <div class="col px-0">
+                                                    <div class="p-3 rounded m-1 border border-dashed">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="avatar-xl">
+                                                                <span class="avatar-title rounded-circle" style="background-color: #DDEDF6;">
+                                                                    <i class="ti ti-flag fs-2" style="color: #1C84C6;"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div>
+                                                                <h4 class="mb-1"><span>Previsão de conclusão</span></h4>
+                                                                <p class="mb-0 text-muted">04/08/2025</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 4 -->
+                                                <div class="col px-0">
+                                                    <div class="p-3 rounded m-1 border border-dashed">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="avatar-xl">
+                                                                <span class="avatar-title rounded-circle" style="background-color: #DDEDF6;">
+                                                                    <i class="ti ti-clock fs-2" style="color: #1C84C6;"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div>
+                                                                <h4 class="mb-1"><span>Dias restantes</span></h4>
+                                                                <p class="mb-0 text-muted">144 dias</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Card 5 -->
+                                                <div class="col px-0">
+                                                    <div class="p-3 rounded m-1 border border-dashed">
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="avatar-xl">
+                                                                <span class="avatar-title rounded-circle" style="background-color: #DDEDF6;">
+                                                                    <i class="ti ti-chart-bar fs-2" style="color: #1C84C6;"></i>
+                                                                </span>
+                                                            </div>
+                                                            <div class="flex-grow-1">
+                                                                <h4 class="mb-1"><span>Progresso físico</span></h4>
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <p class="text-muted mb-0"><span>50%</span></p>
+                                                                    <div class="progress bg-primary bg-opacity-25 progress-sm flex-grow-1 mb-0">
+                                                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 50%"
+                                                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div><!-- end row -->
                                         </div>
-                                        <div class="row mb-4">
-                                            <div class="col-md-4 col-xl-3">
-                                                <h6 class="mb-1 text-muted text-uppercase">Created Date:</h6>
-                                                <p class="fw-medium mb-0">March 15, 2025</p>
-                                            </div>
-                                            <div class="col-md-4 col-xl-3">
-                                                <h6 class="mb-1 text-muted text-uppercase">Deadline:</h6>
-                                                <p class="fw-medium mb-0">June 30, 2025</p>
-                                            </div>
-                                            <div class="col-md-4 col-xl-3">
-                                                <h6 class="mb-1 text-muted text-uppercase">Created By:</h6>
-                                                <p class="fw-medium mb-0">John Smith</p>
-                                            </div>
-                                            <div class="col-md-4 col-xl-3">
-                                                <h6 class="mb-1 text-muted text-uppercase">Client Name:</h6>
-                                                <p class="fw-medium mb-0">Starbucks Corporation</p>
-                                            </div>
-                                        </div>
-                
-                                        <!-- Tabs -->
-                                        <ul class="nav nav-tabs nav-bordered mb-3" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" data-bs-toggle="tab" href="#comments" role="tab">
-                                                    <i class="ti ti-message-circle fs-lg me-md-1 align-middle"></i>
-                                                    <span class="d-none d-md-inline-block align-middle">Comments</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#tasks" role="tab">
-                                                    <i class="ti ti-list-check fs-lg me-md-1 align-middle"></i>
-                                                    <span class="d-none d-md-inline-block align-middle">Task List</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#activity" role="tab">
-                                                    <i class="ti ti-activity fs-lg me-md-1 align-middle"></i>
-                                                    <span class="d-none d-md-inline-block align-middle">Activity</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade active show" id="comments" role="tabpanel">
-                                                <form action="#" class="mb-3">
-                                                    <div class="mb-3">
-                                                        <textarea class="form-control" id="form-control-textarea" rows="4" placeholder="Enter your messages..."></textarea>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <button type="submit" class="btn btn-secondary btn-sm">Comment <i class="ti ti-send-2 align-baseline ms-1"></i></button>
-                                                    </div>
-                                                </form>
 
-                                                <h4 class="mb-3 fs-md">Comments (15)</h4>
-
-                                                <div class="d-flex mb-2 border border-dashed rounded p-3">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="assets/images/users/user-8.jpg" alt="" class="avatar-sm rounded-circle shadow-sm">
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <h5 class="mb-1">Liam Carter <small class="text-muted">15 Apr 2025 · 09:20AM</small></h5>
-                                                        <p class="mb-2">Customers are reporting that the checkout page freezes after submitting their payment information.</p>
-                                                        <a href="javascript:void(0);" class="badge bg-light text-muted d-inline-flex align-items-center gap-1">
-                                                            <i class="ti ti-arrow-back-up fs-lg"></i> Reply
-                                                        </a>
-                                                
-                                                        <div class="d-flex mt-4">
-                                                            <div class="flex-shrink-0">
-                                                                <img src="assets/images/users/user-10.jpg" alt="" class="avatar-sm rounded-circle shadow-sm">
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2">
-                                                                <h5 class="mb-1">Nina Bryant <small class="text-muted">15 Apr 2025 · 11:47AM</small></h5>
-                                                                <p class="mb-2">That might be caused by the third-party payment gateway. I recommend testing in incognito mode and checking for any JS errors in the console.</p>
-                                                                <a href="javascript:void(0);" class="badge bg-light text-muted d-inline-flex align-items-center gap-1">
-                                                                    <i class="ti ti-arrow-back-up fs-lg"></i> Reply
-                                                                </a>
-                                                            </div>
-                                                        </div>
-        
-                                                        <div class="d-flex mt-4">
-                                                            <div class="flex-shrink-0">
-                                                                <img src="assets/images/users/user-3.jpg" alt="" class="avatar-sm rounded-circle shadow-sm">
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2">
-                                                                <h5 class="mb-1">Sophie Allen <small class="text-muted">16 Apr 2025 · 10:15AM</small></h5>
-                                                                <p class="mb-2">We’ve noticed this issue before when the CDN cache hasn't been cleared properly. Try purging the cache and reloading the page.</p>
-                                                                <a href="javascript:void(0);" class="badge bg-light text-muted d-inline-flex align-items-center gap-1">
-                                                                    <i class="ti ti-arrow-back-up fs-lg"></i> Reply
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="d-flex mb-2 border border-dashed rounded p-3">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="assets/images/users/user-6.jpg" alt="" class="avatar-sm rounded-circle shadow-sm">
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <h5 class="mb-1">Daniel West <small class="text-muted">14 Apr 2025 · 04:15PM</small></h5>
-                                                        <p class="mb-2">You can also clear the browser cache or try a different browser. We had a similar issue with Chrome extensions interfering before.</p>
-                                                        <a href="javascript:void(0);" class="badge bg-light text-muted d-inline-flex align-items-center gap-1">
-                                                            <i class="ti ti-arrow-back-up fs-lg"></i> Reply
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="d-flex mb-3 border border-dashed rounded p-3">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="assets/images/users/user-10.jpg" alt="" class="avatar-sm rounded-circle shadow-sm">
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-2">
-                                                        <h5 class="mb-1">Nina Bryant <small class="text-muted">16 Apr 2025 · 08:04AM</small></h5>
-                                                        <p>The <a href="javascript:void(0)" class="text-decoration-underline">System Status Page</a> has been updated. We're actively monitoring and will release a patch within 24 hours.</p>
-                                                        
-                                                        <a href="javascript:void(0);" class="badge bg-light text-muted d-inline-flex align-items-center gap-1">
-                                                            <i class="ti ti-arrow-back-up fs-lg"></i> Reply
-                                                        </a>
-                                                
-                                                        <div class="d-flex mt-4">
-                                                            <div class="flex-shrink-0">
-                                                                <img src="assets/images/users/user-6.jpg" alt="" class="avatar-sm rounded-circle shadow-sm">
-                                                            </div>
-                                                            <div class="flex-grow-1 ms-2">
-                                                                <h5 class="mb-1">Daniel West <small class="text-muted">16 Apr 2025 · 08:30AM</small></h5>
-                                                                <p>Thanks for the update! We'll notify the customers and let them know the issue is being resolved.</p>
-                                                                <a href="javascript:void(0);" class="badge bg-light text-muted d-inline-flex align-items-center gap-1">
-                                                                    <i class="ti ti-arrow-back-up fs-lg"></i> Reply
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-        
-                                                <ul class="pagination pagination-rounded pagination-boxed justify-content-center mb-0">
-                                                    <li class="page-item previous disabled"><a href="#" class="page-link"><i class="ti ti-chevron-left"></i></a></li>
-                                                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                                                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                                    <li class="page-item "><a href="#" class="page-link">3</a></li>
-                                                    <li class="page-item "><a href="#" class="page-link">...</a></li>
-                                                    <li class="page-item "><a href="#" class="page-link">5</a></li>
-                                                    <li class="page-item "><a href="#" class="page-link">6</a></li>
-                                                    <li class="page-item next"><a href="#"  class="page-link"><i class="ti ti-chevron-right"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <div class="tab-pane fade" id="tasks" role="tabpanel">
-                                                <div class="card mb-1">
-                                                    <div class="card-body p-2">
-                                                        <div class="row g-3 align-items-center justify-content-between">
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-xl" id="task2">
-                                                                    <a href="#!" data-bs-toggle="offcanvas" role="button" class="link-reset fw-medium">Finalize monthly performance report</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-3 justify-content-md-end">
-                                                                    <div class="d-flex align-items-center gap-1">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img src="assets/images/users/user-2.jpg" alt="avatar-2" class="img-fluid rounded-circle">
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="text-nowrap mb-0 lh-base"><a href="pages-profile.html" class="link-reset">Liam James</a></h5>
-                                                                        </div>
-                                                                    </div>
-                                                
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge text-bg-success badge-label">Completed</span>
-                                                                    </div>
-                                                
-                                                                    <ul class="list-inline fs-base text-end flex-shrink-0 mb-0">
-                                                                        <li class="list-inline-item">
-                                                                            <i class="ti ti-calendar text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-semibold">Yesterday</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-list-details text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">7/7</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-message text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">12</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card mb-1">
-                                                    <div class="card-body p-2">
-                                                        <div class="row g-3 align-items-center justify-content-between">
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-xl" id="task3">
-                                                                    <a href="#!" data-bs-toggle="offcanvas" role="button" class="link-reset fw-medium">Design wireframes for new onboarding flow</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-3 justify-content-md-end">
-                                                                    <div class="d-flex align-items-center gap-1">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img src="assets/images/users/user-4.jpg" alt="avatar-4" class="img-fluid rounded-circle">
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="text-nowrap mb-0 lh-base"><a href="pages-profile.html" class="link-reset">Sophia Lee</a></h5>
-                                                                        </div>
-                                                                    </div>
-                                                
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge text-bg-danger badge-label">Delayed</span>
-                                                                    </div>
-                                                
-                                                                    <ul class="list-inline fs-base text-end flex-shrink-0 mb-0">
-                                                                        <li class="list-inline-item">
-                                                                            <i class="ti ti-calendar text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-semibold">Tomorrow</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-list-details text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">2/5</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-message text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">7</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card mb-1">
-                                                    <div class="card-body p-2">
-                                                        <div class="row g-3 align-items-center justify-content-between">
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-xl" id="task4">
-                                                                    <a href="#!" data-bs-toggle="offcanvas" role="button" class="link-reset fw-medium">Update customer segmentation dashboard</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-3 justify-content-md-end">
-                                                                    <div class="d-flex align-items-center gap-1">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img src="assets/images/users/user-5.jpg" alt="avatar-5" class="img-fluid rounded-circle">
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="text-nowrap mb-0 lh-base"><a href="pages-profile.html" class="link-reset">Noah Carter</a></h5>
-                                                                        </div>
-                                                                    </div>
-                                                
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge text-bg-primary badge-label">Pending</span>
-                                                                    </div>
-                                                
-                                                                    <ul class="list-inline fs-base text-end flex-shrink-0 mb-0">
-                                                                        <li class="list-inline-item">
-                                                                            <i class="ti ti-calendar text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-semibold">Friday</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-list-details text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">0/4</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-message text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">3</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card mb-1">
-                                                    <div class="card-body p-2">
-                                                        <div class="row g-3 align-items-center justify-content-between">
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-xl" id="task5">
-                                                                    <a href="#!" data-bs-toggle="offcanvas" role="button" class="link-reset fw-medium">Conduct competitor analysis report</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-3 justify-content-md-end">
-                                                                    <div class="d-flex align-items-center gap-1">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img src="assets/images/users/user-6.jpg" alt="avatar-6" class="img-fluid rounded-circle">
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="text-nowrap mb-0 lh-base"><a href="pages-profile.html" class="link-reset">Emily Davis</a></h5>
-                                                                        </div>
-                                                                    </div>
-                                                
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge text-bg-warning badge-label">In Progress</span>
-                                                                    </div>
-                                                
-                                                                    <ul class="list-inline fs-base text-end flex-shrink-0 mb-0">
-                                                                        <li class="list-inline-item">
-                                                                            <i class="ti ti-calendar text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-semibold">Next Week</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-list-details text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">1/6</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-message text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">5</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card mb-1">
-                                                    <div class="card-body p-2">
-                                                        <div class="row g-3 align-items-center justify-content-between">
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-xl" id="task6">
-                                                                    <a href="#!" data-bs-toggle="offcanvas" role="button" class="link-reset fw-medium">Implement API for mobile integration</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-3 justify-content-md-end">
-                                                                    <div class="d-flex align-items-center gap-1">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img src="assets/images/users/user-7.jpg" alt="avatar-7" class="img-fluid rounded-circle">
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="text-nowrap mb-0 lh-base"><a href="pages-profile.html" class="link-reset">Lucas White</a></h5>
-                                                                        </div>
-                                                                    </div>
-                                                
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge text-bg-info badge-label">Review</span>
-                                                                    </div>
-                                                
-                                                                    <ul class="list-inline fs-base text-end flex-shrink-0 mb-0">
-                                                                        <li class="list-inline-item">
-                                                                            <i class="ti ti-calendar text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-semibold">Today</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-list-details text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">6/6</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-message text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">10</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card mb-1">
-                                                    <div class="card-body p-2">
-                                                        <div class="row g-3 align-items-center justify-content-between">
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-xl" id="task7">
-                                                                    <a href="#!" data-bs-toggle="offcanvas" role="button" class="link-reset fw-medium">QA testing for billing module</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-3 justify-content-md-end">
-                                                                    <div class="d-flex align-items-center gap-1">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img src="assets/images/users/user-8.jpg" alt="avatar-8" class="img-fluid rounded-circle">
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="text-nowrap mb-0 lh-base"><a href="pages-profile.html" class="link-reset">Olivia Martin</a></h5>
-                                                                        </div>
-                                                                    </div>
-                                                
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge text-bg-warning badge-label">In Progress</span>
-                                                                    </div>
-                                                
-                                                                    <ul class="list-inline fs-base text-end flex-shrink-0 mb-0">
-                                                                        <li class="list-inline-item">
-                                                                            <i class="ti ti-calendar text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-semibold">Monday</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-list-details text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">4/8</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-message text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">14</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="card mb-1">
-                                                    <div class="card-body p-2">
-                                                        <div class="row g-3 align-items-center justify-content-between">
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-2">
-                                                                    <input type="checkbox" class="form-check-input rounded-circle mt-0 fs-xl" id="task8">
-                                                                    <a href="#!" data-bs-toggle="offcanvas" role="button" class="link-reset fw-medium">Schedule product roadmap presentation</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="d-flex align-items-center gap-3 justify-content-md-end">
-                                                                    <div class="d-flex align-items-center gap-1">
-                                                                        <div class="avatar avatar-xs">
-                                                                            <img src="assets/images/users/user-9.jpg" alt="avatar-9" class="img-fluid rounded-circle">
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="text-nowrap mb-0 lh-base"><a href="pages-profile.html" class="link-reset">Ethan Moore</a></h5>
-                                                                        </div>
-                                                                    </div>
-                                                
-                                                                    <div class="flex-shrink-0">
-                                                                        <span class="badge text-bg-secondary badge-label">Planned</span>
-                                                                    </div>
-                                                
-                                                                    <ul class="list-inline fs-base text-end flex-shrink-0 mb-0">
-                                                                        <li class="list-inline-item">
-                                                                            <i class="ti ti-calendar text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-semibold">Next Month</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-list-details text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">0/1</span>
-                                                                        </li>
-                                                                        <li class="list-inline-item ms-1">
-                                                                            <i class="ti ti-message text-muted fs-lg me-1 align-middle"></i>
-                                                                            <span class="fw-medium">0</span>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="tab-pane fade" id="activity" role="tabpanel">
-
-                                                <div class="d-flex gap-1 border-bottom border-dashed pb-3">
-                                                    <div class="me-2 flex-shrink-0">
-                                                        <img src="assets/images/users/user-1.jpg" class="avatar-md rounded-circle" alt="">
-                                                    </div>
-                                                    <div class="flex-grow-1 text-muted">
-                                                        <span class="fw-medium text-body">Daniel Martinez</span> uploaded a revised contract file.
-                                                        <p class="fs-xs mb-0 text-body-secondary">Today 10:15 am - 24 Apr, 2025</p>
-                                                    </div>
-                                                    <p class="fs-xs text-body-secondary">5m ago</p>
-                                                </div>
-
-                                                <div class="d-flex gap-1 border-bottom border-dashed py-3">
-                                                    <div class="me-2 flex-shrink-0">
-                                                        <img src="assets/images/users/user-2.jpg" class="avatar-md rounded-circle" alt="">
-                                                    </div>
-                                                    <div class="flex-grow-1 text-muted">
-                                                        <span class="fw-medium text-body">Nina Patel</span> commented on your design update.
-                                                        <p class="fs-xs mb-0 text-body-secondary">Today 8:00 am - 24 Apr, 2025</p>
-                                                    </div>
-                                                    <p class="fs-xs text-body-secondary">2h ago</p>
-                                                </div>
-
-                                                <div class="d-flex gap-1 border-bottom border-dashed py-3">
-                                                    <div class="me-2 flex-shrink-0">
-                                                        <img src="assets/images/users/user-3.jpg" class="avatar-md rounded-circle" alt="">
-                                                    </div>
-                                                    <div class="flex-grow-1 text-muted">
-                                                        <span class="fw-medium text-body">Jason Lee</span> completed the feedback review.
-                                                        <p class="fs-xs mb-0 text-body-secondary">Yesterday 6:10 pm - 23 Apr, 2025</p>
-                                                    </div>
-                                                    <p class="fs-xs text-body-secondary">16h ago</p>
-                                                </div>
-
-                                                <div class="d-flex gap-1 border-bottom border-dashed py-3">
-                                                    <div class="me-2 flex-shrink-0">
-                                                        <img src="assets/images/users/user-4.jpg" class="avatar-md rounded-circle" alt="">
-                                                    </div>
-                                                    <div class="flex-grow-1 text-muted">
-                                                        <span class="fw-medium text-body">Emma Davis</span> shared a link in the marketing group chat.
-                                                        <p class="fs-xs mb-2 text-body-secondary">Yesterday 3:25 pm - 23 Apr, 2025</p>
-                                                        <a href="#!" class="btn btn-default border px-1 py-0"><i class="ti ti-link me-1"></i> View</a>
-                                                    </div>
-                                                    <p class="fs-xs text-body-secondary">19h ago</p>
-                                                </div>
-
-                                                <div class="d-flex gap-1 border-bottom border-dashed py-3">
-                                                    <div class="me-2 flex-shrink-0">
-                                                        <img src="assets/images/users/user-5.jpg" class="avatar-md rounded-circle" alt="">
-                                                    </div>
-                                                    <div class="flex-grow-1 text-muted position-relative">
-                                                        <span class="fw-medium text-body">Leo Zhang</span> sent you a private message.
-                                                        <p class="fs-xs text-body-secondary">2 days ago 11:45 am - 22 Apr, 2025</p>
-                                        
-                                                        <div class="py-2 px-3 bg-light bg-opacity-50">
-                                                            "Let’s sync up on the product roadmap tomorrow afternoon, does 2 PM work for you?"
-                                                        </div>
-                                                    </div>
-                                                    <p class="fs-xs flex-shrink-0 text-body-secondary">30h ago</p>
-                                                </div>
-
-                                                <div class="d-flex align-items-center justify-content-center gap-2 p-3">
-                                                    <strong>Loading...</strong>
-                                                    <div class="spinner-border spinner-border-sm text-danger" role="status" aria-hidden="true"></div>
-                                                </div>
-
+                                        <!-- ========================= -->
+                                        <!-- TAB: CRONOGRAMA -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade" id="tab-schedule" role="tabpanel">
+                                            <div class="alert alert-light border mb-0">
+                                                <i class="ti ti-info-circle me-1"></i>
+                                                Conteúdo do Cronograma (placeholder).
                                             </div>
                                         </div>
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col-xl-9 -->
-                        
-                    </div> <!-- end col-xxl-10 -->
-                </div> <!-- end row -->
+
+                                        <!-- ========================= -->
+                                        <!-- TAB: MONITORAMENTO -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade" id="tab-monitoring" role="tabpanel">
+                                            <div class="alert alert-light border mb-0">
+                                                <i class="ti ti-info-circle me-1"></i>
+                                                Conteúdo do Monitoramento (placeholder).
+                                            </div>
+                                        </div>
+
+                                        <!-- ========================= -->
+                                        <!-- TAB: GOVERNANÇA -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade" id="tab-governance" role="tabpanel">
+                                            <div class="alert alert-light border mb-0">
+                                                <i class="ti ti-info-circle me-1"></i>
+                                                Conteúdo de Governança (placeholder).
+                                            </div>
+                                        </div>
+
+                                        <!-- ========================= -->
+                                        <!-- TAB: CAPTAÇÃO -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade" id="tab-funding" role="tabpanel">
+                                            <div class="alert alert-light border mb-0">
+                                                <i class="ti ti-info-circle me-1"></i>
+                                                Conteúdo de Captação de recursos (placeholder).
+                                            </div>
+                                        </div>
+
+                                        <!-- ========================= -->
+                                        <!-- TAB: RISCOS -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade" id="tab-risks" role="tabpanel">
+                                            <div class="alert alert-light border mb-0">
+                                                <i class="ti ti-info-circle me-1"></i>
+                                                Conteúdo de Riscos (placeholder).
+                                            </div>
+                                        </div>
+
+                                        <!-- ========================= -->
+                                        <!-- TAB: ARQUIVOS -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade" id="tab-files" role="tabpanel">
+                                            <div class="alert alert-light border mb-0">
+                                                <i class="ti ti-info-circle me-1"></i>
+                                                Conteúdo de Arquivos (placeholder).
+                                            </div>
+                                        </div>
+
+                                        <!-- ========================= -->
+                                        <!-- TAB: DIÁRIO DE BORDO (NOVO) -->
+                                        <!-- ========================= -->
+                                        <div class="tab-pane fade" id="tab-logbook" role="tabpanel">
+
+                                            <!-- Header: resumo rápido + ações -->
+                                            <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between mb-3">
+                                                <div>
+                                                    <h4 class="mb-0">Diário de bordo</h4>
+                                                    <p class="text-muted mb-0">Histórico do projeto em formato de timeline, com registros rastreáveis de decisões, marcos, riscos e atualizações.</p>
+                                                </div>
+
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn btn-light" type="button">
+                                                        <i class="ti ti-download me-1"></i>Exportar
+                                                    </button>
+                                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalNewLogEntry">
+                                                        <i class="ti ti-plus me-1"></i>Nova entrada
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <!-- Cards de resumo -->
+                                            <div class="row g-2 mb-3">
+                                                <div class="col-12 col-md-6 col-xl-3">
+                                                    <div class="card border mb-0">
+                                                        <div class="card-body">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar-sm me-2">
+                                                                    <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                        <i class="ti ti-history"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <div class="text-muted fs-12">Última atualização</div>
+                                                                    <div class="fw-semibold">28/08/2025 13:00</div>
+                                                                    <div class="text-muted fs-12">Sammys Cezar • Diretoria</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-xl-3">
+                                                    <div class="card border mb-0">
+                                                        <div class="card-body">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar-sm me-2">
+                                                                    <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                        <i class="ti ti-flag"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <div class="text-muted fs-12">Último marco</div>
+                                                                    <div class="fw-semibold">Kickoff realizado</div>
+                                                                    <div class="text-muted fs-12">25/08/2025 • Registro automático</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-xl-3">
+                                                    <div class="card border mb-0">
+                                                        <div class="card-body">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar-sm me-2">
+                                                                    <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                        <i class="ti ti-alert-triangle"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <div class="text-muted fs-12">Pendências críticas</div>
+                                                                    <div class="fw-semibold">2 riscos abertos</div>
+                                                                    <div class="text-muted fs-12">1 impedimento ativo</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-md-6 col-xl-3">
+                                                    <div class="card border mb-0">
+                                                        <div class="card-body">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar-sm me-2">
+                                                                    <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                        <i class="ti ti-steps"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <div class="text-muted fs-12">Próximo passo</div>
+                                                                    <div class="fw-semibold">Contratação (etapa)</div>
+                                                                    <div class="text-muted fs-12">Previsão: 02/09/2025</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Filtros -->
+                                            <div class="card border mb-3">
+                                                <div class="card-body">
+                                                    <div class="row g-2 align-items-end">
+                                                        <div class="col-12 col-lg-4">
+                                                            <label class="form-label mb-1">Buscar</label>
+                                                            <div class="input-group">
+                                                                <span class="input-group-text"><i class="ti ti-search"></i></span>
+                                                                <input type="text" class="form-control" placeholder="Buscar por palavra-chave, decisão, marco, risco..." id="logSearchInput">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-md-6 col-lg-2">
+                                                            <label class="form-label mb-1">Tipo</label>
+                                                            <select class="form-select" id="logTypeFilter">
+                                                                <option value="">Todos</option>
+                                                                <option value="status">Atualização de status</option>
+                                                                <option value="milestone">Marco/entrega</option>
+                                                                <option value="decision">Decisão</option>
+                                                                <option value="risk">Risco/impedimento</option>
+                                                                <option value="scope">Mudança de escopo</option>
+                                                                <option value="meeting">Reunião/comunicação</option>
+                                                                <option value="approval">Aprovação/validação</option>
+                                                                <option value="file">Documento/arquivo</option>
+                                                                <option value="note">Observação</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-12 col-md-6 col-lg-2">
+                                                            <label class="form-label mb-1">Autor</label>
+                                                            <select class="form-select" id="logAuthorFilter">
+                                                                <option value="">Todos</option>
+                                                                <option value="sammys">Sammys Cezar</option>
+                                                                <option value="maria">Maria Silva</option>
+                                                                <option value="joao">João Santos</option>
+                                                                <option value="leonardo">Leonardo Queiroz</option>
+                                                                <option value="sistema">Sistema GoMAP</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-12 col-md-6 col-lg-2">
+                                                            <label class="form-label mb-1">Período</label>
+                                                            <select class="form-select" id="logRangeFilter">
+                                                                <option value="30">Últimos 30 dias</option>
+                                                                <oringg</option>
+                                                                <option value="7">Últimos 7 dias</option>
+                                                                <option value="90">Últimos 90 dias</option>
+                                                                <option value="all">Tudo</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-12 col-md-6 col-lg-2">
+                                                            <div class="d-flex gap-2">
+                                                                <button class="btn btn-light w-100" type="button" id="logClearFilters">
+                                                                    <i class="ti ti-eraser me-1"></i>Limpar
+                                                                </button>
+                                                                <button class="btn btn-primary w-100" type="button" id="logApplyFilters">
+                                                                    <i class="ti ti-filter me-1"></i>Filtrar
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mt-2 text-muted fs-12">
+                                                        Dica: use “Tipo” para encontrar rapidamente decisões, mudanças de escopo e riscos.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Timeline -->
+                                            <div class="card border mb-0">
+                                                <div class="card-body">
+
+                                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                                        <div class="fw-semibold">Timeline</div>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                Mais recentes
+                                                            </button>
+                                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                                <li><a class="dropdown-item" href="#">Mais recentes</a></li>
+                                                                <li><a class="dropdown-item" href="#">Mais antigas</a></li>
+                                                                <li><a class="dropdown-item" href="#">Somente fixadas</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- item -->
+                                                    <div class="border rounded p-3 mb-2 log-item"
+                                                         data-type="decision" data-author="sammys" data-text="Estudo preliminar aprovado diretoria contratação empresa projetos">
+                                                        <div class="d-flex align-items-start gap-3">
+                                                            <div class="avatar-sm flex-shrink-0">
+                                                                <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                    <i class="ti ti-gavel"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex flex-wrap gap-2 align-items-center">
+                                                                    <span class="badge badge-label text-bg-light">DECISÃO</span>
+                                                                    <div class="fw-semibold">Estudo preliminar aprovado pela diretoria</div>
+                                                                    <div class="text-muted ms-auto fs-12">28/08/2025 13:00</div>
+                                                                </div>
+
+                                                                <div class="text-muted fs-12 mt-1">
+                                                                    Sammys Cezar • Diretoria
+                                                                    <span class="mx-2">•</span>
+                                                                    Impacto: <span class="badge badge-soft-warning fs-xxs">Médio</span>
+                                                                    <span class="mx-2">•</span>
+                                                                    Relacionado: <span class="badge badge-soft-primary fs-xxs">#Contratação</span>
+                                                                </div>
+
+                                                                <p class="mb-2 mt-2">
+                                                                    O estudo preliminar do novo SEDI foi aprovado pela diretoria. Próxima etapa: contratação da empresa de projetos.
+                                                                </p>
+
+                                                                <div class="d-flex flex-wrap gap-2">
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-paperclip me-1"></i>Anexos (1)</a>
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-eye me-1"></i>Ver mais</a>
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-pin me-1"></i>Fixar</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- item -->
+                                                    <div class="border rounded p-3 mb-2 log-item"
+                                                         data-type="meeting" data-author="maria" data-text="Discussão requisitos funcionais prédio ambientes capacidade">
+                                                        <div class="d-flex align-items-start gap-3">
+                                                            <div class="avatar-sm flex-shrink-0">
+                                                                <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                    <i class="ti ti-users"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex flex-wrap gap-2 align-items-center">
+                                                                    <span class="badge badge-label text-bg-light">REUNIÃO</span>
+                                                                    <div class="fw-semibold">Requisitos funcionais do prédio definidos</div>
+                                                                    <div class="text-muted ms-auto fs-12">26/08/2025 15:14</div>
+                                                                </div>
+
+                                                                <div class="text-muted fs-12 mt-1">
+                                                                    Maria Silva • Planejamento
+                                                                    <span class="mx-2">•</span>
+                                                                    Relacionado: <span class="badge badge-soft-primary fs-xxs">#Escopo</span>
+                                                                </div>
+
+                                                                <p class="mb-2 mt-2">
+                                                                    Discussão sobre requisitos funcionais do prédio. Definidos os principais ambientes e capacidade.
+                                                                </p>
+
+                                                                <div class="d-flex flex-wrap gap-2">
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-paperclip me-1"></i>Anexos (0)</a>
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-eye me-1"></i>Ver mais</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- item -->
+                                                    <div class="border rounded p-3 mb-2 log-item"
+                                                         data-type="file" data-author="joao" data-text="Relatório técnico topográfico geotécnico terreno anexo">
+                                                        <div class="d-flex align-items-start gap-3">
+                                                            <div class="avatar-sm flex-shrink-0">
+                                                                <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                    <i class="ti ti-file-description"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex flex-wrap gap-2 align-items-center">
+                                                                    <span class="badge badge-label text-bg-light">DOCUMENTO</span>
+                                                                    <div class="fw-semibold">Relatório técnico anexado</div>
+                                                                    <div class="text-muted ms-auto fs-12">27/08/2025 09:30</div>
+                                                                </div>
+
+                                                                <div class="text-muted fs-12 mt-1">
+                                                                    João Santos • Engenharia
+                                                                    <span class="mx-2">•</span>
+                                                                    Relacionado: <span class="badge badge-soft-primary fs-xxs">#Terreno</span>
+                                                                </div>
+
+                                                                <p class="mb-2 mt-2">
+                                                                    Finalizada a análise topográfica e geotécnica do terreno. Relatório técnico em anexo.
+                                                                </p>
+
+                                                                <div class="d-flex flex-wrap gap-2">
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-paperclip me-1"></i>Anexos (1)</a>
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-download me-1"></i>Baixar relatório</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- item -->
+                                                    <div class="border rounded p-3 mb-2 log-item"
+                                                         data-type="milestone" data-author="leonardo" data-text="Kickoff realizado cronograma inicial responsabilidades equipe">
+                                                        <div class="d-flex align-items-start gap-3">
+                                                            <div class="avatar-sm flex-shrink-0">
+                                                                <span class="avatar-title rounded-circle bg-light text-dark">
+                                                                    <i class="ti ti-flag"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex flex-wrap gap-2 align-items-center">
+                                                                    <span class="badge badge-label text-bg-light">MARCO</span>
+                                                                    <div class="fw-semibold">Kickoff do projeto concluído</div>
+                                                                    <div class="text-muted ms-auto fs-12">25/08/2025 11:45</div>
+                                                                </div>
+
+                                                                <div class="text-muted fs-12 mt-1">
+                                                                    Leonardo Queiroz • PMO
+                                                                    <span class="mx-2">•</span>
+                                                                    Relacionado: <span class="badge badge-soft-primary fs-xxs">#Kickoff</span>
+                                                                </div>
+
+                                                                <p class="mb-2 mt-2">
+                                                                    Reunião de kickoff realizada com sucesso. Apresentação do cronograma inicial e definição das responsabilidades da equipe.
+                                                                </p>
+
+                                                                <div class="d-flex flex-wrap gap-2">
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-paperclip me-1"></i>Anexos (1)</a>
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-eye me-1"></i>Ver ata</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- item automático -->
+                                                    <div class="border rounded p-3 mb-2 log-item"
+                                                         data-type="status" data-author="sistema" data-text="Projeto iniciado equipes notificadas recursos alocados">
+                                                        <div class="d-flex align-items-start gap-3">
+                                                            <div class="avatar-sm flex-shrink-0">
+                                                                <span class="avatar-title rounded-circle bg-light text-success">
+                                                                    <i class="ti ti-robot"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="flex-grow-1">
+                                                                <div class="d-flex flex-wrap gap-2 align-items-center">
+                                                                    <span class="badge badge-soft-success fs-xxs">AUTOMÁTICO</span>
+                                                                    <span class="badge badge-label text-bg-light">STATUS</span>
+                                                                    <div class="fw-semibold">Projeto iniciado no sistema</div>
+                                                                    <div class="text-muted ms-auto fs-12">24/08/2025 10:00</div>
+                                                                </div>
+
+                                                                <div class="text-muted fs-12 mt-1">
+                                                                    Sistema GoMAP
+                                                                </div>
+
+                                                                <p class="mb-2 mt-2">
+                                                                    O projeto foi oficialmente iniciado no sistema. Todas as equipes foram notificadas e os recursos foram alocados.
+                                                                </p>
+
+                                                                <div class="d-flex flex-wrap gap-2">
+                                                                    <a href="#" class="btn btn-light btn-sm"><i class="ti ti-eye me-1"></i>Ver detalhes</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="text-center mt-3">
+                                                        <a href="#" class="btn btn-link">Carregar mais entradas...</a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div><!-- end tab diary -->
+
+                                    </div><!-- end tab-content -->
+                                </div><!-- end card-body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+
+                    </div><!-- end col -->
+                </div><!-- end row -->
 
             </div>
         </div>
-    </div>  
+    </div>
     <!-- END wrapper -->
+
+    <!-- Modal: Nova entrada -->
+    <div class="modal fade" id="modalNewLogEntry" tabindex="-1" aria-labelledby="modalNewLogEntryLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalNewLogEntryLabel">Nova entrada — Diário de bordo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="formNewLogEntry" novalidate>
+                        <div class="row g-2">
+                            <div class="col-12 col-md-4">
+                                <label class="form-label">Tipo de evento</label>
+                                <select class="form-select" id="newLogType" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="status">Atualização de status</option>
+                                    <option value="milestone">Marco/entrega</option>
+                                    <option value="decision">Decisão</option>
+                                    <option value="risk">Risco/impedimento</option>
+                                    <option value="scope">Mudança de escopo</option>
+                                    <option value="meeting">Reunião/comunicação</option>
+                                    <option value="approval">Aprovação/validação</option>
+                                    <option value="file">Documento/arquivo</option>
+                                    <option value="note">Observação</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-8">
+                                <label class="form-label">Título</label>
+                                <input type="text" class="form-control" id="newLogTitle" placeholder="Ex.: Fornecedor aprovado / Kickoff realizado / Risco identificado" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Descrição</label>
+                                <textarea class="form-control" id="newLogDesc" rows="4" placeholder="Descreva o que aconteceu (objetivo, impacto e próximos passos)."></textarea>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label class="form-label">Data e hora</label>
+                                <input type="datetime-local" class="form-control" id="newLogDatetime">
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label class="form-label">Impacto</label>
+                                <select class="form-select" id="newLogImpact">
+                                    <option value="baixo">Baixo</option>
+                                    <option value="medio" selected>Médio</option>
+                                    <option value="alto">Alto</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label class="form-label">Visibilidade</label>
+                                <select class="form-select" id="newLogVisibility">
+                                    <option value="publico" selected>Projeto (padrão)</option>
+                                    <option value="interno">Interno</option>
+                                </select>
+                            </div>
+
+                            <!-- Seções condicionais (mostram conforme tipo) -->
+                            <div class="col-12">
+                                <div class="border rounded p-3 d-none" id="sectionDecision">
+                                    <div class="fw-semibold mb-2"><i class="ti ti-gavel me-1"></i>Campos de decisão</div>
+                                    <div class="row g-2">
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label">Responsável pela decisão</label>
+                                            <input type="text" class="form-control" placeholder="Ex.: Diretoria / Comitê / Gestor responsável">
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label">Justificativa</label>
+                                            <input type="text" class="form-control" placeholder="Ex.: Parecer técnico / Priorização / Orçamento">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border rounded p-3 d-none mt-2" id="sectionRisk">
+                                    <div class="fw-semibold mb-2"><i class="ti ti-alert-triangle me-1"></i>Campos de risco/impedimento</div>
+                                    <div class="row g-2">
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label">Probabilidade</label>
+                                            <select class="form-select">
+                                                <option>Baixa</option>
+                                                <option selected>Média</option>
+                                                <option>Alta</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label">Impacto</label>
+                                            <select class="form-select">
+                                                <option>Baixo</option>
+                                                <option selected>Médio</option>
+                                                <option>Alto</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <label class="form-label">Status</label>
+                                            <select class="form-select">
+                                                <option selected>Aberto</option>
+                                                <option>Mitigando</option>
+                                                <option>Encerrado</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Ação de mitigação / próximo passo</label>
+                                            <input type="text" class="form-control" placeholder="Ex.: Solicitar parecer jurídico / Ajustar cronograma / Abrir contratação">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border rounded p-3 d-none mt-2" id="sectionMilestone">
+                                    <div class="fw-semibold mb-2"><i class="ti ti-flag me-1"></i>Campos de marco/entrega</div>
+                                    <div class="row g-2">
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label">Data do marco</label>
+                                            <input type="date" class="form-control">
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label">Evidência / referência</label>
+                                            <input type="text" class="form-control" placeholder="Ex.: Ata / Documento / Link / Número do processo">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border rounded p-3 d-none mt-2" id="sectionScope">
+                                    <div class="fw-semibold mb-2"><i class="ti ti-arrows-exchange me-1"></i>Campos de mudança de escopo</div>
+                                    <div class="row g-2">
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label">O que mudou</label>
+                                            <input type="text" class="form-control" placeholder="Ex.: Inclusão de integração X / Remoção de requisito Y">
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <label class="form-label">Aprovado por</label>
+                                            <input type="text" class="form-control" placeholder="Ex.: Comitê / Diretoria / Patrocinador">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Relacionar a</label>
+                                <div class="row g-2">
+                                    <div class="col-12 col-md-3">
+                                        <input type="text" class="form-control" placeholder="#Tarefa (opcional)">
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <input type="text" class="form-control" placeholder="#Risco (opcional)">
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <input type="text" class="form-control" placeholder="#Entrega (opcional)">
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <input type="text" class="form-control" placeholder="#Contrato/Doc (opcional)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Anexos</label>
+                                <input class="form-control" type="file" multiple>
+                                <div class="text-muted fs-12 mt-1">Em protótipo: apenas UI.</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveLogEntry">
+                        <i class="ti ti-device-floppy me-1"></i>Salvar entrada
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @@include('./partials/customizer.html')
 
@@ -591,6 +828,86 @@
 
     <!-- Dashboard Page js -->
     <script src="assets/js/pages/dashboard.js"></script>
+
+    <!-- Diário de bordo (UI-only) -->
+    <script>
+        (function () {
+            const typeSelect = document.getElementById('newLogType');
+            const sections = {
+                decision: document.getElementById('sectionDecision'),
+                risk: document.getElementById('sectionRisk'),
+                milestone: document.getElementById('sectionMilestone'),
+                scope: document.getElementById('sectionScope'),
+            };
+
+            function hideAllSections() {
+                Object.values(sections).forEach(el => el && el.classList.add('d-none'));
+            }
+
+            function showSectionByType(type) {
+                hideAllSections();
+                if (type === 'decision') sections.decision.classList.remove('d-none');
+                if (type === 'risk') sections.risk.classList.remove('d-none');
+                if (type === 'milestone') sections.milestone.classList.remove('d-none');
+                if (type === 'scope') sections.scope.classList.remove('d-none');
+            }
+
+            if (typeSelect) {
+                typeSelect.addEventListener('change', function () {
+                    showSectionByType(this.value);
+                });
+            }
+
+            // Filtros (protótipo simples: filtra por texto/tipo/autor)
+            const searchInput = document.getElementById('logSearchInput');
+            const filterType = document.getElementById('logTypeFilter');
+            const filterAuthor = document.getElementById('logAuthorFilter');
+            const applyBtn = document.getElementById('logApplyFilters');
+            const clearBtn = document.getElementById('logClearFilters');
+
+            function applyFilters() {
+                const q = (searchInput?.value || '').trim().toLowerCase();
+                const t = filterType?.value || '';
+                const a = filterAuthor?.value || '';
+
+                document.querySelectorAll('.log-item').forEach(item => {
+                    const text = (item.getAttribute('data-text') || '').toLowerCase();
+                    const type = item.getAttribute('data-type') || '';
+                    const author = item.getAttribute('data-author') || '';
+
+                    const okQ = !q || text.includes(q);
+                    const okT = !t || type === t;
+                    const okA = !a || author === a;
+
+                    item.classList.toggle('d-none', !(okQ && okT && okA));
+                });
+            }
+
+            applyBtn?.addEventListener('click', applyFilters);
+
+            clearBtn?.addEventListener('click', function () {
+                if (searchInput) searchInput.value = '';
+                if (filterType) filterType.value = '';
+                if (filterAuthor) filterAuthor.value = '';
+                applyFilters();
+            });
+
+            document.getElementById('btnSaveLogEntry')?.addEventListener('click', function () {
+                // protótipo: só valida campos obrigatórios
+                const title = document.getElementById('newLogTitle');
+                const type = document.getElementById('newLogType');
+
+                if (!type?.value || !title?.value.trim()) {
+                    alert('Preencha o tipo do evento e o título.');
+                    return;
+                }
+                alert('Entrada salva (protótipo UI). Aqui você chamaria sua API e atualizaria a timeline.');
+            });
+
+            // inicial
+            hideAllSections();
+        })();
+    </script>
 
 </body>
 
