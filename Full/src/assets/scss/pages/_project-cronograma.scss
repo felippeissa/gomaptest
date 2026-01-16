@@ -1,0 +1,48 @@
+/* ===============================
+   GOMAP | Cronograma (Hub)
+   =============================== */
+
+.gm-timeline-simple {
+  display: grid;
+  gap: 12px;
+}
+
+.gm-timeline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.gm-timeline-label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #313a46;
+}
+
+.gm-timeline-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(49, 58, 70, 0.08);
+  overflow: hidden;
+}
+
+.gm-timeline-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(28, 132, 198, 0.55);
+}
+
+.gm-timeline-meta {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .gm-timeline-item {
+    grid-template-columns: 1fr;
+  }
+  .gm-timeline-meta {
+    white-space: normal;
+  }
+}
