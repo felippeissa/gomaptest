@@ -146,44 +146,6 @@
         </div> <!-- .d-flex-->
         
         <div class="d-flex align-items-center gap-2">
-            <!-- Language Dropdown -->
-             <!--
-            <div class="topbar-item">
-                <div class="dropdown">
-                    <button class="topbar-link fw-bold" data-bs-toggle="dropdown" data-bs-offset="0,21" type="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="assets/images/flags/us.svg" alt="user-image" class="w-100 rounded me-2" height="18" id="selected-language-image">
-                        <span id="selected-language-code"> EN </span>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="en" title="English">
-                            <img src="assets/images/flags/us.svg" alt="English" class="me-1 rounded" height="18" data-translator-image>
-                            <span class="align-middle">English</span>
-                        </a>
-                        <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="de" title="German">
-                            <img src="assets/images/flags/de.svg" alt="German" class="me-1 rounded" height="18" data-translator-image>
-                            <span class="align-middle">Deutsch</span>
-                        </a>
-                        <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="it" title="Italian">
-                            <img src="assets/images/flags/it.svg" alt="Italian" class="me-1 rounded" height="18" data-translator-image>
-                            <span class="align-middle">Italiano</span>
-                        </a>
-                        <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="es" title="Spanish">
-                            <img src="assets/images/flags/es.svg" alt="Spanish" class="me-1 rounded" height="18" data-translator-image>
-                            <span class="align-middle">Español</span>
-                        </a>
-                        <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="ru" title="Russian">
-                            <img src="assets/images/flags/ru.svg" alt="Russian" class="me-1 rounded" height="18" data-translator-image>
-                            <span class="align-middle">Русский</span>
-                        </a>
-                        <a href="javascript:void(0);" class="dropdown-item" data-translator-lang="hi" title="Hindi">
-                            <img src="assets/images/flags/in.svg" alt="Hindi" class="me-1 rounded" height="18" data-translator-image>
-                            <span class="align-middle">हिन्दी</span>
-                        </a>
-                    </div> <!-- end dropdown-menu--
-                </div> <!-- end dropdown--
-            </div> <!-- end topbar item--
-            -->
-
             <!-- Messages Dropdown -->
             <div class="topbar-item">
                 <div class="dropdown">
@@ -376,12 +338,18 @@
                 </button>
             </div>
 
-            <!-- Settings Button-->
+            <!-- Settings Button -->
             <div class="topbar-item d-none d-sm-flex">
-                <button class="topbar-link"  type="button">
+                <button
+                    class="topbar-link"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#theme-settings-offcanvas"
+                    >
                     <i data-lucide="settings" class="fs-xxl"></i>
                 </button>
             </div>
+
            
             <!-- Users Button -->
             <div class="topbar-item d-none d-sm-flex">
@@ -452,20 +420,6 @@
                             <!--<i class="ti ti-headset me-2 fs-17 align-middle"></i>-->
                             <span class="align-middle">Perfil 05</span>
                         </a>
-                        
-                        <!--
-                        <div class="dropdown-divider"></div>
-
-                        <a href="auth-lock-screen.html" class="dropdown-item">
-                            <i class="ti ti-lock me-2 fs-17 align-middle"></i>
-                            <span class="align-middle">Lock Screen</span>
-                        </a>
-
-                        <a href="javascript:void(0);" class="dropdown-item text-danger fw-semibold">
-                            <i class="ti ti-logout-2 me-2 fs-17 align-middle"></i>
-                            <span class="align-middle">Log Out</span>
-                        </a>
-                        -->
                     </div>
 
                 </div>

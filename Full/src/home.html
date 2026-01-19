@@ -438,6 +438,56 @@
     <!-- Dashboard Page js -->
     <script src="assets/js/pages/dashboard.js"></script>
 
+    <script>
+(function () {
+  const green = '#0B5B35';
+
+  // radios do esquema de cores
+  const radios = document.querySelectorAll('input[name="data-bs-theme"]');
+
+  function applyGreen() {
+    // TOPBAR
+    const topbar = document.querySelector('.app-topbar');
+    if (topbar) {
+      topbar.style.backgroundColor = green;
+      topbar.style.color = '#fff';
+    }
+
+    // SIDEBAR
+    const sidebar = document.querySelector('.app-sidenav');
+    if (sidebar) {
+      sidebar.style.backgroundColor = green;
+      sidebar.style.color = '#fff';
+    }
+
+    // ícones e links do menu
+    document.querySelectorAll('.app-sidenav a, .app-sidenav i').forEach(el => {
+      el.style.color = '#fff';
+    });
+  }
+
+  function resetColors() {
+    const topbar = document.querySelector('.app-topbar');
+    const sidebar = document.querySelector('.app-sidenav');
+
+    if (topbar) topbar.style.backgroundColor = '';
+    if (sidebar) sidebar.style.backgroundColor = '';
+  }
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', function () {
+      if (this.value === 'green') {
+        applyGreen();
+      } else {
+        resetColors();
+      }
+    });
+  });
+})();
+</script>
+
+
+
 </body>
 
 </html>

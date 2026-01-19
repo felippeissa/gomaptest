@@ -67,13 +67,14 @@ $theme-minimal-colors: (
 
         // Background Gray left-sidebar
         &[data-menu-color="gray"] {
-            --#{$prefix}sidenav-bg:                       #f6f8fb;
-            --#{$prefix}sidenav-border-color:             #e7e9eb;
-            --#{$prefix}sidenav-item-color:               #{$gray-700};
-            --#{$prefix}sidenav-item-hover-color:         #1ab394;
-            --#{$prefix}sidenav-item-hover-bg:          #f1f0f5;
-            --#{$prefix}sidenav-item-active-color:        #212b29;
-            --#{$prefix}sidenav-item-active-bg:         #f1f0f5;
+        --#{$prefix}sidenav-bg: #0B5B35;
+        --#{$prefix}sidenav-item-color: rgba(255, 255, 255, 0.85);
+        --#{$prefix}sidenav-item-hover-color: #ffffff;
+        --#{$prefix}sidenav-item-active-color: #ffffff;
+        --#{$prefix}sidenav-item-active-bg: rgba(255, 255, 255, 0.12);
+        .app-sidenav[data-menu-color="gray"] .logo-light { display: none !important; }
+        .app-sidenav[data-menu-color="gray"] .logo-dark  { display: inline-flex !important; }
+
         }
 
         // Dark Left Sidebar
@@ -133,11 +134,12 @@ $theme-minimal-colors: (
 
         // Gray Topbar
         &[data-topbar-color="gray"] {
-            --#{$prefix}topbar-bg:                      #f1f2f7;
-            --#{$prefix}topbar-item-color:                #{$gray-700};
-            --#{$prefix}topbar-item-hover-color:          #1ab394;
-            --#{$prefix}topbar-search-bg:               #e8e9ef;
-            --#{$prefix}topbar-search-border:           #e8e9ef;
+        --#{$prefix}topbar-bg: #0B5B35;
+        --#{$prefix}topbar-item-color: rgba(255, 255, 255, 0.85);
+        --#{$prefix}topbar-item-hover-color: #ffffff;
+        --#{$prefix}topbar-item-active-color: #ffffff;
+        .logo-light { display: none !important; }
+        .logo-dark  { display: block !important; }
         }
 
         // Dark Topbar
