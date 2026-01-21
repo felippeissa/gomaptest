@@ -886,14 +886,778 @@
 </script>
 
 
-                    <div class="tab-pane" id="tab-monitoring" role="tabpanel">
-                      <div class="card mb-0">
-                        <div class="card-body text-center text-muted py-5">
-                          <h5 class="mb-1">Monitoramento</h5>
-                          <p class="mb-0">Esta funcionalidade será criada posteriormente.</p>
-                        </div>
-                      </div>
-                    </div>
+                    <!-- TAB MONITORAMENTO -->
+<div class="tab-pane" id="tab-monitoring" role="tabpanel">
+  <div class="card mb-0">
+    <div class="card-body">
+
+      <!-- Header -->
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <div>
+          <h5 class="mb-1">Monitoramento</h5>
+          <div class="text-muted fs-12">Acompanhamento da execução física (marcos e atividades) e status atual do projeto.</div>
+        </div>
+
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ti ti-plus me-1"></i>Adicionar
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#" id="monAddMilestone"><i class="ti ti-flag me-2"></i>Marco</a></li>
+              <li><a class="dropdown-item" href="#" id="monAddActivity"><i class="ti ti-checklist me-2"></i>Atividade</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ações
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#" id="monExport"><i class="ti ti-download me-2"></i>Exportar</a></li>
+              <li><a class="dropdown-item" href="#" id="monReplan"><i class="ti ti-calendar-time me-2"></i>Replanejar</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" id="monReset"><i class="ti ti-refresh me-2"></i>Resetar monitoramento (protótipo)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs (minimal) -->
+      <div class="row g-2 mb-3">
+        <div class="col-12 col-md-4">
+          <div class="p-3 rounded border border-dashed">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <div class="text-muted fs-12 mb-1">Progresso físico</div>
+                <div class="fw-semibold fs-4" id="monKpiProgress">0%</div>
+              </div>
+              <div class="avatar-sm">
+                <span class="avatar-title rounded-circle bg-primary bg-opacity-10 text-primary">
+                  <i class="ti ti-progress fs-5"></i>
+                </span>
+              </div>
+            </div>
+            <div class="progress bg-primary bg-opacity-25 progress-sm mt-2 mb-0">
+              <div class="progress-bar bg-primary" role="progressbar" style="width:0%" id="monKpiProgressBar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="p-3 rounded border border-dashed">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <div class="text-muted fs-12 mb-1">Atividades em andamento</div>
+                <div class="fw-semibold fs-4" id="monKpiOngoing">0</div>
+              </div>
+              <div class="avatar-sm">
+                <span class="avatar-title rounded-circle bg-warning bg-opacity-10 text-warning">
+                  <i class="ti ti-loader fs-5"></i>
+                </span>
+              </div>
+            </div>
+            <div class="text-muted fs-12 mt-2">Foco em execução e entregas parciais.</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="p-3 rounded border border-dashed">
+            <div class="d-flex align-items-center justify-content-between">
+              <div>
+                <div class="text-muted fs-12 mb-1">Riscos abertos</div>
+                <div class="fw-semibold fs-4" id="monKpiRisks">—</div>
+              </div>
+              <div class="avatar-sm">
+                <span class="avatar-title rounded-circle bg-danger bg-opacity-10 text-danger">
+                  <i class="ti ti-shield-x fs-5"></i>
+                </span>
+              </div>
+            </div>
+            <div class="text-muted fs-12 mt-2">Leitura do módulo de riscos (quando disponível).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtros (mesma linha) -->
+      <div class="card mb-3 border">
+        <div class="card-body">
+          <div class="d-flex flex-wrap align-items-end gap-2">
+
+            <div style="min-width: 280px; flex: 1 1 360px;">
+              <label class="form-label">Buscar</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="ti ti-search"></i></span>
+                <input type="text" class="form-control" id="monSearch" placeholder="Buscar por nome, marco, responsável..." />
+              </div>
+            </div>
+
+            <div style="min-width: 180px; flex: 0 0 180px;">
+              <label class="form-label">Tipo</label>
+              <select class="form-select" id="monFilterType">
+                <option value="all" selected>Todos</option>
+                <option value="MILESTONE">Marcos</option>
+                <option value="ACTIVITY">Atividades</option>
+              </select>
+            </div>
+
+            <div style="min-width: 190px; flex: 0 0 190px;">
+              <label class="form-label">Status</label>
+              <select class="form-select" id="monFilterStatus">
+                <option value="all" selected>Todos</option>
+                <option value="PLANNED">Planejado</option>
+                <option value="ONGOING">Em andamento</option>
+                <option value="DONE">Concluído</option>
+                <option value="DELAYED">Atrasado</option>
+              </select>
+            </div>
+
+            <div style="min-width: 220px; flex: 0 0 220px;">
+              <label class="form-label">Responsável</label>
+              <select class="form-select" id="monFilterOwner">
+                <option value="all" selected>Todos</option>
+                <option value="luciene">Luciene Martins</option>
+                <option value="joao">João Santos</option>
+                <option value="maria">Maria Silva</option>
+                <option value="leonardo">Leonardo Queiroz</option>
+                <option value="sistema">Sistema GoMAP</option>
+              </select>
+            </div>
+
+            <div class="ms-auto d-flex gap-2">
+              <button type="button" class="btn btn-outline-primary" id="monApply">
+                <i class="ti ti-filter me-1"></i>Filtrar
+              </button>
+              <button type="button" class="btn btn-light" id="monClear">
+                <i class="ti ti-rotate-2 me-1"></i>Limpar
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela -->
+      <div id="monEmpty" class="d-none">
+        <div class="text-center py-5 text-muted">
+          <div class="avatar-xl mx-auto mb-2">
+            <span class="avatar-title rounded-circle bg-light text-muted">
+              <i class="ti ti-activity-heartbeat fs-2"></i>
+            </span>
+          </div>
+          <h5 class="mb-1">Nenhum registro encontrado</h5>
+          <div class="text-muted">Ajuste os filtros ou limpe para ver todo o monitoramento.</div>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-custom table-centered table-hover w-100 mb-0 text-nowrap">
+          <thead class="bg-light align-middle bg-opacity-25 thead-sm">
+            <tr class="text-uppercase fs-xxs">
+              <th style="width:1%;">Tipo</th>
+              <th>Nome</th>
+              <th style="width:1%;">Marco</th>
+              <th style="width:1%;">Responsável</th>
+              <th style="width:1%;">Status</th>
+              <th style="width:1%;">Progresso</th>
+              <th style="width:1%;">Atualização</th>
+              <th class="text-center" style="width:1%;">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="monTbody"></tbody>
+        </table>
+      </div>
+
+      <div class="text-muted fs-12 mt-3">
+        Regra (protótipo): atividades dependem de um marco. Alterações aqui disparam atualização do cronograma/linha do tempo via evento.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Adicionar/Editar -->
+<div class="modal fade" id="monModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="monModalTitle">Adicionar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <input type="hidden" id="monFormId" value="" />
+        <input type="hidden" id="monFormType" value="MILESTONE" />
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" id="monFormName" placeholder="Ex.: Estabilização de webhooks" />
+          </div>
+
+          <div class="col-12 col-md-3">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="monFormStatus">
+              <option value="PLANNED" selected>Planejado</option>
+              <option value="ONGOING">Em andamento</option>
+              <option value="DONE">Concluído</option>
+              <option value="DELAYED">Atrasado</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-md-3">
+            <label class="form-label">Progresso (%)</label>
+            <input type="number" class="form-control" id="monFormProgress" min="0" max="100" value="0" />
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Responsável</label>
+            <select class="form-select" id="monFormOwner">
+              <option value="luciene" selected>Luciene Martins</option>
+              <option value="joao">João Santos</option>
+              <option value="maria">Maria Silva</option>
+              <option value="leonardo">Leonardo Queiroz</option>
+              <option value="sistema">Sistema GoMAP</option>
+            </select>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Início</label>
+            <input type="date" class="form-control" id="monFormStart" />
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Fim</label>
+            <input type="date" class="form-control" id="monFormEnd" />
+          </div>
+
+          <div class="col-12 d-none" id="monFormMilestoneWrap">
+            <label class="form-label">Marco</label>
+            <select class="form-select" id="monFormMilestone"></select>
+            <div class="text-muted fs-12 mt-1">Atividades precisam estar vinculadas a um marco.</div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Descrição (opcional)</label>
+            <textarea class="form-control" id="monFormDesc" rows="3" placeholder="Observações do item..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="monFormSave">
+          <i class="ti ti-device-floppy me-1"></i>Salvar
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // OBS: para refletir no cronograma/linha do tempo, usamos o MESMO storage do cronograma.
+  // Assim, o que você altera em Monitoramento reflete diretamente no Cronograma.
+  const KEY = "gomap_schedule_0006"; // reuso proposital
+  const RISKS_KEY = "gomap_risks_0006"; // só para KPI (se existir)
+
+  const actors = {
+    luciene: { key:"luciene", name:"Luciene Martins" },
+    joao: { key:"joao", name:"João Santos" },
+    maria: { key:"maria", name:"Maria Silva" },
+    leonardo: { key:"leonardo", name:"Leonardo Queiroz" },
+    sistema: { key:"sistema", name:"Sistema GoMAP" }
+  };
+
+  const statusMeta = {
+    PLANNED: { label:"Planejado", badge:"badge-soft-secondary" },
+    ONGOING: { label:"Em andamento", badge:"badge-soft-primary" },
+    DONE: { label:"Concluído", badge:"badge-soft-success" },
+    DELAYED: { label:"Atrasado", badge:"badge-soft-danger" }
+  };
+
+  function esc(s){
+    return String(s ?? "")
+      .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;").replaceAll("'","&#39;");
+  }
+
+  function nowIso(){ return new Date().toISOString(); }
+
+  function read(){
+    try {
+      const raw = localStorage.getItem(KEY);
+      const data = raw ? JSON.parse(raw) : [];
+      return Array.isArray(data) ? data : [];
+    } catch(e){ return []; }
+  }
+
+  function write(list){
+    localStorage.setItem(KEY, JSON.stringify(list || []));
+  }
+
+  function readRisksCountOpen(){
+    try{
+      const raw = localStorage.getItem(RISKS_KEY);
+      const data = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(data)) return "—";
+      const open = data.filter(r => r && r.status === "OPEN").length;
+      return String(open);
+    }catch(e){
+      return "—";
+    }
+  }
+
+  function fmt(d){
+    if (!d) return "—";
+    const [y,m,dd] = String(d).split("-");
+    if (!y||!m||!dd) return d;
+    return `${dd}/${m}/${y}`;
+  }
+
+  function badgeStatus(st){
+    const m = statusMeta[st] || { label: st, badge:"badge-soft-secondary" };
+    return `<span class="badge ${esc(m.badge)} fs-xxs">${esc(m.label)}</span>`;
+  }
+
+  function logbookSafe(entry){
+    try{
+      if (typeof window.addLogbookEntry === "function") window.addLogbookEntry(entry);
+    }catch(e){}
+  }
+
+  function addLogMonitoring(action, item){
+    const title =
+      action === "CREATE" ? "Monitoramento: item criado" :
+      action === "UPDATE" ? "Monitoramento: item atualizado" :
+      "Monitoramento: item removido";
+
+    const desc =
+      action === "CREATE" ? `Criado: ${item.type} — ${item.name}` :
+      action === "UPDATE" ? `Atualizado: ${item.type} — ${item.name}` :
+      `Removido: ${item.type} — ${item.name}`;
+
+    logbookSafe({
+      id: `LG-${String(Math.floor(Math.random()*900)+100)}`,
+      createdAt: nowIso(),
+      type: "MONITORING",
+      title,
+      description: desc,
+      actorKey: item.owner || "luciene",
+      source: "manual",
+      tags: ["Monitoramento", item.type],
+      attachments: []
+    });
+  }
+
+  const el = {
+    // KPIs
+    kpiProgress: document.getElementById("monKpiProgress"),
+    kpiProgressBar: document.getElementById("monKpiProgressBar"),
+    kpiOngoing: document.getElementById("monKpiOngoing"),
+    kpiRisks: document.getElementById("monKpiRisks"),
+
+    // filters
+    search: document.getElementById("monSearch"),
+    fType: document.getElementById("monFilterType"),
+    fStatus: document.getElementById("monFilterStatus"),
+    fOwner: document.getElementById("monFilterOwner"),
+    apply: document.getElementById("monApply"),
+    clear: document.getElementById("monClear"),
+
+    // table
+    empty: document.getElementById("monEmpty"),
+    tbody: document.getElementById("monTbody"),
+
+    // actions
+    addMilestone: document.getElementById("monAddMilestone"),
+    addActivity: document.getElementById("monAddActivity"),
+    exportBtn: document.getElementById("monExport"),
+    replan: document.getElementById("monReplan"),
+    reset: document.getElementById("monReset"),
+
+    // modal
+    modal: document.getElementById("monModal"),
+    modalTitle: document.getElementById("monModalTitle"),
+    formId: document.getElementById("monFormId"),
+    formType: document.getElementById("monFormType"),
+    formName: document.getElementById("monFormName"),
+    formStatus: document.getElementById("monFormStatus"),
+    formProgress: document.getElementById("monFormProgress"),
+    formOwner: document.getElementById("monFormOwner"),
+    formStart: document.getElementById("monFormStart"),
+    formEnd: document.getElementById("monFormEnd"),
+    formDesc: document.getElementById("monFormDesc"),
+    formMilestoneWrap: document.getElementById("monFormMilestoneWrap"),
+    formMilestone: document.getElementById("monFormMilestone"),
+    formSave: document.getElementById("monFormSave"),
+  };
+
+  let items = read();
+
+  function getMilestones(){
+    return items.filter(x => x.type === "MILESTONE").sort((a,b)=> (a.start||"").localeCompare(b.start||""));
+  }
+
+  function fillMilestoneSelect(selectedId){
+    const ms = getMilestones();
+    el.formMilestone.innerHTML = "";
+    ms.forEach(m=>{
+      const opt = document.createElement("option");
+      opt.value = m.id;
+      opt.textContent = m.name;
+      el.formMilestone.appendChild(opt);
+    });
+    if (selectedId) el.formMilestone.value = selectedId;
+    if (!selectedId && ms[0]) el.formMilestone.value = ms[0].id;
+  }
+
+  function calcKpis(){
+    const allActs = items.filter(x => x.type === "ACTIVITY");
+    const ongoing = allActs.filter(a => a.status === "ONGOING").length;
+    el.kpiOngoing.textContent = String(ongoing);
+
+    // progresso: média ponderada (atividade = 1, marco = 1) para manter simples
+    const relevant = items.filter(x => x.type === "ACTIVITY" || x.type === "MILESTONE");
+    const avg = relevant.length
+      ? Math.round(relevant.reduce((acc,x)=> acc + (Number(x.progress||0)), 0) / relevant.length)
+      : 0;
+
+    el.kpiProgress.textContent = `${avg}%`;
+    el.kpiProgressBar.style.width = `${Math.max(0, Math.min(100, avg))}%`;
+
+    el.kpiRisks.textContent = readRisksCountOpen();
+  }
+
+  function getFiltered(){
+    const q = (el.search.value||"").trim().toLowerCase();
+    const type = el.fType.value || "all";
+    const status = el.fStatus.value || "all";
+    const owner = el.fOwner.value || "all";
+
+    return items
+      .slice()
+      .sort((a,b)=> String(b.updatedAt||"").localeCompare(String(a.updatedAt||"")))
+      .filter(x=>{
+        const msName = x.milestoneId ? (items.find(m=>m.id===x.milestoneId)?.name || "") : "";
+        const blob = [
+          x.id, x.type, x.name, x.desc,
+          x.status, x.progress,
+          x.start, x.end,
+          msName,
+          (actors[x.owner]?.name || "")
+        ].join(" ").toLowerCase();
+
+        const okQ = !q || blob.includes(q);
+        const okT = type === "all" || x.type === type;
+        const okS = status === "all" || x.status === status;
+        const okO = owner === "all" || x.owner === owner;
+        return okQ && okT && okS && okO;
+      });
+  }
+
+  function render(){
+    items = read();
+    calcKpis();
+
+    const list = getFiltered();
+    el.empty.classList.toggle("d-none", list.length > 0);
+    el.tbody.innerHTML = "";
+
+    list.forEach(x=>{
+      const isMilestone = x.type === "MILESTONE";
+      const typeLabel = isMilestone
+        ? `<span class="badge badge-soft-success fs-xxs">Marco</span>`
+        : `<span class="badge badge-soft-primary fs-xxs">Atividade</span>`;
+
+      const milestoneName = !isMilestone
+        ? (items.find(m=>m.id===x.milestoneId)?.name || "—")
+        : "—";
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${typeLabel}</td>
+
+        <td>
+          <div class="fw-medium text-truncate" style="max-width: 560px;" title="${esc(x.name)}">${esc(x.name)}</div>
+          ${x.desc ? `<div class="text-muted fs-12 text-truncate" style="max-width: 560px;" title="${esc(x.desc)}">${esc(x.desc)}</div>` : ``}
+        </td>
+
+        <td class="text-muted text-truncate" style="max-width: 260px;" title="${esc(milestoneName)}">${esc(milestoneName)}</td>
+        <td class="text-muted">${esc(actors[x.owner]?.name || "—")}</td>
+        <td>${badgeStatus(x.status)}</td>
+
+        <td>
+          <div class="d-flex align-items-center gap-2">
+            <div class="text-muted fs-12">${esc(Number(x.progress||0))}%</div>
+            <div class="progress bg-primary bg-opacity-25 progress-sm flex-grow-1 mb-0" style="min-width:120px;">
+              <div class="progress-bar bg-primary" role="progressbar" style="width:${Math.max(0, Math.min(100, Number(x.progress||0)))}%"></div>
+            </div>
+          </div>
+        </td>
+
+        <td class="text-muted">${x.updatedAt ? esc(new Date(x.updatedAt).toLocaleString("pt-BR")) : "—"}</td>
+
+        <td class="text-center">
+          <div class="d-flex justify-content-center gap-1">
+            <button class="btn btn-light btn-sm" type="button" data-action="edit" data-id="${esc(x.id)}" title="Editar">
+              <i class="ti ti-edit"></i>
+            </button>
+            <button class="btn btn-light btn-sm" type="button" data-action="delete" data-id="${esc(x.id)}" title="Excluir">
+              <i class="ti ti-trash"></i>
+            </button>
+          </div>
+        </td>
+      `;
+      el.tbody.appendChild(tr);
+    });
+  }
+
+  function setModalMode(type, id){
+    el.formType.value = type;
+    el.formId.value = id || "";
+
+    const isActivity = type === "ACTIVITY";
+    el.formMilestoneWrap.classList.toggle("d-none", !isActivity);
+
+    fillMilestoneSelect();
+
+    if (!id){
+      el.modalTitle.textContent = (type === "MILESTONE") ? "Adicionar marco" : "Adicionar atividade";
+      el.formName.value = "";
+      el.formStatus.value = "ONGOING";
+      el.formProgress.value = 0;
+      el.formOwner.value = "luciene";
+      el.formDesc.value = "";
+
+      const d = new Date();
+      const plus = (n)=> { const x = new Date(d); x.setDate(x.getDate()+n); return x.toISOString().slice(0,10); };
+      el.formStart.value = plus(0);
+      el.formEnd.value = plus(14);
+
+      if (isActivity){
+        const firstMs = getMilestones()[0];
+        fillMilestoneSelect(firstMs?.id);
+      }
+    } else {
+      const it = items.find(x=>x.id===id);
+      if (!it) return;
+
+      el.modalTitle.textContent = (it.type === "MILESTONE")
+        ? `Editar marco — ${it.id}`
+        : `Editar atividade — ${it.id}`;
+
+      el.formName.value = it.name || "";
+      el.formStatus.value = it.status || "ONGOING";
+      el.formProgress.value = Number(it.progress||0);
+      el.formOwner.value = it.owner || "luciene";
+      el.formStart.value = it.start || "";
+      el.formEnd.value = it.end || "";
+      el.formDesc.value = it.desc || "";
+
+      if (it.type === "ACTIVITY") fillMilestoneSelect(it.milestoneId);
+    }
+
+    try{
+      const m = window.bootstrap?.Modal?.getInstance(el.modal) || new window.bootstrap.Modal(el.modal);
+      m.show();
+    }catch(e){}
+  }
+
+  function nextId(prefix){
+    return `${prefix}-${String(Math.floor(Math.random()*900)+100)}`;
+  }
+
+  function saveModal(){
+    const id = (el.formId.value||"").trim();
+    const type = el.formType.value;
+    const name = (el.formName.value||"").trim();
+    const status = el.formStatus.value;
+    const progress = Math.max(0, Math.min(100, Number(el.formProgress.value||0)));
+    const owner = el.formOwner.value;
+    const start = el.formStart.value;
+    const end = el.formEnd.value;
+    const desc = (el.formDesc.value||"").trim();
+    const updatedAt = nowIso();
+
+    if (!name){
+      alert("Preencha o nome.");
+      return;
+    }
+
+    items = read();
+
+    if (type === "ACTIVITY"){
+      const milestoneId = el.formMilestone.value;
+      if (!milestoneId){
+        alert("Selecione um marco para a atividade.");
+        return;
+      }
+
+      if (!id){
+        const newItem = {
+          id: nextId("AC"),
+          type,
+          milestoneId,
+          name,
+          owner,
+          status,
+          progress,
+          start,
+          end,
+          desc,
+          createdAt: updatedAt,
+          updatedAt: updatedAt
+        };
+        items.unshift(newItem);
+        write(items);
+        addLogMonitoring("CREATE", newItem);
+      } else {
+        const idx = items.findIndex(x=>x.id===id);
+        if (idx<0) return;
+        const next = { ...items[idx], milestoneId, name, owner, status, progress, start, end, desc, updatedAt };
+        items[idx] = next;
+        write(items);
+        addLogMonitoring("UPDATE", next);
+      }
+    } else {
+      if (!id){
+        const newItem = {
+          id: nextId("MS"),
+          type,
+          name,
+          owner,
+          status,
+          progress,
+          start,
+          end,
+          desc,
+          createdAt: updatedAt,
+          updatedAt: updatedAt
+        };
+        items.unshift(newItem);
+        write(items);
+        addLogMonitoring("CREATE", newItem);
+      } else {
+        const idx = items.findIndex(x=>x.id===id);
+        if (idx<0) return;
+        const next = { ...items[idx], name, owner, status, progress, start, end, desc, updatedAt };
+        items[idx] = next;
+        write(items);
+        addLogMonitoring("UPDATE", next);
+      }
+    }
+
+    // dispara evento global para cronograma/linha do tempo reagirem
+    window.dispatchEvent(new CustomEvent("gomap:schedule-updated", { detail: { projectId: "0006" } }));
+
+    try{
+      const m = window.bootstrap?.Modal?.getInstance(el.modal) || new window.bootstrap.Modal(el.modal);
+      m.hide();
+    }catch(e){}
+
+    render();
+  }
+
+  function deleteItem(id){
+    items = read();
+    const it = items.find(x=>x.id===id);
+    if (!it) return;
+
+    const ok = confirm("Excluir este registro do monitoramento? (Protótipo UI)");
+    if (!ok) return;
+
+    if (it.type === "MILESTONE"){
+      items = items.filter(x => x.id !== id && x.milestoneId !== id);
+    } else {
+      items = items.filter(x => x.id !== id);
+    }
+
+    write(items);
+    addLogMonitoring("DELETE", it);
+
+    window.dispatchEvent(new CustomEvent("gomap:schedule-updated", { detail: { projectId: "0006" } }));
+
+    render();
+  }
+
+  function wire(){
+    // filtros
+    el.apply.addEventListener("click", render);
+    el.clear.addEventListener("click", ()=>{
+      el.search.value = "";
+      el.fType.value = "all";
+      el.fStatus.value = "all";
+      el.fOwner.value = "all";
+      render();
+    });
+    el.search.addEventListener("input", ()=>{
+      clearTimeout(el.search._t);
+      el.search._t = setTimeout(render, 120);
+    });
+
+    // adicionar
+    el.addMilestone.addEventListener("click", (e)=>{ e.preventDefault(); setModalMode("MILESTONE"); });
+    el.addActivity.addEventListener("click", (e)=>{ e.preventDefault(); setModalMode("ACTIVITY"); });
+
+    // modal save
+    el.formSave.addEventListener("click", saveModal);
+
+    // ações
+    el.exportBtn.addEventListener("click", (e)=>{ e.preventDefault(); alert("Exportar monitoramento (protótipo UI)."); });
+    el.replan.addEventListener("click", (e)=>{ e.preventDefault(); alert("Replanejar (protótipo UI)."); });
+
+    el.reset.addEventListener("click", (e)=>{
+      e.preventDefault();
+      const ok = confirm("Resetar monitoramento (protótipo). Isso limpa o storage do cronograma/monitoramento deste projeto.");
+      if (!ok) return;
+      write([]);
+      alert("Reset concluído. Recarregue o cronograma para repopular, se você estiver usando seed lá.");
+      window.dispatchEvent(new CustomEvent("gomap:schedule-updated", { detail: { projectId: "0006" } }));
+      render();
+    });
+
+    // delegação tabela
+    document.addEventListener("click", (ev)=>{
+      const btn = ev.target.closest("[data-action][data-id]");
+      if (!btn) return;
+
+      const act = btn.getAttribute("data-action");
+      const id = btn.getAttribute("data-id");
+      if (!act || !id) return;
+
+      ev.preventDefault();
+
+      if (act === "edit"){
+        const it = read().find(x=>x.id===id);
+        if (!it) return;
+        setModalMode(it.type, it.id);
+      }
+      if (act === "delete"){
+        deleteItem(id);
+      }
+    });
+
+    // re-render se outro módulo alterar o storage
+    window.addEventListener("gomap:schedule-updated", () => {
+      render();
+    });
+  }
+
+  function init(){
+    // KPI riscos
+    el.kpiRisks.textContent = readRisksCountOpen();
+    wire();
+    render();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+
 
                     <div class="tab-pane" id="tab-governance" role="tabpanel">
                       <div class="card mb-0">
