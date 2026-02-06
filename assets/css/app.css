@@ -22398,7 +22398,3 @@ div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=tip] {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
-
-body {
-  background-color: rgb(241, 242, 247);
-}
