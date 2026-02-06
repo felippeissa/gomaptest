@@ -4,6 +4,81 @@
     @@include("./partials/title-meta.html", {"title": "Portal de projetos"})
 
     @@include('./partials/head-css.html')
+    <style>
+    .eva-chat-card {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 420px; /* aumentado para caber 3 sugestões na mesma linha */
+        height: 520px;
+        z-index: 1056;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Body precisa virar coluna e permitir que a área de mensagens cresça com scroll */
+    .eva-chat-card .card-body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 0; /* ESSENCIAL pro overflow funcionar */
+    }
+
+    /* Área de mensagens: ocupa o espaço restante + scroll */
+    .eva-chat-messages {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 12px;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.05); /* #000 5% */
+    }
+
+    /* Espaçamento entre mensagens (estilo WhatsApp) */
+    .eva-chat-messages > .d-flex {
+        margin-bottom: 8px;
+    }
+
+    /* Mensagens do usuário um pouco mais afastadas */
+    .eva-chat-messages > .d-flex.justify-content-end {
+        margin-bottom: 10px;
+    }
+
+    .eva-chat-bubble {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 12px;
+        font-size: 0.875rem;
+        max-width: 85%;
+        line-height: 1.4;
+        word-break: break-word; /* evita vazar com texto longo */
+    }
+
+    .eva-chat-bot {
+        background: #f1f5f9;
+        color: #0f172a;
+    }
+
+    .eva-chat-user {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+    /* Sugestões sempre em 1 linha */
+    .eva-chat-suggestions {
+        display: flex;
+        gap: 8px;
+    }
+
+    .eva-chat-suggestions .btn {
+        flex: 1 1 0;
+        white-space: nowrap;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -22,7 +97,7 @@
                 <div class="row">
                     <!-- Todos os projetos -->
                     <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed bg-white">
+                        <div class="p-3 rounded m-1 border border-dashed">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="mb-1"><span data-target="100">0</span></i></span></h3>
@@ -38,7 +113,7 @@
                     </div>
                     <!-- Favoritos -->
                     <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed bg-white">
+                        <div class="p-3 rounded m-1 border border-dashed">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="mb-1"><span>1</span> </span></h3>
@@ -54,7 +129,7 @@
                     </div>
                     <!-- Iniciação -->
                     <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed bg-white">
+                        <div class="p-3 rounded m-1 border border-dashed ">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="mb-1"><span >1</span> </span></h3>
@@ -70,7 +145,7 @@
                     </div>
                     <!-- Planejamento -->
                     <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed bg-white">
+                        <div class="p-3 rounded m-1 border border-dashed">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="mb-1"><span>1</span> </span></h3>
@@ -86,7 +161,7 @@
                     </div>   
                     <!-- Execução -->
                     <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed bg-white">
+                        <div class="p-3 rounded m-1 border border-dashed">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="mb-1"><span>1</span> </span></h3>
@@ -102,7 +177,7 @@
                     </div>
                     <!-- Encerramento -->
                     <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed bg-white">
+                        <div class="p-3 rounded m-1 border border-dashed">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="mb-1"><span>1</span> </span></h3>
@@ -118,7 +193,7 @@
                     </div>     
                     <!-- Pontos de Atenção -->
                     <div class="col px-0">
-                        <div class="p-3 rounded m-1 border border-dashed bg-white">
+                        <div class="p-3 rounded m-1 border border-dashed">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="mb-1"><span>1</span> </span></h3>
@@ -191,9 +266,15 @@
                                             <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-chat-project="Integração de Sistemas de Pagamento Digital" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -222,9 +303,15 @@
                                             <td><span class="badge badge-soft-warning fs-xxs">Atrasado</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#chat-generic-modal" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -253,9 +340,15 @@
                                             <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#chat-generic-modal" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -284,9 +377,15 @@
                                             <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#chat-generic-modal" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -315,9 +414,15 @@
                                             <td><span class="badge badge-soft-success fs-xxs">No prazo</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#chat-generic-modal" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -346,9 +451,15 @@
                                             <td><span class="badge badge-soft-warning fs-xxs">Atrasado</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#chat-generic-modal" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -377,9 +488,15 @@
                                             <td><span class="badge badge-soft-danger fs-xxs">Conclusão vencida</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#chat-generic-modal" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -408,9 +525,15 @@
                                             <td><span class="badge badge-soft-dark fs-xxs">Concluído</span></td>
                                             <td>
                                                 <div class="d-flex justify-content-center gap-1">
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-file-alert fs-lg"></i></a>
-                                                    <a href="#" class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-clock fs-lg"></i></a>
-                                                    <a href="#" data-table-delete-row class="btn btn-light btn-icon btn-sm rounded-circle"><i class="ti ti-mail-ai fs-lg"></i></a>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#attention-modal" aria-label="Visualizar pontos de atenção">
+                                                        <i class="ti ti-file-alert fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#history-modal" aria-label="Visualizar histórico">
+                                                        <i class="ti ti-clock fs-lg"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#chat-generic-modal" aria-label="Conversar com Eva">
+                                                        <i class="ti ti-message-chatbot fs-lg"></i>
+                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -419,13 +542,53 @@
                                 </table>
 
                             </div>
-                            <div class="card-footer border-0">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div data-table-pagination-info="categories"></div>
-                                    <div data-table-pagination></div>
+                            <!--- end table-responsive -->
+                            
+                            <!-- EVA Chat (NOVO) -->
+                            <div id="eva-chat-modal" class="card shadow-lg eva-chat-card d-none">
+                                <div class="card-header d-flex align-items-center justify-content-between py-2">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="avatar-xs">
+                                            <span class="avatar-title rounded-circle bg-primary">
+                                                <i class="ti ti-message-chatbot"></i>
+                                            </span>
+                                        </span>
+                                        <div class="lh-sm">
+                                            <div class="fw-semibold">Eva</div>
+                                            <small class="text-muted">Assistente do Portal</small>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-chat-close aria-label="Fechar">
+                                        <i class="ti ti-x"></i>
+                                    </button>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="eva-chat-messages mb-3">
+                                        <div class="d-flex">
+                                            <span class="eva-chat-bubble eva-chat-bot" data-chat-message>
+                                                Olá! Como posso te ajudar?
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" placeholder="Digite sua pergunta..." aria-label="Mensagem">
+                                        <button class="btn btn-primary" type="button" aria-label="Enviar">
+                                            <i class="ti ti-send"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-2 eva-chat-suggestions">
+                                        <button type="button" class="btn btn-light btn-sm" data-suggestion="status">Status do projeto</button>
+                                        <button type="button" class="btn btn-light btn-sm" data-suggestion="attention">Pontos de atenção</button>
+                                        <button type="button" class="btn btn-light btn-sm" data-suggestion="next">Próximos passos</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <!-- /EVA Chat -->
+
     <!-- END wrapper -->
 
     @@include('./partials/customizer.html')
@@ -438,7 +601,11 @@
     <!-- Dashboard Page js -->
     <script src="assets/js/pages/dashboard.js"></script>
 
+    <!-- Custom Table Page js -->
+    <script src="assets/js/pages/custom-table.js"></script>
+    
     <script>
+    
 (function () {
   const green = '#0B5B35';
 
@@ -486,7 +653,90 @@
 })();
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const chatModal = document.getElementById('eva-chat-modal');
+    if (!chatModal) return;
 
+    const chatMessages = chatModal.querySelector('.eva-chat-messages');
+    const introBubble = chatModal.querySelector('[data-chat-message]');
+    const closeBtn = chatModal.querySelector('[data-chat-close]');
+    const input = chatModal.querySelector('input.form-control');
+    const sendBtn = chatModal.querySelector('.input-group .btn.btn-primary');
+
+    function addMessage(text, from = 'bot') {
+        const row = document.createElement('div');
+        row.className = 'd-flex ' + (from === 'user' ? 'justify-content-end' : '');
+
+        const bubble = document.createElement('span');
+        bubble.className = 'eva-chat-bubble ' + (from === 'user' ? 'eva-chat-user' : 'eva-chat-bot');
+        bubble.textContent = text;
+
+        row.appendChild(bubble);
+        chatMessages.appendChild(row);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function sendUserMessage(text) {
+        const value = (text || '').trim();
+        if (!value) return;
+
+        addMessage(value, 'user');
+
+        // resposta mock
+        window.setTimeout(() => {
+            addMessage('EVA CHAT RESPOSTA', 'bot');
+        }, 400);
+    }
+
+    // abrir via botões da tabela
+    document.querySelectorAll('[data-chat-project]').forEach((button) => {
+        button.addEventListener('click', () => {
+            const projectName = button.getAttribute('data-chat-project');
+            if (introBubble && projectName) {
+                introBubble.textContent = `O que deseja saber sobre o projeto ${projectName}?`;
+            }
+            chatModal.classList.remove('d-none');
+            input?.focus();
+        });
+    });
+
+    // fechar
+    closeBtn?.addEventListener('click', () => {
+        chatModal.classList.add('d-none');
+    });
+
+    // enviar (botão)
+    sendBtn?.addEventListener('click', () => {
+        if (!input) return;
+        const text = input.value;
+        input.value = '';
+        sendUserMessage(text);
+        input.focus();
+    });
+
+    // enviar (enter)
+    input?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendBtn?.click();
+        }
+    });
+
+    // sugestões
+    chatModal.querySelectorAll('[data-suggestion]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-suggestion');
+            const map = {
+                status: 'Eva chat, qual é o status desse projeto?',
+                attention: 'Eva chat, quais são os pontos de atenção desse projeto?',
+                next: 'Eva chat, quais são os próximos passos desse projeto?'
+            };
+            sendUserMessage(map[key] || btn.textContent || '');
+        });
+    });
+});
+</script>
 
 </body>
 
