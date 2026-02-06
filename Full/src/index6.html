@@ -2250,24 +2250,104 @@
 
                     <div class="tab-pane" id="tab-funding" role="tabpanel">
   <div class="card mb-0">
-    <div class="card-header border-light">
-      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+    <div class="card-body">
+
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
         <div>
-          <h5 class="mb-0">Captação de recursos</h5>
-          <small class="text-muted">Histórico de propostas de captação vinculadas a este projeto.</small>
+          <h5 class="mb-1">Captação de recursos</h5>
+          <div class="text-muted fs-12">Histórico de propostas de captação vinculadas a este projeto.</div>
         </div>
-        <div class="d-flex align-items-center gap-2">
-          <span class="badge badge-soft-secondary" data-funding-count>0</span>
+
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <div class="d-flex align-items-center gap-2 me-1">
+            <span class="badge badge-soft-secondary fs-xxs" data-funding-count>Total: 0</span>
+            <span class="badge badge-soft-info fs-xxs" id="fundingCountPlanning">Planejamento: 0</span>
+            <span class="badge badge-soft-warning fs-xxs" id="fundingCountArticulation">Articulação: 0</span>
+            <span class="badge badge-soft-primary fs-xxs" id="fundingCountFormalization">Formalização: 0</span>
+            <span class="badge badge-soft-success fs-xxs" id="fundingCountExecution">Execução: 0</span>
+            <span class="badge badge-soft-dark fs-xxs" id="fundingCountArchived">Arquivadas: 0</span>
+          </div>
+
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#funding-proposal-modal" data-funding-new>
             <i class="ti ti-plus me-1"></i>Nova proposta
           </button>
+
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ações
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="#" id="fundingExport">
+                  <i class="ti ti-download me-2"></i>Exportar
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" id="fundingClearAll">
+                  <i class="ti ti-broom me-2"></i>Limpar propostas salvas (protótipo)
+                </a>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </div>
-    </div>
 
-    <div class="card-body p-0">
+      <!-- Filtros (espelho do padrão de Riscos) -->
+      <div class="card mb-3 border">
+        <div class="card-body">
+          <div class="d-flex flex-wrap align-items-end gap-2">
+
+            <div style="min-width: 280px; flex: 1 1 320px;">
+              <label class="form-label">Buscar</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="ti ti-search"></i></span>
+                <input type="text" class="form-control" id="fundingSearch"
+                  placeholder="Buscar por título ou ID da proposta..." data-funding-search />
+              </div>
+            </div>
+
+            <div style="min-width: 220px; flex: 0 0 220px;">
+              <label class="form-label">Fase</label>
+              <select class="form-select" id="fundingFilterPhase" data-funding-status-filter>
+                <option value="all" selected>Todas</option>
+                <option value="planning">Em Planejamento</option>
+                <option value="articulation">Em Articulação</option>
+                <option value="formalization">Em Formalização</option>
+                <option value="execution">Em Execução</option>
+                <option value="archived">Arquivadas</option>
+              </select>
+            </div>
+
+            <div class="ms-auto d-flex gap-2">
+              <button type="button" class="btn btn-outline-primary" id="fundingApplyFilter" data-funding-apply>
+                <i class="ti ti-filter me-1"></i>Filtrar
+              </button>
+              <button type="button" class="btn btn-light" id="fundingClearFilter" data-funding-clear>
+                <i class="ti ti-rotate-2 me-1"></i>Limpar
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty -->
+      <div id="fundingEmptyState" class="d-none">
+        <div class="text-center py-5 text-muted">
+          <div class="avatar-xl mx-auto mb-2">
+            <span class="avatar-title rounded-circle bg-light text-muted">
+              <i class="ti ti-coins fs-2"></i>
+            </span>
+          </div>
+          <h5 class="mb-1">Nenhuma proposta encontrada</h5>
+          <div class="text-muted">Ajuste os filtros ou limpe para ver todas as propostas.</div>
+        </div>
+      </div>
+
+      <!-- Tabela -->
       <div class="table-responsive">
-        <table class="table table-custom table-centered table-hover w-100 mb-0">
+        <table class="table table-custom table-centered table-hover w-100 mb-0 text-nowrap">
           <thead class="bg-light align-middle bg-opacity-25 thead-sm">
             <tr class="text-uppercase fs-xxs">
               <th>Proposta</th>
@@ -2282,6 +2362,11 @@
           </tbody>
         </table>
       </div>
+
+      <div class="text-muted fs-12 mt-3">
+        Regra (protótipo): o conteúdo exibido aqui é mock e serve para validar o fluxo de cadastro/edição em modal.
+      </div>
+
     </div>
   </div>
 </div>
@@ -4346,6 +4431,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const searchEl = tab.querySelector('[data-funding-search]');
   const statusFilterEl = tab.querySelector('[data-funding-status-filter]');
+  const emptyStateEl = tab.querySelector('#fundingEmptyState');
+  const tableWrapEl = tab.querySelector('.table-responsive');
+  const applyBtn = tab.querySelector('#fundingApplyFilter') || tab.querySelector('[data-funding-apply]');
+  const clearBtn = tab.querySelector('#fundingClearFilter') || tab.querySelector('[data-funding-clear]');
+
+  // badges (espelho do Riscos)
+  const badgePlanning = tab.querySelector('#fundingCountPlanning');
+  const badgeArticulation = tab.querySelector('#fundingCountArticulation');
+  const badgeFormalization = tab.querySelector('#fundingCountFormalization');
+  const badgeExecution = tab.querySelector('#fundingCountExecution');
+  const badgeArchived = tab.querySelector('#fundingCountArchived');
+
   const phaseCards = {
     planning: tab.querySelector('[data-funding-card-count="planning"]'),
     articulation: tab.querySelector('[data-funding-card-count="articulation"]'),
@@ -4363,6 +4460,15 @@ const modalEl = document.getElementById('funding-proposal-modal');
   const btnSave = modalEl?.querySelector('[data-funding-save]');
   const btnAdvance = modalEl?.querySelector('[data-funding-advance]');
   const btnNew = tab.querySelector('[data-funding-new]');
+
+  // Modal PDF (Dados do PDF)
+  const pdfModalEl = document.getElementById('funding-pdf-modal');
+  const pdfModalTitle = pdfModalEl?.querySelector('[data-funding-pdf-modal-title]');
+  const pdfSaveBtn = pdfModalEl?.querySelector('[data-funding-pdf-save]');
+  const pdfCancelBtns = pdfModalEl?.querySelectorAll('[data-funding-pdf-cancel]');
+  const pdfAlertErr = pdfModalEl?.querySelector('[data-funding-pdf-alert-danger]');
+
+  let pdfEditingIndex = null;
 
   const PHASE_LABEL = {
     planning: 'Em Planejamento',
@@ -4488,13 +4594,20 @@ const modalEl = document.getElementById('funding-proposal-modal');
     if (!listEl) return;
 
     // ---- resumo (cards) ----
-    const counts = { planning: 0, articulation: 0, formalization: 0, execution: 0 };
+    const counts = { planning: 0, articulation: 0, formalization: 0, execution: 0, archived: 0 };
     proposals.forEach(p => {
       if (counts[p.phase] !== undefined) counts[p.phase] += 1;
     });
     Object.keys(counts).forEach(k => {
       if (phaseCards[k]) phaseCards[k].textContent = String(counts[k]);
     });
+
+    // badges no header (espelho do layout de Riscos)
+    if (badgePlanning) badgePlanning.textContent = `Planejamento: ${counts.planning}`;
+    if (badgeArticulation) badgeArticulation.textContent = `Articulação: ${counts.articulation}`;
+    if (badgeFormalization) badgeFormalization.textContent = `Formalização: ${counts.formalization}`;
+    if (badgeExecution) badgeExecution.textContent = `Execução: ${counts.execution}`;
+    if (badgeArchived) badgeArchived.textContent = `Arquivadas: ${counts.archived}`;
 
     // ---- filtros ----
     const q = (searchEl?.value || '').trim().toLowerCase();
@@ -4533,23 +4646,16 @@ const modalEl = document.getElementById('funding-proposal-modal');
         `;
       }).join('');
 
-    listEl.innerHTML = rows || (proposals.length
-      ? `
-      <tr>
-        <td colspan="5" class="text-center text-muted py-5">
-          Nenhuma proposta encontrada para o filtro informado.
-        </td>
-      </tr>
-    `
-      : `
-      <tr>
-        <td colspan="5" class="text-center text-muted py-5">
-          Nenhuma proposta cadastrada. Clique em <strong>Nova proposta</strong> para começar.
-        </td>
-      </tr>
-    `);
+    // render
+    const hasResults = filtered.length > 0;
 
-    if (countEl) countEl.textContent = proposals.length;
+    if (listEl) listEl.innerHTML = hasResults ? rows : '';
+
+    // empty state (espelho do layout de Riscos)
+    if (emptyStateEl) emptyStateEl.classList.toggle('d-none', hasResults);
+    if (tableWrapEl) tableWrapEl.classList.toggle('d-none', !hasResults);
+
+    if (countEl) countEl.textContent = `Total: ${proposals.length}`;
 
     // bind actions
     listEl.querySelectorAll('[data-funding-edit]').forEach(btn => {
@@ -4569,6 +4675,111 @@ const modalEl = document.getElementById('funding-proposal-modal');
       });
     });
   }
+
+  
+  function ensurePdfState() {
+    if (!draftData) draftData = {};
+    if (!Array.isArray(draftData.__pdfs)) draftData.__pdfs = [];
+  }
+
+  function fillPdfModal(row) {
+    if (!pdfModalEl) return;
+    pdfModalEl.querySelector('[data-pdf-input="numero_pdf"]').value = row?.numero_pdf || '';
+    pdfModalEl.querySelector('[data-pdf-input="data_empenho"]').value = row?.data_empenho || '';
+    pdfModalEl.querySelector('[data-pdf-input="numero_empenho"]').value = row?.numero_empenho || '';
+    pdfModalEl.querySelector('[data-pdf-input="valor_empenho"]').value = row?.valor_empenho || '';
+    pdfModalEl.querySelector('[data-pdf-input="data_liquidacao"]').value = row?.data_liquidacao || '';
+    pdfModalEl.querySelector('[data-pdf-input="valor_liquidacao"]').value = row?.valor_liquidacao || '';
+    pdfModalEl.querySelector('[data-pdf-input="data_pagamento"]').value = row?.data_pagamento || '';
+    pdfModalEl.querySelector('[data-pdf-input="valor_parcela_paga"]').value = row?.valor_parcela_paga || '';
+    pdfModalEl.querySelector('[data-pdf-input="fonte"]').value = row?.fonte || '';
+    // arquivo: apenas exibe nome salvo (por segurança o browser não preenche file input)
+    const fileNameEl = pdfModalEl.querySelector('[data-pdf-file-name]');
+    if (fileNameEl) fileNameEl.textContent = row?.arquivo_nome ? `Arquivo: ${row.arquivo_nome}` : '';
+  }
+
+  function readPdfModal() {
+    if (!pdfModalEl) return null;
+    const get = (k) => pdfModalEl.querySelector(`[data-pdf-input="${k}"]`)?.value?.trim?.() || '';
+    const fileEl = pdfModalEl.querySelector('[data-pdf-file]');
+
+    return {
+      numero_pdf: get('numero_pdf'),
+      data_empenho: get('data_empenho'),
+      numero_empenho: get('numero_empenho'),
+      valor_empenho: get('valor_empenho'),
+      data_liquidacao: get('data_liquidacao'),
+      valor_liquidacao: get('valor_liquidacao'),
+      data_pagamento: get('data_pagamento'),
+      valor_parcela_paga: get('valor_parcela_paga'),
+      fonte: get('fonte'),
+      arquivo_nome: fileEl?.files?.[0]?.name || ''
+    };
+  }
+
+  function openPdfModal(editIndex = null) {
+    if (!pdfModalEl) return;
+
+    ensurePdfState();
+    pdfEditingIndex = (typeof editIndex === 'number') ? editIndex : null;
+
+    // title
+    if (pdfModalTitle) {
+      pdfModalTitle.textContent = pdfEditingIndex === null ? 'Adicionar PDF' : 'Editar PDF';
+    }
+
+    // reset alerts
+    if (pdfAlertErr) pdfAlertErr.classList.add('d-none');
+
+    const row = (pdfEditingIndex !== null) ? draftData.__pdfs[pdfEditingIndex] : null;
+    fillPdfModal(row);
+
+    const bs = bootstrap.Modal.getOrCreateInstance(pdfModalEl);
+    bs.show();
+  }
+
+  function closePdfModal() {
+    if (!pdfModalEl) return;
+    const bs = bootstrap.Modal.getOrCreateInstance(pdfModalEl);
+    bs.hide();
+  }
+
+  function showPdfError(msg) {
+    if (!pdfAlertErr) return;
+    pdfAlertErr.textContent = msg;
+    pdfAlertErr.classList.remove('d-none');
+  }
+
+  // PDF modal events
+  if (pdfSaveBtn) {
+    pdfSaveBtn.addEventListener('click', () => {
+      ensurePdfState();
+      const row = readPdfModal();
+      if (!row) return;
+
+      // validação mínima
+      if (!row.numero_pdf) return showPdfError('Informe o Número do PDF.');
+      // se for novo, exige arquivo; se edição, pode manter sem re-upload
+      const isNew = pdfEditingIndex === null;
+      if (isNew && !row.arquivo_nome) return showPdfError('Selecione um arquivo PDF para anexar.');
+
+      // se edição e não escolheu novo arquivo, preserva o nome anterior
+      if (!isNew && !row.arquivo_nome) {
+        row.arquivo_nome = draftData.__pdfs[pdfEditingIndex]?.arquivo_nome || '';
+      }
+
+      if (pdfEditingIndex === null) {
+        draftData.__pdfs.push(row);
+      } else {
+        draftData.__pdfs[pdfEditingIndex] = row;
+      }
+
+      closePdfModal();
+      renderForm();
+    });
+  }
+
+  pdfCancelBtns?.forEach(btn => btn.addEventListener('click', closePdfModal));
 
   function renderForm() {
     if (!formEl || !modalEl) return;
@@ -4681,8 +4892,94 @@ const modalEl = document.getElementById('funding-proposal-modal');
           `;
         }
 
-        // grid/botão adicionar (render simples)
-        if (comp.includes('grid') || comp.includes('botão')) {
+        // grid (tabela) - usado em "Dados do PDF"
+        if (comp.includes('grid')) {
+          // regra específica: quando o label tem "PDF", renderiza como tabela + modal de anexos
+          if (String(f.label || '').toUpperCase().includes('PDF')) {
+            const pdfs = Array.isArray(draftData.__pdfs) ? draftData.__pdfs : [];
+            return `
+              <div class="col-12">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <div>
+                    <div class="fw-semibold">${f.label}</div>
+                    ${notes ? `<div class="text-muted small">${notes}</div>` : ''}
+                  </div>
+                  <button type="button" class="btn btn-outline-primary btn-sm" data-funding-add-pdf ${!isEditable ? 'disabled' : ''}>
+                    <i class="ti ti-plus me-1"></i>Adicionar PDF
+                  </button>
+                </div>
+
+                <div class="table-responsive border rounded">
+                  <table class="table table-sm table-hover align-middle mb-0">
+                    <thead class="table-light">
+                      <tr>
+                        <th style="width: 120px;">Nº PDF</th>
+                        <th style="width: 130px;">Data empenho</th>
+                        <th style="width: 130px;">Nº empenho</th>
+                        <th style="width: 140px;">Valor empenho</th>
+                        <th style="width: 140px;">Data liquidação</th>
+                        <th style="width: 140px;">Valor liquidação</th>
+                        <th style="width: 140px;">Data pagamento</th>
+                        <th style="width: 160px;">Valor parcela paga</th>
+                        <th style="width: 140px;">Fonte</th>
+                        <th style="width: 120px;" class="text-end">Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody data-funding-pdf-rows>
+                      ${pdfs.length ? pdfs.map((row, idx) => `
+                        <tr>
+                          <td>${row.numero_pdf || '-'}</td>
+                          <td>${row.data_empenho || '-'}</td>
+                          <td>${row.numero_empenho || '-'}</td>
+                          <td>${row.valor_empenho || '-'}</td>
+                          <td>${row.data_liquidacao || '-'}</td>
+                          <td>${row.valor_liquidacao || '-'}</td>
+                          <td>${row.data_pagamento || '-'}</td>
+                          <td>${row.valor_parcela_paga || '-'}</td>
+                          <td>${row.fonte || '-'}</td>
+                          <td class="text-end">
+                            <button type="button" class="btn btn-light btn-sm" data-funding-pdf-edit="${idx}" ${!isEditable ? 'disabled' : ''}>
+                              <i class="ti ti-pencil"></i>
+                            </button>
+                            <button type="button" class="btn btn-light btn-sm" data-funding-pdf-del="${idx}" ${!isEditable ? 'disabled' : ''}>
+                              <i class="ti ti-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      `).join('') : `
+                        <tr>
+                          <td colspan="10" class="text-center text-muted py-4">
+                            Nenhum PDF adicionado.
+                          </td>
+                        </tr>
+                      `}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            `;
+          }
+
+          // fallback para outros grids: card simples
+          return `
+            <div class="col-12">
+              <div class="border rounded p-3">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <div class="fw-semibold">${f.label}</div>
+                    ${notes ? `<div class="text-muted small">${notes}</div>` : ''}
+                  </div>
+                  <button type="button" class="btn btn-outline-primary btn-sm" ${!isEditable ? 'disabled' : ''}>
+                    <i class="ti ti-plus me-1"></i>Adicionar
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // botão (card simples)
+        if (comp.includes('botão')) {
           return `
             <div class="col-12">
               <div class="border rounded p-3">
@@ -4731,6 +5028,27 @@ const modalEl = document.getElementById('funding-proposal-modal');
         }
       });
     });
+
+    // bind PDF grid actions (Dados do PDF)
+    const btnAddPdf = formEl.querySelector('[data-funding-add-pdf]');
+    btnAddPdf?.addEventListener('click', () => openPdfModal());
+
+    formEl.querySelectorAll('[data-funding-pdf-del]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-funding-pdf-del'));
+        if (!Array.isArray(draftData.__pdfs)) draftData.__pdfs = [];
+        draftData.__pdfs.splice(idx, 1);
+        renderForm();
+      });
+    });
+
+    formEl.querySelectorAll('[data-funding-pdf-edit]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.getAttribute('data-funding-pdf-edit'));
+        openPdfModal(idx);
+      });
+    });
+
   }
 
   function validateRequiredForPhase() {
@@ -4899,9 +5217,23 @@ const modalEl = document.getElementById('funding-proposal-modal');
   });
 
 
-  // filtros (busca + status)
-  searchEl?.addEventListener('input', () => {
+  // filtros (espelho do padrão de Riscos)
+  applyBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
     renderList();
+  });
+
+  clearBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (searchEl) searchEl.value = '';
+    if (statusFilterEl) statusFilterEl.value = 'all';
+    renderList();
+  });
+
+  // busca com debounce leve
+  searchEl?.addEventListener('input', () => {
+    clearTimeout(searchEl._t);
+    searchEl._t = setTimeout(renderList, 150);
   });
 
   statusFilterEl?.addEventListener('change', () => {
@@ -4911,6 +5243,84 @@ const modalEl = document.getElementById('funding-proposal-modal');
   renderList();
 });
 </script>
+
+
+<!-- Modal PDF - Captação de Recursos -->
+<div class="modal fade" id="funding-pdf-modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title mb-0" data-funding-pdf-modal-title>Adicionar PDF</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="alert alert-danger d-none" role="alert" data-funding-pdf-alert-danger></div>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <label class="form-label">Número do PDF <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" data-pdf-input="numero_pdf" placeholder="Ex: 12345">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Data do empenho</label>
+            <input type="date" class="form-control" data-pdf-input="data_empenho">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Número do empenho</label>
+            <input type="text" class="form-control" data-pdf-input="numero_empenho">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Valor do empenho</label>
+            <input type="number" step="any" class="form-control" data-pdf-input="valor_empenho">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Data da liquidação</label>
+            <input type="date" class="form-control" data-pdf-input="data_liquidacao">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Valor da liquidação</label>
+            <input type="number" step="any" class="form-control" data-pdf-input="valor_liquidacao">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Data do pagamento</label>
+            <input type="date" class="form-control" data-pdf-input="data_pagamento">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Valor da parcela paga</label>
+            <input type="number" step="any" class="form-control" data-pdf-input="valor_parcela_paga">
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label class="form-label">Fonte</label>
+            <input type="text" class="form-control" data-pdf-input="fonte" placeholder="Ex: AFT / Siofi">
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Arquivo PDF</label>
+            <input type="file" class="form-control" accept="application/pdf" data-pdf-file>
+            <div class="text-muted small mt-1" data-pdf-file-name></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-funding-pdf-cancel>Cancelar</button>
+        <button type="button" class="btn btn-primary" data-funding-pdf-save>
+          <i class="ti ti-device-floppy me-1"></i>Salvar PDF
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
