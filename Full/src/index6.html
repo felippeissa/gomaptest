@@ -369,19 +369,6 @@
       </div>
 
       <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
-        <div class="app-search" style="flex: 1 1 auto; min-width: 260px;">
-          <input type="search" class="form-control" placeholder="Buscar proposta por nome ou ID" data-funding-search>
-          <i class="ti ti-search app-search-icon text-muted"></i>
-        </div>
-
-        <select class="form-select" style="width: 240px;" data-funding-status-filter>
-          <option value="all">Todos os status</option>
-          <option value="planning">Em Planejamento</option>
-          <option value="articulation">Em Articulação</option>
-          <option value="formalization">Em Formalização</option>
-          <option value="execution">Em Execução</option>
-          <option value="archived">Arquivadas</option>
-        </select>
       </div>
     </div>
 
@@ -2248,91 +2235,36 @@
                       </div>
                     </div>
 
-                    <div class="tab-pane" id="tab-funding" role="tabpanel">
+                    
+<!-- INÍCIO: ABA CAPTAÇÃO DE RECURSOS (CAPTAÇÃO ÚNICA POR PROJETO) -->
+<div class="tab-pane" id="tab-funding" role="tabpanel">
   <div class="card mb-0">
     <div class="card-body">
 
+      <!-- INÍCIO: HEADER DA ABA CAPTAÇÃO -->
       <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
         <div>
           <h5 class="mb-1">Captação de recursos</h5>
-          <div class="text-muted fs-12">Histórico de propostas de captação vinculadas a este projeto.</div>
+          <div class="text-muted fs-12">Registro único por projeto (visualização por blocos). Use “Editar” para atualizar.</div>
         </div>
 
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <div class="d-flex align-items-center gap-2 me-1">
-            <span class="badge badge-soft-secondary fs-xxs" data-funding-count>Total: 0</span>
-            <span class="badge badge-soft-info fs-xxs" id="fundingCountPlanning">Planejamento: 0</span>
-            <span class="badge badge-soft-warning fs-xxs" id="fundingCountArticulation">Articulação: 0</span>
-            <span class="badge badge-soft-primary fs-xxs" id="fundingCountFormalization">Formalização: 0</span>
-            <span class="badge badge-soft-success fs-xxs" id="fundingCountExecution">Execução: 0</span>
-            <span class="badge badge-soft-dark fs-xxs" id="fundingCountArchived">Arquivadas: 0</span>
-          </div>
-
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#funding-proposal-modal" data-funding-new>
-            <i class="ti ti-plus me-1"></i>Nova proposta
+          <button type="button" class="btn btn-primary d-none" id="fundingCreateBtn" data-funding-create>
+            <i class="ti ti-plus me-1"></i>Criar nova captação
           </button>
 
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Ações
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <a class="dropdown-item" href="#" id="fundingExport">
-                  <i class="ti ti-download me-2"></i>Exportar
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#" id="fundingClearAll">
-                  <i class="ti ti-broom me-2"></i>Limpar propostas salvas (protótipo)
-                </a>
-              </li>
-            </ul>
-          </div>
+          <button type="button" class="btn btn-outline-primary d-none" id="fundingEditBtn" data-funding-edit data-bs-toggle="modal" data-bs-target="#funding-proposal-modal">
+            <i class="ti ti-pencil me-1"></i>Editar
+          </button>
 
+          <button type="button" class="btn btn-outline-secondary d-none" id="fundingAddPdfBtn" data-funding-pdf-add data-bs-toggle="modal" data-bs-target="#funding-pdf-modal">
+            <i class="ti ti-file-plus me-1"></i>Adicionar PDF
+          </button>
         </div>
       </div>
+      <!-- FIM: HEADER DA ABA CAPTAÇÃO -->
 
-      <!-- Filtros (espelho do padrão de Riscos) -->
-      <div class="card mb-3 border">
-        <div class="card-body">
-          <div class="d-flex flex-wrap align-items-end gap-2">
-
-            <div style="min-width: 280px; flex: 1 1 320px;">
-              <label class="form-label">Buscar</label>
-              <div class="input-group">
-                <span class="input-group-text"><i class="ti ti-search"></i></span>
-                <input type="text" class="form-control" id="fundingSearch"
-                  placeholder="Buscar por título ou ID da proposta..." data-funding-search />
-              </div>
-            </div>
-
-            <div style="min-width: 220px; flex: 0 0 220px;">
-              <label class="form-label">Fase</label>
-              <select class="form-select" id="fundingFilterPhase" data-funding-status-filter>
-                <option value="all" selected>Todas</option>
-                <option value="planning">Em Planejamento</option>
-                <option value="articulation">Em Articulação</option>
-                <option value="formalization">Em Formalização</option>
-                <option value="execution">Em Execução</option>
-                <option value="archived">Arquivadas</option>
-              </select>
-            </div>
-
-            <div class="ms-auto d-flex gap-2">
-              <button type="button" class="btn btn-outline-primary" id="fundingApplyFilter" data-funding-apply>
-                <i class="ti ti-filter me-1"></i>Filtrar
-              </button>
-              <button type="button" class="btn btn-light" id="fundingClearFilter" data-funding-clear>
-                <i class="ti ti-rotate-2 me-1"></i>Limpar
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Empty -->
+      <!-- INÍCIO: EMPTY STATE (SEM CAPTAÇÃO) -->
       <div id="fundingEmptyState" class="d-none">
         <div class="text-center py-5 text-muted">
           <div class="avatar-xl mx-auto mb-2">
@@ -2340,36 +2272,392 @@
               <i class="ti ti-coins fs-2"></i>
             </span>
           </div>
-          <h5 class="mb-1">Nenhuma proposta encontrada</h5>
-          <div class="text-muted">Ajuste os filtros ou limpe para ver todas as propostas.</div>
+          <h5 class="mb-1">Nenhuma captação cadastrada</h5>
+          <div class="text-muted">Clique em “Criar nova captação” para iniciar. Os campos serão gerados em branco.</div>
         </div>
       </div>
+      <!-- FIM: EMPTY STATE (SEM CAPTAÇÃO) -->
 
-      <!-- Tabela -->
-      <div class="table-responsive">
-        <table class="table table-custom table-centered table-hover w-100 mb-0 text-nowrap">
-          <thead class="bg-light align-middle bg-opacity-25 thead-sm">
-            <tr class="text-uppercase fs-xxs">
-              <th>Proposta</th>
-              <th>Fase</th>
-              <th>Atualização</th>
-              <th>Status</th>
-              <th class="text-center" style="width: 1%;">Ações</th>
-            </tr>
-          </thead>
-          <tbody data-funding-list>
-            <!-- preenchido via JS -->
-          </tbody>
-        </table>
-      </div>
+      <!-- INÍCIO: VISUALIZAÇÃO (COM CAPTAÇÃO) -->
+      <div id="fundingView" class="d-none">
 
-      <div class="text-muted fs-12 mt-3">
-        Regra (protótipo): o conteúdo exibido aqui é mock e serve para validar o fluxo de cadastro/edição em modal.
+        <!-- INÍCIO: BLOCOS COLAPSÁVEIS (CAMPOS) -->
+        <div class="border rounded-3 overflow-hidden">
+          
+      <!-- INÍCIO: SEÇÃO ARTICULAÇÃO -->
+      <div class="border-top">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-4 py-3"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-sec-articulacao" aria-expanded="false">
+          <span class="fw-semibold">Articulação</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
+
+        <div id="funding-sec-articulacao" class="collapse">
+          <div class="px-4 pb-4">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Objeto do instrumento</div>
+              <div class="fw-medium" data-funding-view="objeto_do_instrumento">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Área temática</div>
+              <div class="fw-medium" data-funding-view="area_tematica">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Detalhamento do tipo de despesa</div>
+              <div class="fw-medium" data-funding-view="detalhamento_do_tipo_de_despesa">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de recursos já captado ou disponibilizado pela seção</div>
+              <div class="fw-medium" data-funding-view="valor_de_recursos_ja_captado_ou_disponibilizado_pela_secao">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Permite atendimento parcial do objeto?</div>
+              <div class="fw-medium" data-funding-view="permite_atendimento_parcial_do_objeto">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor estimado a captar</div>
+              <div class="fw-medium" data-funding-view="valor_estimado_a_captar">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de custeio/Despesa corrente GND3</div>
+              <div class="fw-medium" data-funding-view="valor_de_custeio_despesa_corrente_gnd3">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de investimento (GND4)</div>
+              <div class="fw-medium" data-funding-view="valor_de_investimento_gnd4">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Contrapartida prevista no orçamento?</div>
+              <div class="fw-medium" data-funding-view="contrapartida_prevista_no_orcamento">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor estimado da contrapartida necessária</div>
+              <div class="fw-medium" data-funding-view="valor_estimado_da_contrapartida_necessaria">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de custeio/Despesa corrente GND3</div>
+              <div class="fw-medium" data-funding-view="valor_de_custeio_despesa_corrente_gnd3">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de investimento (GND4)</div>
+              <div class="fw-medium" data-funding-view="valor_de_investimento_gnd4">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Aplicável à captação via emenda parlamentar?</div>
+              <div class="fw-medium" data-funding-view="aplicavel_a_captacao_via_emenda_parlamentar">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Modalidade da Aplicação</div>
+              <div class="fw-medium" data-funding-view="modalidade_da_aplicacao">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Situação da proposta de articulação</div>
+              <div class="fw-medium" data-funding-view="situacao_da_proposta_de_articulacao">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Proposta de captação validada pelo titular do órgão/entidade?</div>
+              <div class="fw-medium" data-funding-view="proposta_de_captacao_validada_pelo_titular_do_orgao_entidade">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Projeto já está em negociação/articulação?</div>
+              <div class="fw-medium" data-funding-view="projeto_ja_esta_em_negociacao_articulacao">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Restrição de prazo para conclusão do projeto (se houver)</div>
+              <div class="fw-medium" data-funding-view="restricao_de_prazo_para_conclusao_do_projeto_se_houver">—</div>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- FIM: SEÇÃO ARTICULAÇÃO -->
+      <!-- INÍCIO: SEÇÃO DADOS DA FORMALIZAÇÃO -->
+      <div class="border-top">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-4 py-3"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-sec-dados_da_formalizacao" aria-expanded="false">
+          <span class="fw-semibold">Dados da Formalização</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
+
+        <div id="funding-sec-dados_da_formalizacao" class="collapse">
+          <div class="px-4 pb-4">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Sistema</div>
+              <div class="fw-medium" data-funding-view="sistema">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Tipo de Concedente</div>
+              <div class="fw-medium" data-funding-view="tipo_de_concedente">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Nome de concedente vinculado</div>
+              <div class="fw-medium" data-funding-view="nome_de_concedente_vinculado">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Situação detalhada da Proposta</div>
+              <div class="fw-medium" data-funding-view="situacao_detalhada_da_proposta">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Ano da proposta</div>
+              <div class="fw-medium" data-funding-view="ano_da_proposta">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Qualificação da proposta</div>
+              <div class="fw-medium" data-funding-view="qualificacao_da_proposta">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Nº do programa</div>
+              <div class="fw-medium" data-funding-view="no_do_programa">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Nome de identificação do programa/Ação</div>
+              <div class="fw-medium" data-funding-view="nome_de_identificacao_do_programa_acao">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Nº da proposta</div>
+              <div class="fw-medium" data-funding-view="no_da_proposta">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Data da publicação</div>
+              <div class="fw-medium" data-funding-view="data_da_publicacao">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Tipo de Instrumento</div>
+              <div class="fw-medium" data-funding-view="tipo_de_instrumento">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Nº do Instrumento</div>
+              <div class="fw-medium" data-funding-view="no_do_instrumento">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Objeto do instrumento</div>
+              <div class="fw-medium" data-funding-view="objeto_do_instrumento">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de repasse pactuado</div>
+              <div class="fw-medium" data-funding-view="valor_de_repasse_pactuado">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de custeio/Despesa corrente GND3</div>
+              <div class="fw-medium" data-funding-view="valor_de_custeio_despesa_corrente_gnd3">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de investimento (GND4)</div>
+              <div class="fw-medium" data-funding-view="valor_de_investimento_gnd4">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Contrapartida financeira* </div>
+              <div class="fw-medium" data-funding-view="contrapartida_financeira">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de custeio/Despesa corrente GND3</div>
+              <div class="fw-medium" data-funding-view="valor_de_custeio_despesa_corrente_gnd3">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de investimento (GND4) </div>
+              <div class="fw-medium" data-funding-view="valor_de_investimento_gnd4">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor global* </div>
+              <div class="fw-medium" data-funding-view="valor_global">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de custeio/Despesa corrente GND3</div>
+              <div class="fw-medium" data-funding-view="valor_de_custeio_despesa_corrente_gnd3">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor de investimento (GND4)</div>
+              <div class="fw-medium" data-funding-view="valor_de_investimento_gnd4">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Número do processo SEI (mãe)</div>
+              <div class="fw-medium" data-funding-view="numero_do_processo_sei_mae">—</div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIM: SEÇÃO DADOS DA FORMALIZAÇÃO -->
+      <!-- INÍCIO: SEÇÃO DADOS DE EMENDA -->
+      <div class="border-top">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-4 py-3"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-sec-dados_de_emenda" aria-expanded="false">
+          <span class="fw-semibold">Dados de Emenda</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
+
+        <div id="funding-sec-dados_de_emenda" class="collapse">
+          <div class="px-4 pb-4">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Possui apoio parlamentar? </div>
+              <div class="fw-medium" data-funding-view="possui_apoio_parlamentar">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Tipo de Apoio parlamentar</div>
+              <div class="fw-medium" data-funding-view="tipo_de_apoio_parlamentar">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Emenda impositiva?</div>
+              <div class="fw-medium" data-funding-view="emenda_impositiva">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Nome do parlamentar</div>
+              <div class="fw-medium" data-funding-view="nome_do_parlamentar">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Nº da emenda</div>
+              <div class="fw-medium" data-funding-view="no_da_emenda">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Valor liberado para cadastro da proposta</div>
+              <div class="fw-medium" data-funding-view="valor_liberado_para_cadastro_da_proposta">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Ofício do parlamentar</div>
+              <div class="fw-medium" data-funding-view="oficio_do_parlamentar">—</div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIM: SEÇÃO DADOS DE EMENDA -->
+      <!-- INÍCIO: SEÇÃO EXECUÇÃO -->
+      <div class="border-top">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-4 py-3"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-sec-execucao" aria-expanded="false">
+          <span class="fw-semibold">Execução</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
+
+        <div id="funding-sec-execucao" class="collapse">
+          <div class="px-4 pb-4">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Fonte do Repasse</div>
+              <div class="fw-medium" data-funding-view="fonte_do_repasse">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Fonte da Contrapartida</div>
+              <div class="fw-medium" data-funding-view="fonte_da_contrapartida">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Unidade Orçamentária</div>
+              <div class="fw-medium" data-funding-view="unidade_orcamentaria">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Data de Início da vigência do Instrumento</div>
+              <div class="fw-medium" data-funding-view="data_de_inicio_da_vigencia_do_instrumento">—</div>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <div class="text-muted fs-12 mb-1">Data de Fim da vigência do Instrumento</div>
+              <div class="fw-medium" data-funding-view="data_de_fim_da_vigencia_do_instrumento">—</div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIM: SEÇÃO EXECUÇÃO -->
+        </div>
+        <!-- FIM: BLOCOS COLAPSÁVEIS (CAMPOS) -->
+
+        <!-- INÍCIO: DOCUMENTOS (PDFs) -->
+        <div class="mt-4">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+            <div>
+              <div class="fw-semibold">Documentos (PDF)</div>
+              <div class="text-muted fs-12">Registre comprovantes (pagamento/parcela/fonte) e anexe o PDF.</div>
+            </div>
+          </div>
+
+          <div id="fundingPdfEmptyState" class="d-none">
+            <div class="text-center py-4 text-muted border rounded-3">
+              <i class="ti ti-file-off fs-2 d-block mb-2"></i>
+              <div class="fw-semibold">Nenhum PDF registrado</div>
+              <div class="text-muted fs-12">Clique em “Adicionar PDF” para incluir o primeiro.</div>
+            </div>
+          </div>
+
+          <div id="fundingPdfTableWrap" class="table-responsive d-none">
+            <table class="table table-custom table-centered table-hover w-100 mb-0">
+              <thead class="bg-light align-middle bg-opacity-25 thead-sm">
+                <tr class="text-uppercase fs-xxs">
+                  <th>Arquivo</th>
+                  <th style="width: 1%;">Data do pagamento</th>
+                  <th style="width: 1%;">Valor da parcela paga</th>
+                  <th style="width: 1%;">Fonte</th>
+                  <th class="text-center" style="width: 1%;">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="fundingPdfTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- FIM: DOCUMENTOS (PDFs) -->
+
+      </div>
+      <!-- FIM: VISUALIZAÇÃO (COM CAPTAÇÃO) -->
 
     </div>
   </div>
 </div>
+<!-- FIM: ABA CAPTAÇÃO DE RECURSOS (CAPTAÇÃO ÚNICA POR PROJETO) -->
+
 
 <div class="tab-pane" id="tab-risks" role="tabpanel">
   <div class="card mb-0">
@@ -3635,30 +3923,371 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
 
-      <div class="modal-body">
-        <div class="alert alert-success d-none" role="alert" data-funding-alert-success></div>
-        <div class="alert alert-danger d-none" role="alert" data-funding-alert-danger></div>
+      
+<div class="modal-body">
+  <!-- INÍCIO: FORMULÁRIO CAPTAÇÃO (SEÇÕES) -->
+  <div class="d-flex flex-column gap-3">
+    
+      <!-- INÍCIO: FORM ARTICULAÇÃO -->
+      <div class="border rounded-3 overflow-hidden">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-3 py-2"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-form-articulacao" aria-expanded="true">
+          <span class="fw-semibold">Articulação</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
 
-        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-          <div class="d-flex align-items-center gap-2">
-            <span class="badge bg-primary" data-funding-phase-badge>Em Planejamento</span>
-            <span class="text-muted small">Campos são liberados/bloqueados conforme a fase.</span>
-          </div>
+        <div id="funding-form-articulacao" class="collapse show">
+          <div class="p-3 border-top">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6">
+              <label class="form-label">Objeto do instrumento</label>
+              <input type="text" class="form-control" data-funding-input="objeto_do_instrumento" placeholder="Digite">
+            </div>
 
-          <div class="d-flex align-items-center gap-2">
-            <label class="text-muted small mb-0">Fase:</label>
-            <select class="form-select form-select-sm" style="width: 220px;" data-funding-phase-select>
-              <option value="planning">Em Planejamento</option>
-              <option value="articulation">Em Articulação</option>
-              <option value="formalization">Em Formalização</option>
-              <option value="execution">Em Execução</option>
-              <option value="archived">Arquivada</option>
-            </select>
+            <div class="col-12 col-md-6">
+              <label class="form-label">Área temática</label>
+              <input type="text" class="form-control" data-funding-input="area_tematica" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Detalhamento do tipo de despesa</label>
+              <input type="text" class="form-control" data-funding-input="detalhamento_do_tipo_de_despesa" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de recursos já captado ou disponibilizado pela seção</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_recursos_ja_captado_ou_disponibilizado_pela_secao" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Permite atendimento parcial do objeto?</label>
+              <select class="form-select" data-funding-input="permite_atendimento_parcial_do_objeto">
+                    <option value="" selected>Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor estimado a captar</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_estimado_a_captar" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de custeio/Despesa corrente GND3</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_custeio_despesa_corrente_gnd3" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de investimento (GND4)</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_investimento_gnd4" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Contrapartida prevista no orçamento?</label>
+              <select class="form-select" data-funding-input="contrapartida_prevista_no_orcamento">
+                    <option value="" selected>Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor estimado da contrapartida necessária</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_estimado_da_contrapartida_necessaria" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de custeio/Despesa corrente GND3</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_custeio_despesa_corrente_gnd3" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de investimento (GND4)</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_investimento_gnd4" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Aplicável à captação via emenda parlamentar?</label>
+              <select class="form-select" data-funding-input="aplicavel_a_captacao_via_emenda_parlamentar">
+                    <option value="" selected>Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Modalidade da Aplicação</label>
+              <input type="text" class="form-control" data-funding-input="modalidade_da_aplicacao" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Situação da proposta de articulação</label>
+              <input type="text" class="form-control" data-funding-input="situacao_da_proposta_de_articulacao" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Proposta de captação validada pelo titular do órgão/entidade?</label>
+              <select class="form-select" data-funding-input="proposta_de_captacao_validada_pelo_titular_do_orgao_entidade">
+                    <option value="" selected>Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Projeto já está em negociação/articulação?</label>
+              <select class="form-select" data-funding-input="projeto_ja_esta_em_negociacao_articulacao">
+                    <option value="" selected>Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Restrição de prazo para conclusão do projeto (se houver)</label>
+              <input type="text" class="form-control" data-funding-input="restricao_de_prazo_para_conclusao_do_projeto_se_houver" placeholder="Digite">
+            </div>
+            </div>
           </div>
         </div>
-
-        <form data-funding-form class="row g-3"></form>
       </div>
+      <!-- FIM: FORM ARTICULAÇÃO -->
+      <!-- INÍCIO: FORM DADOS DA FORMALIZAÇÃO -->
+      <div class="border rounded-3 overflow-hidden">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-3 py-2"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-form-dados_da_formalizacao" aria-expanded="true">
+          <span class="fw-semibold">Dados da Formalização</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
+
+        <div id="funding-form-dados_da_formalizacao" class="collapse show">
+          <div class="p-3 border-top">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6">
+              <label class="form-label">Sistema</label>
+              <input type="text" class="form-control" data-funding-input="sistema" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Tipo de Concedente</label>
+              <input type="text" class="form-control" data-funding-input="tipo_de_concedente" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nome de concedente vinculado</label>
+              <input type="text" class="form-control" data-funding-input="nome_de_concedente_vinculado" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Situação detalhada da Proposta</label>
+              <input type="text" class="form-control" data-funding-input="situacao_detalhada_da_proposta" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Ano da proposta</label>
+              <input type="text" class="form-control" data-funding-input="ano_da_proposta" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Qualificação da proposta</label>
+              <input type="text" class="form-control" data-funding-input="qualificacao_da_proposta" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nº do programa</label>
+              <input type="text" class="form-control" data-funding-input="no_do_programa" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nome de identificação do programa/Ação</label>
+              <input type="text" class="form-control" data-funding-input="nome_de_identificacao_do_programa_acao" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nº da proposta</label>
+              <input type="text" class="form-control" data-funding-input="no_da_proposta" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Data da publicação</label>
+              <input type="date" class="form-control" data-funding-input="data_da_publicacao">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Tipo de Instrumento</label>
+              <input type="text" class="form-control" data-funding-input="tipo_de_instrumento" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nº do Instrumento</label>
+              <input type="text" class="form-control" data-funding-input="no_do_instrumento" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Objeto do instrumento</label>
+              <input type="text" class="form-control" data-funding-input="objeto_do_instrumento" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de repasse pactuado</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_repasse_pactuado" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de custeio/Despesa corrente GND3</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_custeio_despesa_corrente_gnd3" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de investimento (GND4)</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_investimento_gnd4" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Contrapartida financeira* </label>
+              <input type="text" class="form-control" data-funding-input="contrapartida_financeira" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de custeio/Despesa corrente GND3</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_custeio_despesa_corrente_gnd3" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de investimento (GND4) </label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_investimento_gnd4" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor global* </label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_global" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de custeio/Despesa corrente GND3</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_custeio_despesa_corrente_gnd3" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor de investimento (GND4)</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_de_investimento_gnd4" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Número do processo SEI (mãe)</label>
+              <input type="number" step="any" class="form-control" data-funding-input="numero_do_processo_sei_mae" placeholder="Digite">
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIM: FORM DADOS DA FORMALIZAÇÃO -->
+      <!-- INÍCIO: FORM DADOS DE EMENDA -->
+      <div class="border rounded-3 overflow-hidden">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-3 py-2"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-form-dados_de_emenda" aria-expanded="true">
+          <span class="fw-semibold">Dados de Emenda</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
+
+        <div id="funding-form-dados_de_emenda" class="collapse show">
+          <div class="p-3 border-top">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6">
+              <label class="form-label">Possui apoio parlamentar? </label>
+              <select class="form-select" data-funding-input="possui_apoio_parlamentar">
+                    <option value="" selected>Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Tipo de Apoio parlamentar</label>
+              <input type="text" class="form-control" data-funding-input="tipo_de_apoio_parlamentar" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Emenda impositiva?</label>
+              <select class="form-select" data-funding-input="emenda_impositiva">
+                    <option value="" selected>Selecione</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nome do parlamentar</label>
+              <input type="text" class="form-control" data-funding-input="nome_do_parlamentar" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nº da emenda</label>
+              <input type="text" class="form-control" data-funding-input="no_da_emenda" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Valor liberado para cadastro da proposta</label>
+              <input type="number" step="any" class="form-control" data-funding-input="valor_liberado_para_cadastro_da_proposta" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Ofício do parlamentar</label>
+              <input type="text" class="form-control" data-funding-input="oficio_do_parlamentar" placeholder="Digite">
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIM: FORM DADOS DE EMENDA -->
+      <!-- INÍCIO: FORM EXECUÇÃO -->
+      <div class="border rounded-3 overflow-hidden">
+        <button class="btn w-100 text-start d-flex align-items-center justify-content-between px-3 py-2"
+                type="button" data-bs-toggle="collapse" data-bs-target="#funding-form-execucao" aria-expanded="true">
+          <span class="fw-semibold">Execução</span>
+          <i class="ti ti-chevron-down"></i>
+        </button>
+
+        <div id="funding-form-execucao" class="collapse show">
+          <div class="p-3 border-top">
+            <div class="row g-3">
+              
+            <div class="col-12 col-md-6">
+              <label class="form-label">Fonte do Repasse</label>
+              <input type="text" class="form-control" data-funding-input="fonte_do_repasse" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Fonte da Contrapartida</label>
+              <input type="text" class="form-control" data-funding-input="fonte_da_contrapartida" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Unidade Orçamentária</label>
+              <input type="text" class="form-control" data-funding-input="unidade_orcamentaria" placeholder="Digite">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Data de Início da vigência do Instrumento</label>
+              <input type="date" class="form-control" data-funding-input="data_de_inicio_da_vigencia_do_instrumento">
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Data de Fim da vigência do Instrumento</label>
+              <input type="date" class="form-control" data-funding-input="data_de_fim_da_vigencia_do_instrumento">
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIM: FORM EXECUÇÃO -->
+  </div>
+  <!-- FIM: FORMULÁRIO CAPTAÇÃO (SEÇÕES) -->
+</div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
@@ -4411,838 +5040,200 @@
 
 
 
+
 <script>
 /* ============================
    Captação de Recursos (mock)
-   Regras baseadas na planilha "CAPTAÇÃO DE RECURSOS"
-   - Campos em amarelo foram excluídos
+   - Captação ÚNICA por projeto
+   - Campos em amarelo na planilha: EXCLUÍDOS
+   Fonte: Matriz GOMAP 3.0 V2.xlsx > aba "CAPTAÇÃO DE RECURSOS"
    ============================ */
 
-window.__FUNDING_FIELDS__ = [{"kind": "field", "label": "Depende de Captação de Recurso Externo?", "component": "Checkbox", "planning": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "articulation": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": ""}, {"kind": "field", "label": "Incluir no caderno de emendas", "component": "Checkbox", "planning": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "articulation": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": ""}, {"kind": "field", "label": "Área temática", "component": "Lista (multi select)", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Agricultura, Tecnologia, Infraestrutura... (mesma atual do GOMAP)"}, {"kind": "field", "label": "Tipo de despesa", "component": "Lista (multi select)", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Obra, Equipamento, Serviço, Custeio,"}, {"kind": "field", "label": "Objetivo", "component": "Texto", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Descrição do objeto/ Nao pode ser alterado após formalização"}, {"kind": "field", "label": "Problema a resolver", "component": "Texto", "planning": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "articulation": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "formalization": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Descrição do problema a ser resolvido"}, {"kind": "field", "label": "Público Alvo", "component": "Texto", "planning": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "articulation": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "formalization": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Descrição do público-alvo"}, {"kind": "field", "label": "Resultado esperado", "component": "Texto", "planning": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "articulation": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "formalization": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Descrição do resultado esperado em curto prazo"}, {"kind": "field", "label": "Data início/previsão", "component": "Data (DD/MM/AAAA)", "planning": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "articulation": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "formalization": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Data"}, {"kind": "field", "label": "Tempo estimado execução", "component": "Número", "planning": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "articulation": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "formalization": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Em meses"}, {"kind": "field", "label": "Municípios Beneficiados", "component": "Número", "planning": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "articulation": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "formalization": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Seleção de lista"}, {"kind": "field", "label": "Valor repasse estimado", "component": "Número (Decimal)", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "R$"}, {"kind": "field", "label": "Valor contrapartida estimado", "component": "Número (Decimal)", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "R$"}, {"kind": "field", "label": "Valor total estimado", "component": "Número (Decimal)", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Soma do valor estimado de custeio e de despesa"}, {"kind": "field", "label": "Valor custeio/despesas (GND3) estimado", "component": "Número (Decimal)", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Valor"}, {"kind": "field", "label": "Valor de investimento (GND4) estimado", "component": "Número (Decimal)", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Valor"}, {"kind": "field", "label": "Permite atendimento parcial do objeto", "component": "Checkbox", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Sim / Não"}, {"kind": "field", "label": "Contrapartida prevista no orçamento?", "component": "Checkbox", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Sim / Não"}, {"kind": "field", "label": "Aplicável à captação via emenda parlamentar", "component": "Lista", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": ""}, {"kind": "field", "label": "Proposta detalhada/Plano de trabalho elaborado", "component": "Lista", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": ""}, {"kind": "field", "label": "Proposta já está em negociação/articulação", "component": "Checkbox", "planning": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Sim / Não"}, {"kind": "field", "label": "Nome do parceiro (da negociação)", "component": "Texto", "planning": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "articulation": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Campo é exibido se pergunta anterior: Proposta já está em Articulação? = SIM"}, {"kind": "field", "label": "Tipo de Concedente", "component": "Lista", "planning": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Governo federal; Outras parcerias; adicionar a possibilidade de mais de um concedente"}, {"kind": "field", "label": "Nome do Concedente/Parceiro", "component": "Lista (multi select)", "planning": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "adicionar a possibilidade de mais de um concedente"}, {"kind": "field", "label": "Órgão Concedente Vinculado", "component": "Lista", "planning": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "articulation": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Nome do Ministério a qual a possivel Adm Indireta está jurisdicionada"}, {"kind": "field", "label": "Ano da Proposta", "component": "Número", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Data do cadastramento da proposta no sistema. Limitar ao tamanho de 4 caracteres."}, {"kind": "field", "label": "Nº da Proposta", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Número que o sistema federal gera para identificar o cadastro"}, {"kind": "field", "label": "Número do Programa", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Número que o sistema federal gera para identificar a oportunidade"}, {"kind": "field", "label": "Nome do programa/Ação", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OPCIONAL", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "nome que o sistema federal gera para identificar a oportunidade"}, {"kind": "field", "label": "Processo SEI Formalização", "component": "Número", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Limitar tamanho a 15 caracteres."}, {"kind": "field", "label": "Data da Formalização / Início de vigência", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Inicio de vigência ou de assinatura do termo ou do pagamento (caso das transferências especiais)"}, {"kind": "field", "label": "Tipo de Instrumento", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Manter lista GOMAP e acrescentar Novo PAC , Operação de Crédito"}, {"kind": "field", "label": "Nº da Emenda", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "20 caracteres"}, {"kind": "field", "label": "Autor da Emenda", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "listar parlamentares ativos"}, {"kind": "field", "label": "RP / Tipo de Emenda", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Individual RP6 (finalidade definida), Individual RP6 (transferência especial), Bancada RP7, Relator RP9, Comissão RP8 e Bancada RP2"}, {"kind": "field", "label": "Ofício do Parlamentar", "component": "Upload arquivo", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Campo para anexar o arquivo do ofício do parlamentar. Aceitar extensão PDF ou DOC"}, {"kind": "field", "label": "Sistema", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Transferegov, investsus..."}, {"kind": "field", "label": "Valor Global", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Todos os campos referente a valores que estão na aba 3 podem permanecer"}, {"kind": "field", "label": "Valor de Repasse Formalizado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Possível de ser extraído do Transferegov"}, {"kind": "field", "label": "Valor da Contrapartida Formalizado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Possível de ser extraído do Transferegov"}, {"kind": "field", "label": "Valor custeio/despesas (GND3) Formalizado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Soma do gnd 3 + 4 devem bater com o total do global"}, {"kind": "field", "label": "Valor de investimento (GND4) Formalizado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Seguir regra que já está no gomap"}, {"kind": "field", "label": "Empenho pelo Concedente (Sim/Não)", "component": "SIM/NÃO", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Possível de ser extraído do Transferegov"}, {"kind": "field", "label": "Termo assinado (Sim/Não/Não se Aplica)", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "execution": {"req": "BLOQUEADO", "edit": "BLOQUEADO"}, "notes": "Possível de ser extraído do Transferegov"}, {"kind": "field", "label": "Banco", "component": "Número inteiro", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Número do banco"}, {"kind": "field", "label": "Agência", "component": "Número", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Numero da agência"}, {"kind": "field", "label": "Conta", "component": "Número", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Numero da conta do instrumento"}, {"kind": "field", "label": "Status do Instrumento", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Cancelado\nCláusula suspensiva\nEm estruturação (Não iniciado)\nParalisado\nEm execução\nEm prestação de contas\nPrestação de contas aprovada (concluído)\nPrestação de contas enviada\nPrestação de contas rejeitada\nTomada de contas especial\nPrestação de contas em complementação\nDistrato - Em prestação de contas\nDistrato - Prestação de contas concluída\nDistrato - Prestação de contas aprovada com ressalvas"}, {"kind": "field", "label": "Data de retirada Cláusula Suspensiva", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Data que a mandatária deu o parecer positivo e autorizou a execução, quando o status = clausula suspensiva"}, {"kind": "field", "label": "Final da vigência", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Colocar notificação com o prazo de 75 antes do final da vigência e 20 dias antes do final"}, {"kind": "field", "label": "Termos aditivos", "component": "Botão Adicionar", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "quando for o caso ter a opção de incluir os termos aditivos (data de inicio e fim)"}, {"kind": "field", "label": "Prazo Final Prestação de Contas", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "colocar notificação com o prazo 60 e 10 dias antes do final (data de inicio e fim)"}, {"kind": "field", "label": "Unidade Orçamentária", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Código orçamentário do órgão previsto na LOA"}, {"kind": "field", "label": "Valor total do Projeto", "component": "Decimal", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Repasse total + contrapartida total + aporte complementar + rendimento aprovado (sistema calcula sozinho)"}, {"kind": "field", "label": "Fonte do Repasse", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "código da fonte de despesa que será gasto o valor do repasse federal"}, {"kind": "field", "label": "Valor de Custeio Repasse", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor repassado pelo ente federal que será gasto com despesa de custeio"}, {"kind": "field", "label": "Valor de Investimento Repasse", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor repassado pelo ente federal que será gasto com despesa de investimento"}, {"kind": "field", "label": "Repasse total", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "repasse de repasse formalizado + aditivo de repasse (sistema calcula automático)"}, {"kind": "field", "label": "Repasse desembolsado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Guia de Receita (puxa do Siofi)"}, {"kind": "field", "label": "Data do repasse desembolsado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Guia de Receita (puxa do Siofi)"}, {"kind": "field", "label": "Repasse pendente", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "repasse  - repasse desembolsado (sistema calcula)"}, {"kind": "field", "label": "Fonte da Contrapartida", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "código da fonte de despesa que será gasto o valor da contrapartida - recursos do tesouro estadual"}, {"kind": "field", "label": "Valor de Custeio de Contrapartida", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor da contrapartida que será gasto com despesa de custeio"}, {"kind": "field", "label": "Valor de Investimento de Contrapartida", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor da contrapartida que será gasto com despesa de investimento"}, {"kind": "field", "label": "Contrapartida total", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "valor da contrapartida formalizado + aditivo de contrapartida (sistema calcula automático)"}, {"kind": "field", "label": "Contrapartida desembolsada", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Op extra (puxa do siofi)"}, {"kind": "field", "label": "Data da contrapartida desembolsada", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Op extra (puxa do siofi)"}, {"kind": "field", "label": "Contrapartida pendente", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "contrapartida - contrapartida desembolsada (sistema calcula)"}, {"kind": "field", "label": "Rendimento disponível", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor dorendimento dísponivel na conta ( sem autorização de gasto do ministério)"}, {"kind": "field", "label": "Rendimento aprovado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor do rendimento a ser usado, autorizado pelo Ministério."}, {"kind": "field", "label": "Finalidade do Aditivo", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Supressão/ Acréscimo de contrapartida/ Aporte..."}, {"kind": "field", "label": "Aditivo de Repasse", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Aumento ou supressão sobre o valor que foi pactuado inicialmente."}, {"kind": "field", "label": "Aditivo de Contrapartida", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Aumento ou supressão sobre o valor que foi pactuado inicialmente."}, {"kind": "field", "label": "Aporte Complementar", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Recurso do tesouro que não esta previsto no instrumento e que não demanda termo aditivo."}, {"kind": "field", "label": "Nº Processo SEI da Execução do Instrumento", "component": "Número inteiro (15 caracteres)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Número do processo no sistema SEI que será ultilizado para procedimentos licitatórios."}, {"kind": "field", "label": "Metas", "component": "quantidade", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "número (ex: primeira linha meta 1, segunda linha meta 2 ....) para cada meta vai ter um status de estruturação"}, {"kind": "field", "label": "Status da estruturação", "component": "Lista", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "(Não iniciado, Requisição de despesa, TR, Orçamento, minuta de edital, parecer jurídico, publicação do edital, adjudicação, homologação )"}, {"kind": "field", "label": "Valor Empenhado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Calculado pelo sistema automático"}, {"kind": "field", "label": "Valor liquidado", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Calculado pelo sistema automático"}, {"kind": "field", "label": "Valor Pago", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Calculado pelo sistema automático"}, {"kind": "section", "label": "Dados do PDF"}, {"kind": "field", "label": "Número do PDF", "component": "Grid", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "número do PDF, Data do empenho, número do empenho, valor do empenho, data da liquidação, valor da liquidação, data do pagamento, valor da parcela paga, fonte) puxa do AFT e Siofi"}, {"kind": "field", "label": "Tipo de PDF", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Data do empenho", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Número do empenho", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Valor do empenho", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Data da liquidação", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Valor da liquidação", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Data do pagamento", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Valor da parcela paga", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Fonte", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": ""}, {"kind": "field", "label": "Percentual Financeiro Executado (%)", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "(sistema calcula automático)"}, {"kind": "field", "label": "Percentual de Execução Física", "component": "Número (%)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Percentual da execução do objeto (total) usuário vai digitar"}, {"kind": "field", "label": "Data do último pagamento", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Data do último OBTV"}, {"kind": "field", "label": "Ano Prestação de Contas", "component": "Número inteiro (4 caracteres)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Ano que foi enviado a prestação de contas pelo órgão."}, {"kind": "field", "label": "Dias sem execução financeira", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "sistema calcula automático - =hoje - data do ultimo pagamento"}, {"kind": "field", "label": "Saldo a devolver UNIÃO", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor residual do Repasse e rendimento, que não foi ultilizado para execução do projeto"}, {"kind": "field", "label": "Saldo a devolver ESTADO", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Valor residual da contrapartida e rendimento que não foi ultilizado na execução do instrumento."}, {"kind": "field", "label": "Saldo a devolver TOTAL", "component": "Número (Decimal)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Soma do saldo a devolver da União e Estado ( sistema calcula automaticamente)"}, {"kind": "field", "label": "Ano da devolução", "component": "Número inteiro (4 caracteres)", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Ano que foi devolvido o saldo. (OBTV)"}, {"kind": "field", "label": "Data do inicio da obra", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Inicio das ações da empresa no canteiro de obras. Obrigatório se for projeto = OBRA"}, {"kind": "field", "label": "Tempo de obra", "component": "Número", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "sistema calcula automático - =hoje - data do inicio da obra. Obrigatório projeto = OBRA"}, {"kind": "field", "label": "Data de Paralisação da Obra", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "considerar paralisada quando a obra estiver sem movimentação a partir de 90 dias. Obrigatório projeto = Obra e situação = Paralisado"}, {"kind": "field", "label": "Data de Retomada da Obra", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Data em que a obra retomou as ações"}, {"kind": "field", "label": "Data da conclusão da obra", "component": "Data", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "Data da entrega ( 100 % finalizada)"}, {"kind": "field", "label": "Observação / Acompanhamento", "component": "Texto", "planning": {"req": "N/A", "edit": "N/A"}, "articulation": {"req": "N/A", "edit": "N/A"}, "formalization": {"req": "N/A", "edit": "N/A"}, "execution": {"req": "OBRIGATÓRIO", "edit": "EDITÁVEL"}, "notes": "observação"}];
+(function () {
+  const FIELDS = [{"key": "objeto_do_instrumento", "label": "Objeto do instrumento", "group": "Articulação"}, {"key": "area_tematica", "label": "Área temática", "group": "Articulação"}, {"key": "detalhamento_do_tipo_de_despesa", "label": "Detalhamento do tipo de despesa", "group": "Articulação"}, {"key": "valor_de_recursos_ja_captado_ou_disponibilizado_pela_secao", "label": "Valor de recursos já captado ou disponibilizado pela seção", "group": "Articulação"}, {"key": "permite_atendimento_parcial_do_objeto", "label": "Permite atendimento parcial do objeto?", "group": "Articulação"}, {"key": "valor_estimado_a_captar", "label": "Valor estimado a captar", "group": "Articulação"}, {"key": "valor_de_custeio_despesa_corrente_gnd3", "label": "Valor de custeio/Despesa corrente GND3", "group": "Articulação"}, {"key": "valor_de_investimento_gnd4", "label": "Valor de investimento (GND4)", "group": "Articulação"}, {"key": "contrapartida_prevista_no_orcamento", "label": "Contrapartida prevista no orçamento?", "group": "Articulação"}, {"key": "valor_estimado_da_contrapartida_necessaria", "label": "Valor estimado da contrapartida necessária", "group": "Articulação"}, {"key": "valor_de_custeio_despesa_corrente_gnd3", "label": "Valor de custeio/Despesa corrente GND3", "group": "Articulação"}, {"key": "valor_de_investimento_gnd4", "label": "Valor de investimento (GND4)", "group": "Articulação"}, {"key": "aplicavel_a_captacao_via_emenda_parlamentar", "label": "Aplicável à captação via emenda parlamentar?", "group": "Articulação"}, {"key": "modalidade_da_aplicacao", "label": "Modalidade da Aplicação", "group": "Articulação"}, {"key": "situacao_da_proposta_de_articulacao", "label": "Situação da proposta de articulação", "group": "Articulação"}, {"key": "proposta_de_captacao_validada_pelo_titular_do_orgao_entidade", "label": "Proposta de captação validada pelo titular do órgão/entidade?", "group": "Articulação"}, {"key": "projeto_ja_esta_em_negociacao_articulacao", "label": "Projeto já está em negociação/articulação?", "group": "Articulação"}, {"key": "restricao_de_prazo_para_conclusao_do_projeto_se_houver", "label": "Restrição de prazo para conclusão do projeto (se houver)", "group": "Articulação"}, {"key": "sistema", "label": "Sistema", "group": "Dados da Formalização"}, {"key": "tipo_de_concedente", "label": "Tipo de Concedente", "group": "Dados da Formalização"}, {"key": "nome_de_concedente_vinculado", "label": "Nome de concedente vinculado", "group": "Dados da Formalização"}, {"key": "situacao_detalhada_da_proposta", "label": "Situação detalhada da Proposta", "group": "Dados da Formalização"}, {"key": "ano_da_proposta", "label": "Ano da proposta", "group": "Dados da Formalização"}, {"key": "qualificacao_da_proposta", "label": "Qualificação da proposta", "group": "Dados da Formalização"}, {"key": "no_do_programa", "label": "Nº do programa", "group": "Dados da Formalização"}, {"key": "nome_de_identificacao_do_programa_acao", "label": "Nome de identificação do programa/Ação", "group": "Dados da Formalização"}, {"key": "no_da_proposta", "label": "Nº da proposta", "group": "Dados da Formalização"}, {"key": "data_da_publicacao", "label": "Data da publicação", "group": "Dados da Formalização"}, {"key": "tipo_de_instrumento", "label": "Tipo de Instrumento", "group": "Dados da Formalização"}, {"key": "no_do_instrumento", "label": "Nº do Instrumento", "group": "Dados da Formalização"}, {"key": "objeto_do_instrumento", "label": "Objeto do instrumento", "group": "Dados da Formalização"}, {"key": "valor_de_repasse_pactuado", "label": "Valor de repasse pactuado", "group": "Dados da Formalização"}, {"key": "valor_de_custeio_despesa_corrente_gnd3", "label": "Valor de custeio/Despesa corrente GND3", "group": "Dados da Formalização"}, {"key": "valor_de_investimento_gnd4", "label": "Valor de investimento (GND4)", "group": "Dados da Formalização"}, {"key": "contrapartida_financeira", "label": "Contrapartida financeira* ", "group": "Dados da Formalização"}, {"key": "valor_de_custeio_despesa_corrente_gnd3", "label": "Valor de custeio/Despesa corrente GND3", "group": "Dados da Formalização"}, {"key": "valor_de_investimento_gnd4", "label": "Valor de investimento (GND4) ", "group": "Dados da Formalização"}, {"key": "valor_global", "label": "Valor global* ", "group": "Dados da Formalização"}, {"key": "valor_de_custeio_despesa_corrente_gnd3", "label": "Valor de custeio/Despesa corrente GND3", "group": "Dados da Formalização"}, {"key": "valor_de_investimento_gnd4", "label": "Valor de investimento (GND4)", "group": "Dados da Formalização"}, {"key": "numero_do_processo_sei_mae", "label": "Número do processo SEI (mãe)", "group": "Dados da Formalização"}, {"key": "possui_apoio_parlamentar", "label": "Possui apoio parlamentar? ", "group": "Dados de Emenda"}, {"key": "tipo_de_apoio_parlamentar", "label": "Tipo de Apoio parlamentar", "group": "Dados de Emenda"}, {"key": "emenda_impositiva", "label": "Emenda impositiva?", "group": "Dados de Emenda"}, {"key": "nome_do_parlamentar", "label": "Nome do parlamentar", "group": "Dados de Emenda"}, {"key": "no_da_emenda", "label": "Nº da emenda", "group": "Dados de Emenda"}, {"key": "valor_liberado_para_cadastro_da_proposta", "label": "Valor liberado para cadastro da proposta", "group": "Dados de Emenda"}, {"key": "oficio_do_parlamentar", "label": "Ofício do parlamentar", "group": "Dados de Emenda"}, {"key": "fonte_do_repasse", "label": "Fonte do Repasse", "group": "Execução"}, {"key": "fonte_da_contrapartida", "label": "Fonte da Contrapartida", "group": "Execução"}, {"key": "unidade_orcamentaria", "label": "Unidade Orçamentária", "group": "Execução"}, {"key": "data_de_inicio_da_vigencia_do_instrumento", "label": "Data de Início da vigência do Instrumento", "group": "Execução"}, {"key": "data_de_fim_da_vigencia_do_instrumento", "label": "Data de Fim da vigência do Instrumento", "group": "Execução"}];
 
-document.addEventListener('DOMContentLoaded', () => {
-  const tab = document.getElementById('tab-funding');
-  if (!tab) return;
+  // Estado (mock)
+  let funding = null;       // objeto com chaves = field.key
+  let fundingPdfs = [];     // [{name,data_pagamento,valor_parcela_paga,fonte}]
 
-  const listEl = tab.querySelector('[data-funding-list]');
-  const countEl = tab.querySelector('[data-funding-count]');
+  // Elements
+  const elEmpty = document.getElementById('fundingEmptyState');
+  const elView  = document.getElementById('fundingView');
+  const btnCreate = document.getElementById('fundingCreateBtn');
+  const btnEdit   = document.getElementById('fundingEditBtn');
+  const btnAddPdf = document.getElementById('fundingAddPdfBtn');
 
-  
+  const modalFunding = document.getElementById('funding-proposal-modal');
+  const modalPdf     = document.getElementById('funding-pdf-modal');
 
-  const searchEl = tab.querySelector('[data-funding-search]');
-  const statusFilterEl = tab.querySelector('[data-funding-status-filter]');
-  const emptyStateEl = tab.querySelector('#fundingEmptyState');
-  const tableWrapEl = tab.querySelector('.table-responsive');
-  const applyBtn = tab.querySelector('#fundingApplyFilter') || tab.querySelector('[data-funding-apply]');
-  const clearBtn = tab.querySelector('#fundingClearFilter') || tab.querySelector('[data-funding-clear]');
+  const pdfEmpty = document.getElementById('fundingPdfEmptyState');
+  const pdfTableWrap = document.getElementById('fundingPdfTableWrap');
+  const pdfTbody = document.getElementById('fundingPdfTableBody');
 
-  // badges (espelho do Riscos)
-  const badgePlanning = tab.querySelector('#fundingCountPlanning');
-  const badgeArticulation = tab.querySelector('#fundingCountArticulation');
-  const badgeFormalization = tab.querySelector('#fundingCountFormalization');
-  const badgeExecution = tab.querySelector('#fundingCountExecution');
-  const badgeArchived = tab.querySelector('#fundingCountArchived');
+  // Utils
+  const safe = (v) => (v === undefined || v === null || String(v).trim() === '') ? '—' : String(v);
 
-  const phaseCards = {
-    planning: tab.querySelector('[data-funding-card-count="planning"]'),
-    articulation: tab.querySelector('[data-funding-card-count="articulation"]'),
-    formalization: tab.querySelector('[data-funding-card-count="formalization"]'),
-    execution: tab.querySelector('[data-funding-card-count="execution"]'),
-  };
+  function toggleUI() {
+    const hasFunding = !!funding;
+    elEmpty && elEmpty.classList.toggle('d-none', hasFunding);
+    elView  && elView.classList.toggle('d-none', !hasFunding);
 
-const modalEl = document.getElementById('funding-proposal-modal');
-  const modalTitle = modalEl?.querySelector('[data-funding-modal-title]');
-  const formEl = modalEl?.querySelector('[data-funding-form]');
-  const phaseSelect = modalEl?.querySelector('[data-funding-phase-select]');
-  const phaseBadge = modalEl?.querySelector('[data-funding-phase-badge]');
-  const alertOk = modalEl?.querySelector('[data-funding-alert-success]');
-  const alertErr = modalEl?.querySelector('[data-funding-alert-danger]');
-  const btnSave = modalEl?.querySelector('[data-funding-save]');
-  const btnAdvance = modalEl?.querySelector('[data-funding-advance]');
-  const btnNew = tab.querySelector('[data-funding-new]');
-
-  // Modal PDF (Dados do PDF)
-  const pdfModalEl = document.getElementById('funding-pdf-modal');
-  const pdfModalTitle = pdfModalEl?.querySelector('[data-funding-pdf-modal-title]');
-  const pdfSaveBtn = pdfModalEl?.querySelector('[data-funding-pdf-save]');
-  const pdfCancelBtns = pdfModalEl?.querySelectorAll('[data-funding-pdf-cancel]');
-  const pdfAlertErr = pdfModalEl?.querySelector('[data-funding-pdf-alert-danger]');
-
-  let pdfEditingIndex = null;
-
-  const PHASE_LABEL = {
-    planning: 'Em Planejamento',
-    articulation: 'Em Articulação',
-    formalization: 'Em Formalização',
-    execution: 'Em Execução',
-    archived: 'Arquivada'
-  };
-
-  const PHASE_ORDER = ['planning','articulation','formalization','execution'];
-
-  // ---------- state (mock em memória) ----------
-  let proposals = [
-    {
-      id: 1,
-      title: 'Proposta 01',
-      phase: 'planning',
-      status: 'Rascunho',
-      updatedAt: new Date().toISOString(),
-      data: {
-        // exemplo mínimo de preenchimento (pode ficar vazio)
-        objetivo: 'Captação para apoiar entrega do projeto.'
-      }
-    }
-  ];
-
-  let editingId = null;
-  let currentPhase = 'planning';
-  let draftData = {};
-
-  // ---------- helpers ----------
-  function showAlert(type, msg) {
-    if (!alertOk || !alertErr) return;
-    alertOk.classList.add('d-none');
-    alertErr.classList.add('d-none');
-    const target = type === 'success' ? alertOk : alertErr;
-    target.textContent = msg;
-    target.classList.remove('d-none');
-    window.setTimeout(() => target.classList.add('d-none'), 2500);
+    btnCreate && btnCreate.classList.toggle('d-none', hasFunding);
+    btnEdit   && btnEdit.classList.toggle('d-none', !hasFunding);
+    btnAddPdf && btnAddPdf.classList.toggle('d-none', !hasFunding);
   }
 
-  function fmtDate(iso) {
-    try {
-      const d = new Date(iso);
-      return d.toLocaleString('pt-BR');
-    } catch (e) {
-      return iso || '-';
-    }
-  }
-
-  function normalizeKey(label) {
-    return String(label || '')
-      .trim()
-      .toLowerCase()
-      .replace(/\s+/g, '_')
-      .replace(/[^\w_]+/g, '');
-  }
-
-  function getFieldRules(field, phaseKey) {
-    if (!field || field.kind !== 'field') return { req:'OPCIONAL', edit:'EDITÁVEL' };
-    const rules = field[phaseKey] || { req:'OPCIONAL', edit:'EDITÁVEL' };
-    return {
-      req: String(rules.req || 'OPCIONAL').toUpperCase(),
-      edit: String(rules.edit || 'EDITÁVEL').toUpperCase()
-    };
-  }
-
-  function parseOptions(field) {
-    const comp = String(field.component || '').toLowerCase();
-    if (!comp.includes('lista')) return [];
-    const txt = String(field.notes || '').trim();
-
-    // heurística: se tiver uma lista curta separada por vírgula no começo, usa como opções
-    const possible = txt
-      .split(/\n|\.|\(|\)|\:/)[0]
-      .split(/[,;|]/)
-      .map(s => s.trim())
-      .filter(Boolean);
-
-    if (possible.length >= 2 && possible.length <= 20) {
-      return possible;
-    }
-
-    // fallback mock
-    return ['Opção 1','Opção 2','Opção 3'];
-  }
-
-  function getAnyActivePhaseProposal() {
-    return proposals.find(p => p.phase !== 'planning' && p.phase !== 'archived');
-  }
-
-  function canAdvanceThisProposal(proposal) {
-    // regra: quando uma entra em Articulação/Formalização/Execução, só pode existir 1 ativa
-    const active = getAnyActivePhaseProposal();
-    if (!active) return true;
-    return active.id === proposal.id;
-  }
-
-  function archiveOtherPlanningProposals(keepId) {
-    proposals = proposals.map(p => {
-      if (p.id !== keepId && p.phase === 'planning') {
-        return { ...p, phase: 'archived', status: 'Arquivada', updatedAt: new Date().toISOString() };
-      }
-      return p;
+  function renderView() {
+    if (!funding) return;
+    document.querySelectorAll('[data-funding-view]').forEach((node) => {
+      const key = node.getAttribute('data-funding-view');
+      node.textContent = safe(funding[key]);
     });
+    renderPdfs();
   }
 
-  function nextPhase(phase) {
-    const idx = PHASE_ORDER.indexOf(phase);
-    if (idx === -1) return phase;
-    return PHASE_ORDER[Math.min(idx + 1, PHASE_ORDER.length - 1)];
-  }
+  function renderPdfs() {
+    const has = fundingPdfs.length > 0;
+    pdfEmpty && pdfEmpty.classList.toggle('d-none', has);
+    pdfTableWrap && pdfTableWrap.classList.toggle('d-none', !has);
+    if (!pdfTbody) return;
 
-  function badgeClass(phase) {
-    if (phase === 'planning') return 'badge-soft-secondary';
-    if (phase === 'articulation') return 'badge-soft-primary';
-    if (phase === 'formalization') return 'badge-soft-warning';
-    if (phase === 'execution') return 'badge-soft-success';
-    return 'badge-soft-dark';
-  }
-
-  function renderList() {
-    if (!listEl) return;
-
-    // ---- resumo (cards) ----
-    const counts = { planning: 0, articulation: 0, formalization: 0, execution: 0, archived: 0 };
-    proposals.forEach(p => {
-      if (counts[p.phase] !== undefined) counts[p.phase] += 1;
-    });
-    Object.keys(counts).forEach(k => {
-      if (phaseCards[k]) phaseCards[k].textContent = String(counts[k]);
+    pdfTbody.innerHTML = '';
+    fundingPdfs.forEach((p, idx) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>
+          <div class="fw-semibold">${safe(p.name)}</div>
+          <div class="text-muted fs-12">PDF</div>
+        </td>
+        <td>${safe(p.data_pagamento)}</td>
+        <td>${safe(p.valor_parcela_paga)}</td>
+        <td>${safe(p.fonte)}</td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-light" type="button" data-pdf-remove="${idx}">
+            <i class="ti ti-trash"></i>
+          </button>
+        </td>
+      `;
+      pdfTbody.appendChild(tr);
     });
 
-    // badges no header (espelho do layout de Riscos)
-    if (badgePlanning) badgePlanning.textContent = `Planejamento: ${counts.planning}`;
-    if (badgeArticulation) badgeArticulation.textContent = `Articulação: ${counts.articulation}`;
-    if (badgeFormalization) badgeFormalization.textContent = `Formalização: ${counts.formalization}`;
-    if (badgeExecution) badgeExecution.textContent = `Execução: ${counts.execution}`;
-    if (badgeArchived) badgeArchived.textContent = `Arquivadas: ${counts.archived}`;
-
-    // ---- filtros ----
-    const q = (searchEl?.value || '').trim().toLowerCase();
-    const status = (statusFilterEl?.value || 'all');
-
-    const filtered = proposals.filter(p => {
-      if (status !== 'all' && p.phase !== status) return false;
-      if (!q) return true;
-      return String(p.title || '').toLowerCase().includes(q) || String(p.id || '').includes(q);
-    });
-
-    const rows = filtered
-      .slice()
-      .sort((a,b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-      .map(p => {
-        return `
-          <tr>
-            <td>
-              <div class="fw-semibold">${p.title}</div>
-              <div class="text-muted small">ID: ${p.id}</div>
-            </td>
-            <td><span class="badge ${badgeClass(p.phase)} fs-xxs">${PHASE_LABEL[p.phase] || p.phase}</span></td>
-            <td class="text-muted">${fmtDate(p.updatedAt)}</td>
-            <td>${p.status || '-'}</td>
-            <td>
-              <div class="d-flex justify-content-center gap-1">
-                <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-funding-edit="${p.id}" aria-label="Editar">
-                  <i class="ti ti-edit fs-lg"></i>
-                </button>
-                <button type="button" class="btn btn-light btn-icon btn-sm rounded-circle" data-funding-archive="${p.id}" aria-label="Arquivar">
-                  <i class="ti ti-archive fs-lg"></i>
-                </button>
-              </div>
-            </td>
-          </tr>
-        `;
-      }).join('');
-
-    // render
-    const hasResults = filtered.length > 0;
-
-    if (listEl) listEl.innerHTML = hasResults ? rows : '';
-
-    // empty state (espelho do layout de Riscos)
-    if (emptyStateEl) emptyStateEl.classList.toggle('d-none', hasResults);
-    if (tableWrapEl) tableWrapEl.classList.toggle('d-none', !hasResults);
-
-    if (countEl) countEl.textContent = `Total: ${proposals.length}`;
-
-    // bind actions
-    listEl.querySelectorAll('[data-funding-edit]').forEach(btn => {
+    pdfTbody.querySelectorAll('[data-pdf-remove]').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const id = Number(btn.getAttribute('data-funding-edit'));
-        openEdit(id);
-      });
-    });
-
-    listEl.querySelectorAll('[data-funding-archive]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = Number(btn.getAttribute('data-funding-archive'));
-        const p = proposals.find(x => x.id === id);
-        if (!p) return;
-        proposals = proposals.map(x => x.id === id ? { ...x, phase: 'archived', status: 'Arquivada', updatedAt: new Date().toISOString() } : x);
-        renderList();
+        const i = parseInt(btn.getAttribute('data-pdf-remove'), 10);
+        fundingPdfs.splice(i, 1);
+        renderPdfs();
       });
     });
   }
 
-  
-  function ensurePdfState() {
-    if (!draftData) draftData = {};
-    if (!Array.isArray(draftData.__pdfs)) draftData.__pdfs = [];
+  function ensureFundingBlank() {
+    funding = {};
+    FIELDS.forEach((f) => (funding[f.key] = ''));
   }
 
-  function fillPdfModal(row) {
-    if (!pdfModalEl) return;
-    pdfModalEl.querySelector('[data-pdf-input="numero_pdf"]').value = row?.numero_pdf || '';
-    pdfModalEl.querySelector('[data-pdf-input="data_empenho"]').value = row?.data_empenho || '';
-    pdfModalEl.querySelector('[data-pdf-input="numero_empenho"]').value = row?.numero_empenho || '';
-    pdfModalEl.querySelector('[data-pdf-input="valor_empenho"]').value = row?.valor_empenho || '';
-    pdfModalEl.querySelector('[data-pdf-input="data_liquidacao"]').value = row?.data_liquidacao || '';
-    pdfModalEl.querySelector('[data-pdf-input="valor_liquidacao"]').value = row?.valor_liquidacao || '';
-    pdfModalEl.querySelector('[data-pdf-input="data_pagamento"]').value = row?.data_pagamento || '';
-    pdfModalEl.querySelector('[data-pdf-input="valor_parcela_paga"]').value = row?.valor_parcela_paga || '';
-    pdfModalEl.querySelector('[data-pdf-input="fonte"]').value = row?.fonte || '';
-    // arquivo: apenas exibe nome salvo (por segurança o browser não preenche file input)
-    const fileNameEl = pdfModalEl.querySelector('[data-pdf-file-name]');
-    if (fileNameEl) fileNameEl.textContent = row?.arquivo_nome ? `Arquivo: ${row.arquivo_nome}` : '';
-  }
+  // Create new (blank)
+  btnCreate && btnCreate.addEventListener('click', () => {
+    ensureFundingBlank();
+    toggleUI();
 
-  function readPdfModal() {
-    if (!pdfModalEl) return null;
-    const get = (k) => pdfModalEl.querySelector(`[data-pdf-input="${k}"]`)?.value?.trim?.() || '';
-    const fileEl = pdfModalEl.querySelector('[data-pdf-file]');
-
-    return {
-      numero_pdf: get('numero_pdf'),
-      data_empenho: get('data_empenho'),
-      numero_empenho: get('numero_empenho'),
-      valor_empenho: get('valor_empenho'),
-      data_liquidacao: get('data_liquidacao'),
-      valor_liquidacao: get('valor_liquidacao'),
-      data_pagamento: get('data_pagamento'),
-      valor_parcela_paga: get('valor_parcela_paga'),
-      fonte: get('fonte'),
-      arquivo_nome: fileEl?.files?.[0]?.name || ''
-    };
-  }
-
-  function openPdfModal(editIndex = null) {
-    if (!pdfModalEl) return;
-
-    ensurePdfState();
-    pdfEditingIndex = (typeof editIndex === 'number') ? editIndex : null;
-
-    // title
-    if (pdfModalTitle) {
-      pdfModalTitle.textContent = pdfEditingIndex === null ? 'Adicionar PDF' : 'Editar PDF';
+    // abre a modal para preencher
+    if (window.bootstrap && modalFunding) {
+      const m = window.bootstrap.Modal.getOrCreateInstance(modalFunding);
+      m.show();
     }
+    fillModalFromState();
+  });
 
-    // reset alerts
-    if (pdfAlertErr) pdfAlertErr.classList.add('d-none');
-
-    const row = (pdfEditingIndex !== null) ? draftData.__pdfs[pdfEditingIndex] : null;
-    fillPdfModal(row);
-
-    const bs = bootstrap.Modal.getOrCreateInstance(pdfModalEl);
-    bs.show();
-  }
-
-  function closePdfModal() {
-    if (!pdfModalEl) return;
-    const bs = bootstrap.Modal.getOrCreateInstance(pdfModalEl);
-    bs.hide();
-  }
-
-  function showPdfError(msg) {
-    if (!pdfAlertErr) return;
-    pdfAlertErr.textContent = msg;
-    pdfAlertErr.classList.remove('d-none');
-  }
-
-  // PDF modal events
-  if (pdfSaveBtn) {
-    pdfSaveBtn.addEventListener('click', () => {
-      ensurePdfState();
-      const row = readPdfModal();
-      if (!row) return;
-
-      // validação mínima
-      if (!row.numero_pdf) return showPdfError('Informe o Número do PDF.');
-      // se for novo, exige arquivo; se edição, pode manter sem re-upload
-      const isNew = pdfEditingIndex === null;
-      if (isNew && !row.arquivo_nome) return showPdfError('Selecione um arquivo PDF para anexar.');
-
-      // se edição e não escolheu novo arquivo, preserva o nome anterior
-      if (!isNew && !row.arquivo_nome) {
-        row.arquivo_nome = draftData.__pdfs[pdfEditingIndex]?.arquivo_nome || '';
-      }
-
-      if (pdfEditingIndex === null) {
-        draftData.__pdfs.push(row);
-      } else {
-        draftData.__pdfs[pdfEditingIndex] = row;
-      }
-
-      closePdfModal();
-      renderForm();
+  // Fill modal inputs
+  function fillModalFromState() {
+    if (!modalFunding || !funding) return;
+    modalFunding.querySelectorAll('[data-funding-input]').forEach((inp) => {
+      const key = inp.getAttribute('data-funding-input');
+      inp.value = funding[key] || '';
     });
   }
 
-  pdfCancelBtns?.forEach(btn => btn.addEventListener('click', closePdfModal));
+  // Save modal
+  function readModalToState() {
+    if (!modalFunding || !funding) return;
+    modalFunding.querySelectorAll('[data-funding-input]').forEach((inp) => {
+      const key = inp.getAttribute('data-funding-input');
+      funding[key] = inp.value;
+    });
+  }
 
-  function renderForm() {
-    if (!formEl || !modalEl) return;
+  // Hook modal open
+  modalFunding && modalFunding.addEventListener('show.bs.modal', () => {
+    if (!funding) ensureFundingBlank();
+    fillModalFromState();
+  });
 
-    phaseBadge.textContent = PHASE_LABEL[currentPhase] || currentPhase;
+  // Buttons in modal footer (existentes)
+  const btnCancelFunding = modalFunding ? modalFunding.querySelector('[data-funding-cancel]') : null;
+  const btnSaveFunding   = modalFunding ? modalFunding.querySelector('[data-funding-save]') : null;
 
-    const html = window.__FUNDING_FIELDS__
-      .map(f => {
-        if (f.kind === 'section') {
-          return `<div class="col-12"><h6 class="mt-2 mb-0">${f.label}</h6><hr class="mt-2"></div>`;
-        }
+  btnCancelFunding && btnCancelFunding.addEventListener('click', () => {
+    if (window.bootstrap && modalFunding) window.bootstrap.Modal.getOrCreateInstance(modalFunding).hide();
+  });
 
-        const rules = getFieldRules(f, currentPhase);
+  btnSaveFunding && btnSaveFunding.addEventListener('click', () => {
+    if (!funding) ensureFundingBlank();
+    readModalToState();
+    toggleUI();
+    renderView();
+    if (window.bootstrap && modalFunding) window.bootstrap.Modal.getOrCreateInstance(modalFunding).hide();
+  });
 
-        // fase Arquivada: mostra tudo desabilitado (exceto BLOQUEADO na matriz)
-        const isArchived = currentPhase === 'archived';
+  // PDF modal
+  function resetPdfModal() {
+    if (!modalPdf) return;
+    modalPdf.querySelectorAll('[data-pdf-input]').forEach((inp) => (inp.value = ''));
+    const file = modalPdf.querySelector('[data-pdf-file]');
+    const nameEl = modalPdf.querySelector('[data-pdf-file-name]');
+    if (file) file.value = '';
+    if (nameEl) nameEl.textContent = '';
+  }
 
-        if (rules.req === 'BLOQUEADO' && !isArchived) {
-          return '';
-        }
+  modalPdf && modalPdf.addEventListener('show.bs.modal', resetPdfModal);
 
-        const key = normalizeKey(f.label);
-        const isRequired = rules.req === 'OBRIGATÓRIO' && !isArchived;
-        const isEditable = (rules.edit !== 'BLOQUEADO') && !isArchived;
+  const btnCancelPdf = modalPdf ? modalPdf.querySelector('[data-funding-pdf-cancel]') : null;
+  const btnSavePdf   = modalPdf ? modalPdf.querySelector('[data-funding-pdf-save]') : null;
 
-        const comp = String(f.component || 'Texto').toLowerCase();
-        const notes = String(f.notes || '').trim();
-        const value = (draftData[key] ?? '');
+  btnCancelPdf && btnCancelPdf.addEventListener('click', () => {
+    if (window.bootstrap && modalPdf) window.bootstrap.Modal.getOrCreateInstance(modalPdf).hide();
+  });
 
-        const label = `
-          <label class="form-label">
-            ${f.label} ${isRequired ? '<span class="text-danger">*</span>' : ''}
-          </label>
-          ${notes ? `<div class="text-muted small mb-1">${notes}</div>` : ''}
-        `;
+  btnSavePdf && btnSavePdf.addEventListener('click', () => {
+    if (!funding) return; // não adiciona PDF sem captação
+    const payload = {};
 
-        // checkbox
-        if (comp.includes('checkbox')) {
-          const checked = (value === true || value === 'true' || value === 'S');
-          return `
-            <div class="col-12 col-md-6">
-              ${label}
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="${key}" data-funding-input="${key}" ${checked ? 'checked' : ''} ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>
-                <label class="form-check-label" for="${key}">Sim</label>
-              </div>
-            </div>
-          `;
-        }
-
-        // textarea (casos "Texto" longos - usa regra simples pelas observações)
-        const shouldBeTextarea = comp.includes('texto') && (notes.toLowerCase().includes('descrição') || notes.length > 60);
-
-        // lista multi
-        if (comp.includes('multi')) {
-          const opts = parseOptions(f);
-          const selected = Array.isArray(value) ? value : [];
-          return `
-            <div class="col-12 col-md-6">
-              ${label}
-              <select class="form-select" multiple data-funding-input="${key}" ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>
-                ${opts.map(o => `<option value="${o}" ${selected.includes(o) ? 'selected' : ''}>${o}</option>`).join('')}
-              </select>
-            </div>
-          `;
-        }
-
-        // lista simples
-        if (comp.includes('lista')) {
-          const opts = parseOptions(f);
-          return `
-            <div class="col-12 col-md-6">
-              ${label}
-              <select class="form-select" data-funding-input="${key}" ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>
-                <option value="">Selecione...</option>
-                ${opts.map(o => `<option value="${o}" ${String(value) === o ? 'selected' : ''}>${o}</option>`).join('')}
-              </select>
-            </div>
-          `;
-        }
-
-        // upload
-        if (comp.includes('upload')) {
-          return `
-            <div class="col-12 col-md-6">
-              ${label}
-              <input class="form-control" type="file" data-funding-input="${key}" ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>
-              ${value ? `<div class="text-muted small mt-1">Arquivo selecionado: ${value}</div>` : ''}
-            </div>
-          `;
-        }
-
-        // data
-        if (comp.includes('data')) {
-          return `
-            <div class="col-12 col-md-4">
-              ${label}
-              <input class="form-control" type="date" value="${value}" data-funding-input="${key}" ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>
-            </div>
-          `;
-        }
-
-        // número/valor
-        if (comp.includes('número') || comp.includes('valor') || comp.includes('decimal') || comp.includes('%')) {
-          return `
-            <div class="col-12 col-md-4">
-              ${label}
-              <input class="form-control" type="number" step="any" value="${value}" data-funding-input="${key}" ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>
-            </div>
-          `;
-        }
-
-        // grid (tabela) - usado em "Dados do PDF"
-        if (comp.includes('grid')) {
-          // regra específica: quando o label tem "PDF", renderiza como tabela + modal de anexos
-          if (String(f.label || '').toUpperCase().includes('PDF')) {
-            const pdfs = Array.isArray(draftData.__pdfs) ? draftData.__pdfs : [];
-            return `
-              <div class="col-12">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                  <div>
-                    <div class="fw-semibold">${f.label}</div>
-                    ${notes ? `<div class="text-muted small">${notes}</div>` : ''}
-                  </div>
-                  <button type="button" class="btn btn-outline-primary btn-sm" data-funding-add-pdf ${!isEditable ? 'disabled' : ''}>
-                    <i class="ti ti-plus me-1"></i>Adicionar PDF
-                  </button>
-                </div>
-
-                <div class="table-responsive border rounded">
-                  <table class="table table-sm table-hover align-middle mb-0">
-                    <thead class="table-light">
-                      <tr>
-                        <th style="width: 120px;">Nº PDF</th>
-                        <th style="width: 130px;">Data empenho</th>
-                        <th style="width: 130px;">Nº empenho</th>
-                        <th style="width: 140px;">Valor empenho</th>
-                        <th style="width: 140px;">Data liquidação</th>
-                        <th style="width: 140px;">Valor liquidação</th>
-                        <th style="width: 140px;">Data pagamento</th>
-                        <th style="width: 160px;">Valor parcela paga</th>
-                        <th style="width: 140px;">Fonte</th>
-                        <th style="width: 120px;" class="text-end">Ações</th>
-                      </tr>
-                    </thead>
-                    <tbody data-funding-pdf-rows>
-                      ${pdfs.length ? pdfs.map((row, idx) => `
-                        <tr>
-                          <td>${row.numero_pdf || '-'}</td>
-                          <td>${row.data_empenho || '-'}</td>
-                          <td>${row.numero_empenho || '-'}</td>
-                          <td>${row.valor_empenho || '-'}</td>
-                          <td>${row.data_liquidacao || '-'}</td>
-                          <td>${row.valor_liquidacao || '-'}</td>
-                          <td>${row.data_pagamento || '-'}</td>
-                          <td>${row.valor_parcela_paga || '-'}</td>
-                          <td>${row.fonte || '-'}</td>
-                          <td class="text-end">
-                            <button type="button" class="btn btn-light btn-sm" data-funding-pdf-edit="${idx}" ${!isEditable ? 'disabled' : ''}>
-                              <i class="ti ti-pencil"></i>
-                            </button>
-                            <button type="button" class="btn btn-light btn-sm" data-funding-pdf-del="${idx}" ${!isEditable ? 'disabled' : ''}>
-                              <i class="ti ti-trash"></i>
-                            </button>
-                          </td>
-                        </tr>
-                      `).join('') : `
-                        <tr>
-                          <td colspan="10" class="text-center text-muted py-4">
-                            Nenhum PDF adicionado.
-                          </td>
-                        </tr>
-                      `}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            `;
-          }
-
-          // fallback para outros grids: card simples
-          return `
-            <div class="col-12">
-              <div class="border rounded p-3">
-                <div class="d-flex align-items-center justify-content-between">
-                  <div>
-                    <div class="fw-semibold">${f.label}</div>
-                    ${notes ? `<div class="text-muted small">${notes}</div>` : ''}
-                  </div>
-                  <button type="button" class="btn btn-outline-primary btn-sm" ${!isEditable ? 'disabled' : ''}>
-                    <i class="ti ti-plus me-1"></i>Adicionar
-                  </button>
-                </div>
-              </div>
-            </div>
-          `;
-        }
-
-        // botão (card simples)
-        if (comp.includes('botão')) {
-          return `
-            <div class="col-12">
-              <div class="border rounded p-3">
-                <div class="d-flex align-items-center justify-content-between">
-                  <div>
-                    <div class="fw-semibold">${f.label}</div>
-                    ${notes ? `<div class="text-muted small">${notes}</div>` : ''}
-                  </div>
-                  <button type="button" class="btn btn-outline-primary btn-sm" ${!isEditable ? 'disabled' : ''}>
-                    <i class="ti ti-plus me-1"></i>Adicionar
-                  </button>
-                </div>
-              </div>
-            </div>
-          `;
-        }
-
-        // texto padrão
-        return `
-          <div class="col-12 col-md-6">
-            ${label}
-            ${shouldBeTextarea
-              ? `<textarea class="form-control" rows="3" data-funding-input="${key}" ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>${value}</textarea>`
-              : `<input class="form-control" type="text" value="${value}" data-funding-input="${key}" ${!isEditable ? 'disabled' : ''} ${isRequired ? 'data-required="1"' : ''}>`
-            }
-          </div>
-        `;
-      })
-      .filter(Boolean)
-      .join('');
-
-    formEl.innerHTML = html;
-
-    // bind changes
-    formEl.querySelectorAll('[data-funding-input]').forEach(el => {
-      const key = el.getAttribute('data-funding-input');
-      el.addEventListener('change', () => {
-        if (el.tagName === 'SELECT' && el.multiple) {
-          draftData[key] = Array.from(el.selectedOptions).map(o => o.value);
-        } else if (el.type === 'checkbox') {
-          draftData[key] = el.checked ? 'S' : 'N';
-        } else if (el.type === 'file') {
-          draftData[key] = el.files?.[0]?.name || '';
-        } else {
-          draftData[key] = el.value;
-        }
-      });
+    modalPdf.querySelectorAll('[data-pdf-input]').forEach((inp) => {
+      payload[inp.getAttribute('data-pdf-input')] = inp.value;
     });
 
-    // bind PDF grid actions (Dados do PDF)
-    const btnAddPdf = formEl.querySelector('[data-funding-add-pdf]');
-    btnAddPdf?.addEventListener('click', () => openPdfModal());
+    const file = modalPdf.querySelector('[data-pdf-file]');
+    payload.name = (file && file.files && file.files[0] && file.files[0].name) ? file.files[0].name : 'Documento.pdf';
 
-    formEl.querySelectorAll('[data-funding-pdf-del]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const idx = Number(btn.getAttribute('data-funding-pdf-del'));
-        if (!Array.isArray(draftData.__pdfs)) draftData.__pdfs = [];
-        draftData.__pdfs.splice(idx, 1);
-        renderForm();
-      });
-    });
+    fundingPdfs.unshift(payload);
+    renderPdfs();
 
-    formEl.querySelectorAll('[data-funding-pdf-edit]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const idx = Number(btn.getAttribute('data-funding-pdf-edit'));
-        openPdfModal(idx);
-      });
-    });
-
-  }
-
-  function validateRequiredForPhase() {
-    const requiredEls = formEl.querySelectorAll('[data-required="1"]');
-    let ok = true;
-
-    requiredEls.forEach(el => {
-      const key = el.getAttribute('data-funding-input');
-
-      if (el.tagName === 'SELECT' && el.multiple) {
-        const val = draftData[key];
-        const empty = !Array.isArray(val) || val.length === 0;
-        el.classList.toggle('is-invalid', empty);
-        if (empty) ok = false;
-        return;
-      }
-
-      if (el.type === 'checkbox') {
-        const val = draftData[key];
-        const empty = !(val === 'S' || val === true || val === 'true');
-        el.classList.toggle('is-invalid', empty);
-        if (empty) ok = false;
-        return;
-      }
-
-      const val = String(draftData[key] ?? '').trim();
-      const empty = !val;
-      el.classList.toggle('is-invalid', empty);
-      if (empty) ok = false;
-    });
-
-    return ok;
-  }
-
-  function openNew() {
-    editingId = null;
-    currentPhase = 'planning';
-    draftData = {};
-
-    if (modalTitle) modalTitle.textContent = 'Nova proposta de captação';
-    if (phaseSelect) phaseSelect.value = currentPhase;
-
-    renderForm();
-  }
-
-  function openEdit(id) {
-    const p = proposals.find(x => x.id === id);
-    if (!p) return;
-
-    editingId = id;
-    currentPhase = p.phase;
-    draftData = { ...(p.data || {}) };
-
-    if (modalTitle) modalTitle.textContent = `Editar ${p.title}`;
-    if (phaseSelect) phaseSelect.value = currentPhase;
-
-    // impede edição/avanço quando arquivada
-    renderForm();
-
-    // abre modal via Bootstrap
-    const instance = bootstrap.Modal.getOrCreateInstance(modalEl);
-    instance.show();
-  }
-
-  function saveDraft() {
-    // regra: só entra na lista quando salvar
-    const now = new Date().toISOString();
-
-    if (!editingId) {
-      const nextId = proposals.reduce((acc,p) => Math.max(acc, p.id), 0) + 1;
-      proposals.push({
-        id: nextId,
-        title: `Proposta ${String(nextId).padStart(2,'0')}`,
-        phase: currentPhase,
-        status: 'Rascunho',
-        updatedAt: now,
-        data: { ...draftData }
-      });
-      editingId = nextId;
-      showAlert('success', 'Proposta salva com sucesso.');
-    } else {
-      proposals = proposals.map(p => p.id === editingId ? { ...p, phase: currentPhase, updatedAt: now, data: { ...draftData } } : p);
-      showAlert('success', 'Proposta atualizada com sucesso.');
-    }
-
-    renderList();
-  }
-
-  function advancePhase() {
-    if (!editingId) {
-      showAlert('danger', 'Para avançar de fase, primeiro salve a proposta.');
-      return;
-    }
-
-    const proposal = proposals.find(p => p.id === editingId);
-    if (!proposal) return;
-
-    if (proposal.phase === 'archived') {
-      showAlert('danger', 'Propostas arquivadas não podem avançar de fase.');
-      return;
-    }
-
-    if (!canAdvanceThisProposal(proposal)) {
-      showAlert('danger', 'Já existe uma proposta ativa em Articulação/Formalização/Execução. Apenas uma pode seguir adiante.');
-      return;
-    }
-
-    const ok = validateRequiredForPhase();
-    if (!ok) {
-      showAlert('danger', 'Preencha os campos obrigatórios da fase para avançar.');
-      return;
-    }
-
-    const newPhase = nextPhase(currentPhase);
-    if (newPhase === currentPhase) {
-      showAlert('success', 'Proposta já está na última fase.');
-      return;
-    }
-
-    currentPhase = newPhase;
-    if (phaseSelect) phaseSelect.value = currentPhase;
-
-    // quando entra em Articulação, arquiva as outras de Planejamento
-    if (currentPhase === 'articulation') {
-      archiveOtherPlanningProposals(proposal.id);
-    }
-
-    // atualiza estado da proposta
-    proposals = proposals.map(p => p.id === proposal.id ? {
-      ...p,
-      phase: currentPhase,
-      status: 'Em andamento',
-      updatedAt: new Date().toISOString(),
-      data: { ...draftData }
-    } : p);
-
-    renderList();
-    renderForm();
-    showAlert('success', `Proposta avançou para "${PHASE_LABEL[currentPhase]}".`);
-  }
-
-  // ---------- events ----------
-  btnNew?.addEventListener('click', () => {
-    openNew();
+    if (window.bootstrap && modalPdf) window.bootstrap.Modal.getOrCreateInstance(modalPdf).hide();
   });
 
-  phaseSelect?.addEventListener('change', () => {
-    // fase no select serve para visualizar o que libera/bloqueia na UI
-    // porém, regra: se existe proposta ativa além do planejamento, não deixa outro item "forçar" Articulação via select.
-    currentPhase = phaseSelect.value;
-    renderForm();
+  // File name preview
+  const pdfFile = modalPdf ? modalPdf.querySelector('[data-pdf-file]') : null;
+  pdfFile && pdfFile.addEventListener('change', (e) => {
+    const nameEl = modalPdf.querySelector('[data-pdf-file-name]');
+    const f = e.target && e.target.files ? e.target.files[0] : null;
+    if (nameEl) nameEl.textContent = f ? f.name : '';
   });
 
-  btnSave?.addEventListener('click', () => {
-    saveDraft();
-  });
-
-  btnAdvance?.addEventListener('click', () => {
-    advancePhase();
-  });
-
-  modalEl?.addEventListener('hidden.bs.modal', () => {
-    // limpa alerts visuais
-    alertOk?.classList.add('d-none');
-    alertErr?.classList.add('d-none');
-  });
-
-
-  // filtros (espelho do padrão de Riscos)
-  applyBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    renderList();
-  });
-
-  clearBtn?.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (searchEl) searchEl.value = '';
-    if (statusFilterEl) statusFilterEl.value = 'all';
-    renderList();
-  });
-
-  // busca com debounce leve
-  searchEl?.addEventListener('input', () => {
-    clearTimeout(searchEl._t);
-    searchEl._t = setTimeout(renderList, 150);
-  });
-
-  statusFilterEl?.addEventListener('change', () => {
-    renderList();
-  });
-
-  renderList();
-});
+  // Init (começa sem captação)
+  toggleUI();
+})();
 </script>
+
 
 
 <!-- Modal PDF - Captação de Recursos -->
